@@ -39,7 +39,8 @@ export default ({
 
     // 侧边栏
     sidebar: {
-     '/issues/': sidebarIssues()
+     '/issues/': sidebarIssues(),
+     '/fragments/': sidebarFragments()
     }
   }
 })
@@ -49,6 +50,10 @@ function nav() {
     {
       text: 'Bug万象集',
       link: '/issues/index'
+    },
+    {
+      text: '杂碎逆袭史',
+      link: '/fragments/index'
     }
   ]
 }
@@ -59,6 +64,16 @@ function sidebarIssues() {
       items: [
         { text: 'JavaScript 无法存储 Java  Long 类型数据问题', link: '/issues/2022/01/JavaScript 无法存储 Java  Long 类型数据问题' },
         { text: 'Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration？', link: '/issues/2021/12/Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration' }
+      ]
+    }
+  ]
+}
+
+function sidebarFragments() {
+  return [
+    {
+      items: [
+        { text: '合并两个Git仓库的历史提交记录', link: '/fragments/2022/03/合并两个Git仓库的历史提交记录' }
       ]
     }
   ]
