@@ -1,0 +1,17 @@
+{
+  "name": "MyRepos",
+  "version": "1.0.0",
+  "description": "Charles's personal knowledge repositories.",
+  "main": "index.js",
+  "author": "Charles7c",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev repos",
+    "build": "vitepress build repos",
+    "serve": "vitepress serve repos"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.4",
+    "vue": "^3.2.37"
+  }
+}
