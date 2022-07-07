@@ -40,7 +40,8 @@ export default ({
     // 侧边栏
     sidebar: {
      '/issues/': sidebarIssues(),
-     '/fragments/': sidebarFragments()
+     '/fragments/': sidebarFragments(),
+     '/about/': sidebarAbout()
     }
   }
 })
@@ -54,6 +55,10 @@ function nav() {
     {
       text: '杂碎逆袭史',
       link: '/fragments/index'
+    },
+    {
+      text: '关于知识库',
+      link: '/about/index'
     }
   ]
 }
@@ -74,6 +79,16 @@ function sidebarFragments() {
     {
       items: [
         { text: '合并两个Git仓库的历史提交记录', link: '/fragments/2022/03/合并两个Git仓库的历史提交记录' }
+      ]
+    }
+  ]
+}
+
+function sidebarAbout() {
+  return [
+    {
+      items: [
+        { text: '关于笔者', link: '/about/me' }
       ]
     }
   ]
