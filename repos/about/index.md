@@ -1,20 +1,41 @@
-# 关于知识库
+<h1>关于知识库</h1>
+<p>
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+		<img style="display: inline-block; margin-right: 5px" src="https://camo.githubusercontent.com/4ef49a39775d72ab9806b4ea68378139ef759520d22ea1f6b4c9bacac91e7ad5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f73742532304c6963656e73652d4343253230342e3025323042592d2d53412d626c75652e737667">
+	</a>
+	<a href="https://github.com/Charles7c/charles7c.github.io/blob/main/LICENSE" target="_blank">
+		<img style="display: inline-block; margin-right: 5px" src="https://camo.githubusercontent.com/863c205550f070412f8a74b278a26f6f04d884e6549f3c4e106893447854021d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f436f64652532304c6963656e73652d4d49542d626c75652e737667">
+	</a>
+	<a href="https://github.com/Charles7c/charles7c.github.io/actions/workflows/deploy-pages.yml" target="_blank">
+	<img style="display: inline-block;" src="https://github.com/Charles7c/charles7c.github.io/actions/workflows/deploy-pages.yml/badge.svg">
+	</a>
+</p>
+<p>
+    📝 <strong>查尔斯的个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。</strong>
+</p>
+<p>
+	🐢 GitHub Pages：<a href="https://blog.charles7c.top">https://blog.charles7c.top</a><br> 
+	🐇 Gitee Pages：<a href="https://charles7c.gitee.io">https://charles7c.gitee.io</a> 
+</p>
 
-::: warning
+---
 
-**记录，对我们来说意味着什么？** 
+::: tip 《警惕碎片化陷阱！如何让你的知识体系价值最大化？》
+
+记录，对我们来说意味着什么？ 
 
 把大脑从那些琐碎的小事中解放出来，去处理更精密复杂的任务？帮助记忆有价值的信息，避免遗忘？又或者是显化内容过滤重组的过程，提升梳理思路的效率......
 
-记录的意义因人而异，但所有的笔记，在记录时都隐藏着一个不被注意到的重要前提，那就是 **希望知识能被再利用**。
+记录的意义因人而异，但所有的笔记，在记录时都隐藏着一个不被注意到的重要前提，那就是希望知识能被再利用。
 
 潜意识里，我们会觉得记录的创意灵感、知识碎片迟早有一天会派上用场，所以精心地管理个人知识库。但是，你曾记录的笔记被二次查看的频率有多高？你有没有翻阅过去的笔记却惊讶地发现完全不记得曾记录下这件事，收藏了这个知识点？你有没有发现自己难以用上之前记录的知识点？
 
-**当一篇笔记完全被遗忘在记忆角落时，它对你的“价值输出”就此停止。** 
+当一篇笔记完全被遗忘在记忆角落时，它对你的“价值输出”就此停止。 
 
 <p align="right">
-    -- 有道云笔记·笔记君·《警惕碎片化陷阱！如何让你的知识体系价值最大化？》
+    -- 有道云笔记·笔记君
 </p>
+
 
 :::
 
@@ -24,7 +45,7 @@
 
 我们继续说回个人知识库的意义，笔者记得有这样一个哲理故事：
 
-::: warning
+::: tip 《一杯水的重量》
 
 哈佛大学有一位教授在课堂上倒了一杯清水，问学生:“这杯水有多重？”有的同学说8盎司（1盎司=28.35克），有的说12盎司，有的说16盎司。
 
