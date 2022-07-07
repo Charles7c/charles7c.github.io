@@ -18,7 +18,7 @@ tags:
 
 后端响应的数据结构类似如下：
 
-```json
+```json {11,16,29,34}
 {
     "code": 200, 
     "errorMsg": "", 
@@ -84,7 +84,7 @@ tags:
 
 JavaScript 存储不了就存储不了吧，咱们这个需求还得解决啊，最终的解决方法就是将后端响应回来的 Long 类型数据转换为字符串。
 
-```java
+```java {2}
 // 在序列化为 JSON 时将该字段转换为 String 类型
 @JsonFormat(shape = JsonFormat.Shape.STRING)
 private Long val;
@@ -92,7 +92,7 @@ private Long val;
 
 后端响应的数据结构类似如下：
 
-```json
+```json {11,16,29,34}
 {
     "code": 200, 
     "errorMsg": "", 

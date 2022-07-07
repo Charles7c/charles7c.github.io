@@ -68,7 +68,8 @@ function sidebarIssues() {
     {
       items: [
         { text: 'JavaScript 无法存储 Java  Long 类型数据问题', link: '/issues/2022/01/JavaScript 无法存储 Java  Long 类型数据问题' },
-        { text: 'Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration？', link: '/issues/2021/12/Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration' }
+        { text: 'Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration？', link: '/issues/2021/12/Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration' },
+        { text: 'for循环中删除集合元素隐藏的陷阱', link: '/issues/2021/12/for循环中删除集合元素隐藏的陷阱' }
       ]
     }
   ]
