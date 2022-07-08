@@ -1,22 +1,23 @@
-<h1>关于知识库</h1>
-<p>
+<h1 align="center">关于知识库</h1>
+<p align="center">
     <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
-		<img style="display: inline-block; margin-right: 5px" src="https://camo.githubusercontent.com/4ef49a39775d72ab9806b4ea68378139ef759520d22ea1f6b4c9bacac91e7ad5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f73742532304c6963656e73652d4343253230342e3025323042592d2d53412d626c75652e737667">
+		<img style="display: inline-block; margin-right: 3px" src="https://camo.githubusercontent.com/4ef49a39775d72ab9806b4ea68378139ef759520d22ea1f6b4c9bacac91e7ad5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f73742532304c6963656e73652d4343253230342e3025323042592d2d53412d626c75652e737667">
 	</a>
 	<a href="https://github.com/Charles7c/charles7c.github.io/blob/main/LICENSE" target="_blank">
-		<img style="display: inline-block; margin-right: 5px" src="https://camo.githubusercontent.com/863c205550f070412f8a74b278a26f6f04d884e6549f3c4e106893447854021d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f436f64652532304c6963656e73652d4d49542d626c75652e737667">
+		<img style="display: inline-block; margin-right: 3px" src="https://camo.githubusercontent.com/863c205550f070412f8a74b278a26f6f04d884e6549f3c4e106893447854021d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f436f64652532304c6963656e73652d4d49542d626c75652e737667">
 	</a>
 	<a href="https://github.com/Charles7c/charles7c.github.io/actions/workflows/deploy-pages.yml" target="_blank">
 	<img style="display: inline-block;" src="https://github.com/Charles7c/charles7c.github.io/actions/workflows/deploy-pages.yml/badge.svg">
 	</a>
 </p>
-<p>
+<p align="center">
     📝 <strong>查尔斯的个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。</strong>
 </p>
-<p>
-	🐢 GitHub Pages：<a href="https://blog.charles7c.top">https://blog.charles7c.top</a><br> 
-	🐇 Gitee Pages：<a href="https://charles7c.gitee.io">https://charles7c.gitee.io</a> 
+<p align="center">
+	🐢 GitHub Pages：<a href="https://blog.charles7c.top" target="_blank">https://blog.charles7c.top</a><br> 
+	🐇 Gitee Pages：<a href="https://charles7c.gitee.io" target="_blank">https://charles7c.gitee.io</a> 
 </p>
+
 
 ---
 
