@@ -15,5 +15,5 @@ English | [中文](./README.md)
 
 📝 **This is the charles's personal knowledge repositories website.** 
 
-🐢 GitHub Pages：<a href="https://blog.charles7c.top" target="_blank">https://blog.charles7c.top</a><br>
-🐇 Gitee Pages：<a href="https://charles7c.gitee.io" target="_blank">https://charles7c.gitee.io</a> 
+🐢 GitHub Pages：[](https://blog.charles7c.top)
+🐇 Gitee Pages：[](https://charles7c.gitee.io)
