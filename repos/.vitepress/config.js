@@ -19,7 +19,7 @@ export default {
       text: '在 GitHub 上编辑此页面'
     },
     lastUpdatedText: '最后更新', // 最后更新时间文本
-    docFooter:{
+    docFooter: {
       prev: '上一页',
       next: '下一页'
     },
@@ -32,6 +32,12 @@ export default {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Charles7c/charles7c.github.io' }
     ],
+    // 全文搜索
+    algolia: {
+      appId: 'L1Z8QE9MIZ',
+      apiKey: '93f9f749ae63d0486a8f8d102e81bd29',
+      indexName: 'charles7c_repos'
+    },
 
     // 导航栏
     nav: nav(),
