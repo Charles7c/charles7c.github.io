@@ -15,5 +15,4 @@
 
 📝 **查尔斯的个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。** 
 
-🐢 GitHub Pages：[](https://blog.charles7c.top)
-🐇 Gitee Pages：[](https://charles7c.gitee.io)
+🐢 [GitHub Pages](https://blog.charles7c.top) | 🐇 [Gitee Pages](https://charles7c.gitee.io)
