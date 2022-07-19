@@ -1,3 +1,8 @@
+---
+editLink: false
+lastUpdated: false
+---
+
 # "杂碎"逆袭史
 
 ::: tip 笔者说

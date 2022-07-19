@@ -1,3 +1,8 @@
+---
+editLink: false
+lastUpdated: false
+---
+
 # 关于知识库
 
 <br>

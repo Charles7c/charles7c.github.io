@@ -1,3 +1,8 @@
+---
+editLink: false
+lastUpdated: false
+---
+
 # Bug万象集
 
 ::: tip 笔者说
