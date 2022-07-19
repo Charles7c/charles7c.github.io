@@ -34,9 +34,9 @@ export default {
     ],
     // 全文搜索
     algolia: {
-      appId: 'L1Z8QE9MIZ',
-      apiKey: '93f9f749ae63d0486a8f8d102e81bd29',
-      indexName: 'charles7c_repos'
+      appId: 'DBZ0G9HBUY',
+      apiKey: '00cef480a543003d05d9808110ea5f65',
+      indexName: 'charles7c'
     },
 
     // 导航栏
