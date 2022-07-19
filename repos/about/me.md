@@ -1,6 +1,11 @@
+---
+editLink: false
+lastUpdated: false
+---
+
 # 关于笔者
 
-::: warning
+::: warning 笔者说
 
 待续
 
