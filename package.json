@@ -1,5 +1,5 @@
 {
-  "name": "MyRepos",
+  "name": "my-repos",
   "version": "1.0.0",
   "description": "Charles's personal knowledge repositories.",
   "main": "index.js",
@@ -12,7 +12,10 @@
   },
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.4",
-    "vue": "^3.2.37",
-    "fast-glob": "^3.2.11"
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.11",
+    "element-plus": "^2.2.9"
   }
 }
