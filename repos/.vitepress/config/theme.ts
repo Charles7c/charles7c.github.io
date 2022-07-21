@@ -15,10 +15,11 @@ export const themeConfig: DefaultTheme.Config = {
     pattern: 'https://github.com/Charles7c/charles7c.github.io/edit/main/repos/:path',
     text: '在 GitHub 上编辑此页面'
   },
-  // 版权标识
-  footer: {
-    message: 'Released under the MIT License.',
-    copyright: `Copyright © 2019-${new Date().getFullYear()} Charles7c`
+  // 页脚配置, 由于vitepress官方没有此计划, 所以自行定制
+  footerConfig: {
+    showFooter: true, // 是否显示页脚
+    message: `<a href="https://beian.miit.gov.cn/" target="_blank">京ICP备20003712号-2</a>`, // 备案信息
+    copyright : `Copyright © 2019-${new Date().getFullYear()} Charles7c` // 版权信息
   },
   // 全文搜索
   algolia: {
