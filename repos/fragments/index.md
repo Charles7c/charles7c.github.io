@@ -1,6 +1,7 @@
 ---
 editLink: false
 lastUpdated: false
+aside: false
 ---
 
 # "杂碎"逆袭史

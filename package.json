@@ -11,11 +11,14 @@
     "serve": "vitepress serve repos"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.4",
-    "vue": "^3.2.37"
+    "vitepress": "^1.0.0-alpha.4"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
+    "@element-plus/icons-vue": "^2.0.6",
+    "ant-design-vue": "^3.2.10",
+    "element-plus": "^2.2.9",
     "fast-glob": "^3.2.11",
-    "element-plus": "^2.2.9"
+    "vue": "^3.2.37"
   }
 }

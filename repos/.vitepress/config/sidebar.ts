@@ -1,16 +1,9 @@
-import type { DefaultTheme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
 import { sync } from "fast-glob"
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/issues/': getItems("issues"),
-  '/fragments/': getItems("fragments"),
-  '/about/': [
-    {
-      items: [
-        { text: '关于笔者', link: '/about/me' }
-      ]
-    }
-  ]
+  '/fragments/': getItems("fragments")
 }
 
 /**

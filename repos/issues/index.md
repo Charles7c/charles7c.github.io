@@ -1,6 +1,7 @@
 ---
 editLink: false
 lastUpdated: false
+aside: false
 ---
 
 # Bug万象集

@@ -1,6 +1,7 @@
 ---
 editLink: false
 lastUpdated: false
+aside: false
 ---
 
 # 关于知识库

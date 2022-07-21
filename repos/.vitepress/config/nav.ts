@@ -1,4 +1,4 @@
-import type { DefaultTheme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
 
 export const nav: DefaultTheme.Config['nav'] = [
   {
@@ -12,8 +12,11 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/fragments/'
   },
   {
-    text: '关于知识库',
-    link: '/about/index',
-    activeMatch: '/about/',
+    text: '关于',
+    items: [
+      { text: '关于知识库', link: '/about/index' },
+      { text: '关于笔者', link: '/about/me' }
+    ],
+    activeMatch: '/about/'
   }
 ]
