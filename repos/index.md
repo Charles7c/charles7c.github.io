@@ -8,7 +8,9 @@ hero:
   name: 查尔斯的知识库
   text: 专注 & 洞察 & 分享
   tagline: 个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。
-  #image: /logo.png
+  image:
+    src: /logo.png
+    alt: Logo
   actions:
     - theme: brand
       text: Get Started
@@ -31,4 +33,3 @@ features:
     title: 乐于分享
     details: 关于分享，有形的东西越分越少，无形的东西越分越多。在记录与分享的过程中, 梳理所学, 交流所得, 必有所获。
 ---
-

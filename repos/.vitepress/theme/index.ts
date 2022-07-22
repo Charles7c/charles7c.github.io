@@ -3,7 +3,8 @@ import MyLayout from "./components/MyLayout.vue"
 import ElementPlus from 'element-plus'
 import "element-plus/dist/index.css"
 import * as ElIcons from '@element-plus/icons-vue'
-import './custom.css'
+import './styles/vars.css'
+import './styles/custom.css'
 
 export default {
   ...DefaultTheme,
