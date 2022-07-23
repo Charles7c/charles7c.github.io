@@ -37,9 +37,18 @@ aside: false
 ---
 
 <div>
-    <img src="https://metrics.lecoq.io/charles7c?template=classic&base.activity=0&base.community=0&base.repositories=0&base.metadata=0&isocalendar=1&languages=1&lines=1&isocalendar.duration=half-year&languages.ignored=html&languages.colors=github&languages.threshold=0%25&config.timezone=Asia%2FShanghai" width="95%" />
-    <img src="https://github-readme-stats.vercel.app/api?username=charles7c&show_icons=true&hide_border=true" width="95%" />
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=charles7c&theme=white&hide_border=true" width="95%" />
-    <img src="https://activity-graph.herokuapp.com/graph?username=Charles7c&theme=xcode&bg_color=FF000000" width="95%" />
-    <img src="https://github-profile-trophy.vercel.app/?username=charles7c&theme=gruvbox&row=1&column=6&no-frame=true&no-bg=true" width="95%" />
+	<img src="https://github-readme-stats.vercel.app/api?username=charles7c&show_icons=true&theme=&hide_title=&hide_border=true&layout=compact" style="display: inline-block; height: 145px;" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=charles7c&show_icons=true&theme=&hide_title=&hide_border=true&layout=compact" style="display: inline-block; height: 127px;" />
+</div>
+
+<div>
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=charles7c&theme=white&hide_border=true" width="94%" />
+</div>
+
+<div>
+	<img src="https://activity-graph.herokuapp.com/graph?username=Charles7c&theme=xcode&bg_color=FF000000" width="95%" />
+</div>
+
+<div>
+	<img src="https://github-profile-trophy.vercel.app/?username=charles7c&theme=gruvbox&row=1&column=6&no-frame=true&no-bg=true" />
 </div>

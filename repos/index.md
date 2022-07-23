@@ -18,9 +18,6 @@ hero:
     - theme: alt
       text: View on GitHub
       link: https://github.com/Charles7c/charles7c.github.io
-    - theme: alt
-      text: View on Gitee
-      link: https://gitee.com/Charles7c/charles7c
 
 features:
   - icon: ⚡️
