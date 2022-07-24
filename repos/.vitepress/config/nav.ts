@@ -12,6 +12,11 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/fragments/'
   },
   {
+    text: '方案春秋志',
+    link: '/solutions/index',
+    activeMatch: '/solutions/'
+  },
+  {
     text: '关于',
     items: [
       { text: '关于知识库', link: '/about/index' },

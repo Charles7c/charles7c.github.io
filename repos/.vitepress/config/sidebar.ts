@@ -3,7 +3,8 @@ import { sync } from "fast-glob"
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/issues/': getItems("issues"),
-  '/fragments/': getItems("fragments")
+  '/fragments/': getItems("fragments"),
+  '/solutions/': getItems("solutions")
 }
 
 /**
