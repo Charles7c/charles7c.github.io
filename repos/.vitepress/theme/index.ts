@@ -3,6 +3,7 @@ import MyLayout from "./components/MyLayout.vue"
 import ElementPlus from 'element-plus'
 import "element-plus/dist/index.css"
 import * as ElIcons from '@element-plus/icons-vue'
+import ArticleMetadata from './components/ArticleMetadata.vue'
 import './styles/vars.css'
 import './styles/custom.css'
 
@@ -16,5 +17,7 @@ export default {
     }
     // 全局注册ElementPlus
     app.use(ElementPlus)
+
+    app.component('ArticleMetadata', ArticleMetadata)
   }
 }

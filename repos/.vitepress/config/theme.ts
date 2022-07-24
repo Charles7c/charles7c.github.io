@@ -32,5 +32,11 @@ export const themeConfig: DefaultTheme.Config = {
     { icon: 'github', link: 'https://github.com/Charles7c/charles7c.github.io' }
   ],
   nav, // 导航栏配置
-  sidebar // 侧边栏配置
+  sidebar, // 侧边栏配置
+
+  // 文章元数据配置
+  articleMetadataConfig: {
+    author: '查尔斯', // 文章全局默认作者名称
+    authorLink: '/about/me' // 点击作者名时默认跳转的链接
+  }
 }
