@@ -17,10 +17,17 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/solutions/'
   },
   {
+    text: '我的小课',
+    items: [
+      { text: 'MyBatis快速入门', link: '/courses/mybatis/index' }
+    ],
+    activeMatch: '/courses/'
+  },
+  {
     text: '关于',
     items: [
       { text: '关于知识库', link: '/about/index' },
-      { text: '关于笔者', link: '/about/me' }
+      { text: '关于我', link: '/about/me' }
     ],
     activeMatch: '/about/'
   }
