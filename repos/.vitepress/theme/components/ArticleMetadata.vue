@@ -48,7 +48,7 @@ const { theme, frontmatter } = useData()
 }
 .meta-icon {
   position: relative;
-  top: 1.3px;
+  top: 1.36px;
 }
 .meta-icon svg {
   height: 14px;
