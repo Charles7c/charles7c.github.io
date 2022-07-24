@@ -1,13 +1,13 @@
 <template>
   <Layout>
-    <template #layout-bottom>
+    <template #doc-footer-before>
       
     </template>
   </Layout>
 </template>
 
 <script lang="ts" setup>
-import DefaultTheme from "vitepress/theme"
+import DefaultTheme from 'vitepress/theme'
 
 const { Layout } = DefaultTheme
 </script>

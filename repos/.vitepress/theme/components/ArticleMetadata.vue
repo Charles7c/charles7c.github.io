@@ -12,17 +12,25 @@
       <span class="meta-icon">
         <svg t="1658631488653" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7904" width="200" height="200"><path d="M512.006169 1024c-136.761166 0-265.330233-53.260979-362.04388-149.962289S0 648.754997 0 511.993831s53.260979-265.330233 149.962289-362.031542S375.245003 0 512.006169 0s265.330233 53.248642 362.04388 149.962289S1024.012337 375.232665 1024.012337 511.993831s-53.260979 265.34257-149.962288 362.04388S648.767335 1024 512.006169 1024z m0-960.474223c-247.280473 0-448.468054 201.187581-448.468054 448.468054s201.187581 448.468054 448.468054 448.468054 448.468054-201.175243 448.468054-448.468054S759.286642 63.525777 512.006169 63.525777z" p-id="7905" fill="#8A8F8D"></path><path d="M786.688225 599.82448H512.006169a31.769057 31.769057 0 0 1 0-63.538115h274.682056a31.769057 31.769057 0 0 1 0 63.538115z" p-id="7906" fill="#8A8F8D"></path><path d="M512.006169 598.88683a31.769057 31.769057 0 0 1-31.769058-31.769057V292.435716a31.769057 31.769057 0 0 1 63.538115 0v274.682057A31.769057 31.769057 0 0 1 512.006169 598.88683z" p-id="7907" fill="#8A8F8D"></path></svg>
       </span>
-      <span class="meta-content">{{ dayjs(frontmatter.date).format('YYYY-MM-DD HH:mm') }}</span>
+      <time class="meta-content" :datetime="isoDatetime">{{ datetime }}</time>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue"
+import { ref, computed, watchEffect, onMounted } from 'vue'
 import { useData } from 'vitepress'
-import dayjs from 'dayjs'
 
 const { theme, frontmatter } = useData()
+const date = computed(() => new Date(frontmatter.value.date))
+const isoDatetime = computed(() => date.value.toISOString())
+const datetime = ref('')
+
+onMounted(() => {
+  watchEffect(() => {
+    datetime.value = date.value.toLocaleString(window.navigator.language, {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'})
+  })
+})
 </script>
 
 <style scoped>
