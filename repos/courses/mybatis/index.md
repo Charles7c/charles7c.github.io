@@ -1,7 +1,12 @@
 ---
-editLink: false
-lastUpdated: false
-aside: false
+title: MyBatis快速入门
+author: 查尔斯
+date: 2020/12/25 14:49
+categories:
+ - MyBatis快速入门
+tags:
+ - MyBatis
+ - ORM框架
 ---
 
 # MyBatis快速入门
