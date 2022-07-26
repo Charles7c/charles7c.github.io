@@ -38,5 +38,21 @@ export const themeConfig: DefaultTheme.Config = {
   articleMetadataConfig: {
     author: '查尔斯', // 文章全局默认作者名称
     authorLink: '/about/me' // 点击作者名时默认跳转的链接
+  },
+  // 评论配置
+  commentConfig: {
+    type: 'gitalk',
+    options: {
+      clientID: '1de126ce1fbdbe049709',
+      clientSecret: '97e359a006ba7b0d8e9d9bf38b83de59eb69ecba',
+      repo: 'https://github.com/Charles7c/charles7c.github.io-comments',
+      owner: 'Charles7c',
+      admin: ['Charles7c'],
+      language: 'zh-CN',
+      distractionFreeMode: false,
+      pagerDirection: 'last', // 按评论创建时间倒序排序
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    },
+    hideComments: false // 全局隐藏评论，默认 false
   }
 }

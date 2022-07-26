@@ -28,18 +28,12 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 const { theme, frontmatter } = useData()
 const date = computed(() => new Date(frontmatter.value.date))
 const isoDatetime = computed(() => date.value.toISOString())
-const datetime = ref('')
+const datetime = date.value.toLocaleString('zh', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'})
 
 // 获取发布时间的相对时间, 例如: 1天前、2周前、3个月前、4年前
 dayjs.extend(relativeTime)
 dayjs.locale('zh-cn')
 const toDate = dayjs().to(dayjs(frontmatter.value.date))
-
-onMounted(() => {
-  watchEffect(() => {
-    datetime.value = date.value.toLocaleString(window.navigator.language, {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'})
-  })
-})
 </script>
 
 <style scoped>
