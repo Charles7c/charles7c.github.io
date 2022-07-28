@@ -9,7 +9,7 @@ export const markdown: MarkdownOptions = {
   config: (md) => {
     md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
       let htmlResult = slf.renderToken(tokens, idx, options, env, slf)
-      if (tokens[idx].tag === 'h1') htmlResult += `\n<ArticleMetadata/>`
+      if (tokens[idx].tag === 'h1') htmlResult += `\n<ArticleMetadata v-if="$frontmatter?.aside ?? true"/>`
       return htmlResult
     }
   }
