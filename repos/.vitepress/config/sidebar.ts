@@ -2,9 +2,9 @@ import DefaultTheme from 'vitepress/theme'
 import { sync } from "fast-glob"
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
-  '/issues/': getItemsByDate("issues"),
-  '/fragments/': getItemsByDate("fragments"),
-  '/solutions/': getItemsByDate("solutions"),
+  '/categories/issues/': getItemsByDate("categories/issues"),
+  '/categories/fragments/': getItemsByDate("categories/fragments"),
+  '/categories/solutions/': getItemsByDate("categories/solutions"),
   '/courses/mybatis/': getItems("courses/mybatis")
 }
 
