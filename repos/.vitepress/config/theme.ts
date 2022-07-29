@@ -3,6 +3,9 @@ import { nav } from './nav'
 import { sidebar } from './sidebar'
 
 export const themeConfig: DefaultTheme.Config = {
+  nav, // 导航栏配置
+  sidebar, // 侧边栏配置
+
   logo: '/logo.png',
   outlineTitle: '目录', // 右侧边栏的大纲标题文本配置
   lastUpdatedText: '最后更新', // 最后更新时间文本配置, 需先配置lastUpdated为true
@@ -16,11 +19,6 @@ export const themeConfig: DefaultTheme.Config = {
     pattern: 'https://github.com/Charles7c/charles7c.github.io/edit/main/repos/:path',
     text: '不妥之处，敬请雅正'
   },
-  // 页脚配置
-  footer: {
-    message: `<a href="https://beian.miit.gov.cn/" target="_blank">京ICP备20003712号-2</a>`, // 备案信息
-    copyright: `Copyright © 2019-${new Date().getFullYear()} Charles7c` // 版权信息
-  },
   // 全文搜索配置
   algolia: {
     appId: 'DBZ0G9HBUY',
@@ -31,15 +29,19 @@ export const themeConfig: DefaultTheme.Config = {
   socialLinks: [
     { icon: 'github', link: 'https://github.com/Charles7c/charles7c.github.io' }
   ],
-  nav, // 导航栏配置
-  sidebar, // 侧边栏配置
 
-  // 文章元数据配置
+  // 自定义扩展: 页脚配置
+  footerConfig: {
+    showFooter: true, // 是否显示页脚
+    recordNo: '津ICP备2022005864号-2', // 备案信息
+    copyright: `Copyright © 2019-${new Date().getFullYear()} Charles7c` // 版权信息
+  },
+  // 自定义扩展: 文章元数据配置
   articleMetadataConfig: {
     author: '查尔斯', // 文章全局默认作者名称
     authorLink: '/about/me' // 点击作者名时默认跳转的链接
   },
-  // 评论配置
+  // 自定义扩展: 评论配置
   commentConfig: {
     type: 'gitalk',
     options: {
