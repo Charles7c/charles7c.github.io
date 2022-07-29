@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /issues/
+      link: /categories/issues/
     - theme: alt
       text: View on GitHub
       link: https://github.com/Charles7c/charles7c.github.io
