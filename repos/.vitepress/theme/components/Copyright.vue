@@ -62,8 +62,9 @@ p {
 .recordNo .icon svg {
   height: 16px;
   width: 16px;
-  fill: var(--vp-c-text-2);
+  /*fill: var(--vp-c-text-2);*/
+  fill: #5791ED;
   position: relative;
-  top: 2.8px;
+  top: 3px;
 }
 </style> 
