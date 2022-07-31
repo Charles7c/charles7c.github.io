@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
+    "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.4",
     "element-plus": "^2.2.9",
     "fast-glob": "^3.2.11",

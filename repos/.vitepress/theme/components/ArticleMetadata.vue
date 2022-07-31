@@ -14,6 +14,12 @@
       </span>
       <time class="meta-content" :datetime="isoDatetime" :title="toDate">{{ datetime }}</time>
     </div>
+    <div class="meta-item">
+      <span class="meta-icon pv">
+        <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><title>阅读数</title><path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3-7.7 16.2-7.7 35.2 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766z"></path><path d="M508 336c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176z m0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
+      </span>
+      <span id="pv" class="meta-content"></span>
+    </div>
   </div>
 </template>
 
@@ -23,9 +29,10 @@ import { useData } from 'vitepress'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import md5 from 'blueimp-md5'
 
 // 获取发布时间
-const { theme, frontmatter } = useData()
+const { page, theme, frontmatter } = useData()
 const date = computed(() => new Date(frontmatter.value.date))
 const isoDatetime = computed(() => date.value.toISOString())
 const datetime = date.value.toLocaleString('zh', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'})
@@ -34,6 +41,13 @@ const datetime = date.value.toLocaleString('zh', {year: 'numeric', month: 'numer
 dayjs.extend(relativeTime)
 dayjs.locale('zh-cn')
 const toDate = dayjs().to(dayjs(frontmatter.value.date))
+
+onMounted(() => {
+  // 记录并获取文章阅读数
+  $api.getPv(md5(page.value.relativePath), function(data) {
+    document.getElementById("pv").innerText = data
+  })
+})
 </script>
 
 <style scoped>
