@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template #doc-after>
-      <Comment />
+      <Comment v-if="!(theme.commentConfig?.hideComments ?? false)" />
     </template>
     <template #layout-bottom>
       <Copyright v-if="(theme.footerConfig?.showFooter ?? true) && (frontmatter?.showFooter ?? true)" />

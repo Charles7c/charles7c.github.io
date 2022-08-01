@@ -1,22 +1,18 @@
 <template>
-  <div v-if="!globalHideComments" id="comment-container"></div>
+  <div id="comment-container"></div>
 </template>
 
 <script lang="ts" setup>
 import { computed, onMounted } from 'vue'
 import { useData } from 'vitepress'
+import md5 from 'blueimp-md5'
 import Gitalk from 'gitalk'
 import '../styles/gitalk.css'
 
-const { theme, frontmatter } = useData()
+const { page, theme, frontmatter } = useData()
 const commentConfig = theme.value.commentConfig
-const globalHideComments = commentConfig.hideComments ?? false
 
 onMounted(() => {
-  if (globalHideComments) {
-    return
-  }
-
   switch (commentConfig.type) {
     case 'gitalk':
       renderGitalk(commentConfig.options)
@@ -38,10 +34,9 @@ function renderGitalk(options) {
     repo: options.repo,
     owner: options.owner,
     admin: options.admin,
-    id: decodeURI(window.location.pathname),
+    id: md5(page.value.relativePath),
     language: options.language,
     distractionFreeMode: options.distractionFreeMode,
-    pagerDirection: options.pagerDirection,
     proxy: options.pagerDirection
   }
 
@@ -50,16 +45,6 @@ function renderGitalk(options) {
 
   /*
   // 感谢: dingqianwen/my-blog
-  // 访问量 如果不存在此标签，则进行创建
-  if (!document.getElementsByClassName('browse—count')[0]) {
-    let element = document.getElementsByClassName('page-meta')[0];
-    let newElement = document.createElement('div');
-    newElement.className = 'meta-item contributors browse—count';
-    $api.pvIncr(md5(value.path), function (data) {
-      newElement.innerHTML = `<span class="meta-item-label">浏览: </span><span class="meta-item-info">${data.toLocaleString('en-US')}</span>`;
-      element.appendChild(newElement)
-    })
-  }
   // 如果点赞，先判断有没有登录
   let $gc = $('#gitalk-container');
   $gc.on('click', '.gt-comment-like', function () {

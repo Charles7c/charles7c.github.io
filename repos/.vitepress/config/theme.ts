@@ -39,7 +39,8 @@ export const themeConfig: DefaultTheme.Config = {
   // 自定义扩展: 文章元数据配置
   articleMetadataConfig: {
     author: '查尔斯', // 文章全局默认作者名称
-    authorLink: '/about/me' // 点击作者名时默认跳转的链接
+    authorLink: '/about/me', // 点击作者名时默认跳转的链接
+    showPv: false // 是否显示文章阅读数, 需配置好相应后端API接口
   },
   // 自定义扩展: 评论配置
   commentConfig: {
@@ -47,14 +48,15 @@ export const themeConfig: DefaultTheme.Config = {
     options: {
       clientID: '1de126ce1fbdbe049709',
       clientSecret: '97e359a006ba7b0d8e9d9bf38b83de59eb69ecba',
-      repo: 'https://github.com/Charles7c/charles7c.github.io-comments',
+      repo: 'charles7c.github.io-comments',
       owner: 'Charles7c',
       admin: ['Charles7c'],
       language: 'zh-CN',
       distractionFreeMode: false,
-      pagerDirection: 'last', // 按评论创建时间倒序排序
-      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+      // 默认: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
+      // 感谢: https://prohibitorum.top/2022/07/26/%E8%A7%A3%E5%86%B3-Gitalk-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96-Github-Token-%E9%97%AE%E9%A2%98/
+      proxy: 'https://cors-server-ecru.vercel.app/github_access_token'
     },
-    hideComments: false // 全局隐藏评论，默认 false
+    hideComments: true // 全局隐藏评论，默认 false
   }
 }
