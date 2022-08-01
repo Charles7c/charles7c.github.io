@@ -33,7 +33,8 @@ export const themeConfig: DefaultTheme.Config = {
   // 自定义扩展: 页脚配置
   footerConfig: {
     showFooter: true, // 是否显示页脚
-    recordNo: '津ICP备2022005864号-2', // 备案信息
+    icpRecordNo: '津ICP备2022005864号-2', // ICP备案号
+    // publicSecurityRecordNo: '', // 公安备案号
     copyright: `Copyright © 2019-${new Date().getFullYear()} Charles7c` // 版权信息
   },
   // 自定义扩展: 文章元数据配置
