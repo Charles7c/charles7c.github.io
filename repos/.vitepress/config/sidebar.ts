@@ -9,9 +9,9 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 }
 
 /**
- * 根据 年/月/日.xxmd 的目录格式, 获取侧边栏分组及分组下标题
+ * 根据 某分类/YYYY/MM/dd/xxx.md 的目录格式, 获取侧边栏分组及分组下标题
  * 
- * /repos/issues/2022/07/20.xxx.md
+ * /categories/issues/2022/07/20/xxx.md
  * 
  * @param path 扫描基础路径
  * @returns {DefaultTheme.SidebarGroup[]}
@@ -34,24 +34,31 @@ function getItemsByDate (path: string) {
       objectMode: true
     }).forEach(({ name }) => {
       let month = name
-      // 3.获取月份目录下的所有文章
+      // 3.获取所有日期目录
       sync(`repos/${path}/${year}/${month}/*`, {
-        onlyFiles: true,
+        onlyDirectories: true,
         objectMode: true
       }).forEach(({ name }) => {
-        // 向前追加标题
-        items.unshift({
-          text: name,
-          link: `/${path}/${year}/${month}/${name}`
+        let day = name
+        // 4.获取日期目录下的所有文章
+        sync(`repos/${path}/${year}/${month}/${day}/*`, {
+          onlyFiles: true,
+          objectMode: true
+        }).forEach(({ name }) => {
+          // 向前追加标题
+          items.unshift({
+            text: name,
+            link: `/${path}/${year}/${month}/${day}/${name}`
+          })
         })
       })
 
-      // 4.向前追加到分组
+      // 5.向前追加到分组
       if (items.length > 0) {
-        // 去除标题名中的日期前缀和扩展名
+        // 去除标题名中的扩展名
         for (let i = 0; i < items.length; i++) {
           let text = items[i].text
-          items[i].text = text.replace('.md', '').substring(text.indexOf('.') + 1)
+          items[i].text = text.replace('.md', '')
         }
         groups.unshift({
           text: `${year}年${month}月 (${items.length}篇)`,
@@ -61,20 +68,20 @@ function getItemsByDate (path: string) {
         })
       }
 
-      // 5.清空侧边栏分组下标题数组
+      // 6.清空侧边栏分组下标题数组
       items = []
     })
   })
 
-  // 6.将第一个侧边栏分组的标题展开
+  // 7.将第一个侧边栏分组的标题展开
   groups[0].collapsed = false
   return groups
 }
 
 /**
- * 根据 分组/序号.xxmd 的目录格式, 获取侧边栏分组及分组下标题
+ * 根据 某小课/序号-分组/序号-xxx.md 的目录格式, 获取侧边栏分组及分组下标题
  * 
- * /repos/courses/mybatis/MyBatis基础/20.xxx.md
+ * courses/mybatis/01-MyBatis基础/01-xxx.md
  * 
  * @param path 扫描基础路径
  * @returns {DefaultTheme.SidebarGroup[]}
@@ -105,13 +112,13 @@ function getItems (path: string) {
 
     // 3.向前追加到分组
     if (items.length > 0) {
-      // 去除标题名中的日期前缀和扩展名
+      // 去除标题名中的前缀和扩展名
       for (let i = 0; i < items.length; i++) {
         let text = items[i].text
-        items[i].text = text.replace('.md', '').substring(text.indexOf('.') + 1)
+        items[i].text = text.replace('.md', '').substring(text.indexOf('-') + 1)
       }
       groups.push({
-        text: `${groupName.substring(groupName.indexOf('.') + 1)} (${items.length}篇)`,
+        text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length}篇)`,
         collapsible: true,
         collapsed: true,
         items: items
