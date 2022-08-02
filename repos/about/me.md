@@ -59,4 +59,4 @@ aside: false
 	<img src="https://github-profile-trophy.vercel.app/?username=charles7c&theme=gruvbox&row=1&column=6&no-frame=true&no-bg=true" width="90%" />
 </div>
 
-<img width=100% src="../public/img/svg/about-me-footer.svg" alt="尾部图"/>
+<img width=100% src="../public/img/svg/about-footer.svg" alt="尾部图"/>

@@ -4,23 +4,11 @@ lastUpdated: false
 aside: false
 ---
 
-# 关于知识库
+<img width=100% src="../public/img/svg/about-repos-header.svg" alt="头部图" />
 
-<br>
-
-<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
-    <img style="display: inline-block; margin-right: 3px" src="https://camo.githubusercontent.com/4ef49a39775d72ab9806b4ea68378139ef759520d22ea1f6b4c9bacac91e7ad5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f73742532304c6963656e73652d4343253230342e3025323042592d2d53412d626c75652e737667">
-</a>
-<a href="https://github.com/Charles7c/charles7c.github.io/blob/main/LICENSE" target="_blank">
-    <img style="display: inline-block; margin-right: 3px" src="https://camo.githubusercontent.com/863c205550f070412f8a74b278a26f6f04d884e6549f3c4e106893447854021d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f436f64652532304c6963656e73652d4d49542d626c75652e737667">
-</a>
-<a href="https://github.com/Charles7c/charles7c.github.io/actions/workflows/deploy-pages.yml" target="_blank">
-    <img style="display: inline-block;" src="https://github.com/Charles7c/charles7c.github.io/actions/workflows/deploy-pages.yml/badge.svg">
-</a>
-
-📝 <strong>查尔斯的个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。</strong>
-
-🐢 [GitHub Pages](https://blog.charles7c.top) | 🐇 [Gitee Pages](https://charles7c.gitee.io)
+<div align="center">
+    📝 <strong>查尔斯的个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。</strong>
+</div>
 
 ---
 
@@ -62,3 +50,5 @@ aside: false
 从笔者个人来讲，维护知识库也是一种整理。笔者对杂乱的事物是抱有不喜态度的，无论是个人卫生，还是环境：房间、工位，亦或是任何记录。
 
 杂乱的内容会引起笔者思绪上的混乱，被迫转移注意力，所以笔者尽可能的在各种方面定期进行整理、折腾，将知识整理好，不用再担心知识在记忆中遗忘，不用再担心掌握的知识无迹可寻，这样笔者就可以获得思绪上的梳理、 “放下”，可以更好的 “轻装前行”。:smile:
+
+<img width=100% src="../public/img/svg/about-footer.svg" alt="尾部图"/>
