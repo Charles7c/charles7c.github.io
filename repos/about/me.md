@@ -48,11 +48,11 @@ aside: false
 </div>
 
 <div align="center">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=charles7c&theme=white&hide_border=true" width="90%" />
+	<img src="https://activity-graph.herokuapp.com/graph?username=charles7c&bg_color=ffffff&color=40b883&line=40b883&point=40b883&area=true&hide_border=true" width="90%" />
 </div>
 
 <div align="center">
-	<img src="https://activity-graph.herokuapp.com/graph?username=charles7c&bg_color=ffffff&color=40b883&line=40b883&point=40b883&area=true&hide_border=true" width="90%" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=charles7c&theme=white&hide_border=true" width="90%" />
 </div>
 
 <div align="center">
