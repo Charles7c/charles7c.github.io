@@ -1,0 +1,41 @@
+.meta-wrapper {
+  margin-top: 10px;
+}
+.meta-item {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  max-width: 240px;
+  color: var(--vp-c-text-2);
+  cursor: default;
+  font-size: 14px;
+}
+.meta-item:not(:last-child) {
+  margin-right: 1rem;
+}
+.meta-icon, meta-content {
+  display: inline-block;
+  margin-right: .375rem;
+  vertical-align: middle;
+}
+.meta-icon {
+  position: relative;
+  bottom: 1.5px;
+}
+.meta-icon.date {
+  bottom: 1.3px;
+}
+.meta-icon svg {
+  fill: var(--vp-c-text-2);
+  height: 16px;
+  width: 16px;
+}
+.meta-content a {
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+}
+.meta-content a:hover {
+  color: var(--vp-c-brand);
+}

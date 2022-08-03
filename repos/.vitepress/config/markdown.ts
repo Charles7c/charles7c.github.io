@@ -5,7 +5,7 @@ export const markdown: MarkdownOptions = {
   lineNumbers: true, // 启用行号
 
   // 在所有文档的<h1>标签后添加<ArticleMetadata/>组件
-  // 感谢: vitepress/@brc-dd
+  // 感谢: https://github.com/vuejs/vitepress/issues/1050
   config: (md) => {
     md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
       let htmlResult = slf.renderToken(tokens, idx, options, env, slf)

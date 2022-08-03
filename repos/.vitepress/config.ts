@@ -4,6 +4,7 @@ import { head } from './config/head'
 import { markdown } from './config/markdown'
 import { themeConfig } from './config/theme'
 
+// 感谢: https://github.com/windicss/docs
 export default defineConfig({
   lang: metaData.lang,
   title: metaData.title,

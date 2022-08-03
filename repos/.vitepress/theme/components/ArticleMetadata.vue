@@ -29,6 +29,7 @@ import { useData } from 'vitepress'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import '../styles/article-meta-data.css'
 
 // 获取发布时间
 const { page, theme, frontmatter } = useData()
@@ -43,45 +44,4 @@ const toDate = dayjs().to(dayjs(frontmatter.value.date))
 </script>
 
 <style scoped>
-.meta-wrapper {
-  margin-top: 10px;
-}
-.meta-item {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  vertical-align: middle;
-  max-width: 240px;
-  color: var(--vp-c-text-2);
-  cursor: default;
-  font-size: 14px;
-}
-.meta-item:not(:last-child) {
-  margin-right: 1rem;
-}
-.meta-icon, meta-content {
-  display: inline-block;
-  margin-right: .375rem;
-  vertical-align: middle;
-}
-.meta-icon {
-  position: relative;
-  bottom: 1.5px;
-}
-.meta-icon.date {
-  bottom: 1.3px;
-}
-.meta-icon svg {
-  fill: var(--vp-c-text-2);
-  height: 16px;
-  width: 16px;
-}
-.meta-content a {
-  font-weight: 400;
-  color: var(--vp-c-text-2);
-}
-.meta-content a:hover {
-  color: var(--vp-c-brand);
-}
 </style>

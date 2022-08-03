@@ -6,8 +6,8 @@
   "author": "Charles7c",
   "license": "MIT",
   "scripts": {
-    "dev": "vitepress dev repos",
-    "build": "vitepress build repos",
+    "dev": "node collect-article-data.mjs && vitepress dev repos",
+    "build": "node collect-article-data.mjs && vitepress build repos",
     "serve": "vitepress serve repos"
   },
   "devDependencies": {
@@ -19,6 +19,7 @@
     "element-plus": "^2.2.9",
     "fast-glob": "^3.2.11",
     "gitalk": "^1.7.2",
+    "gray-matter": "^4.0.3",
     "vue": "^3.2.37"
   }
 }

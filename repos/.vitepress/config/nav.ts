@@ -18,6 +18,11 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/courses/'
   },
   {
+    text: '我的标签',
+    link: '/tags',
+    activeMatch: '/tags'
+  },
+  {
     text: '关于',
     items: [
       { text: '关于知识库', link: '/about/index', activeMatch: '/about/index.html' },
