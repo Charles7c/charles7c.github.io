@@ -12,8 +12,8 @@
 <script lang="ts" setup>
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
-import Comment from './Comment.vue'
-import Footer from './Footer.vue'
+import Comment from './components/Comment.vue'
+import Footer from './components/Footer.vue'
 
 const { Layout } = DefaultTheme
 const { theme, frontmatter } = useData()

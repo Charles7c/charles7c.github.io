@@ -4,7 +4,7 @@
       <span class="tag-breadcrumb-icon">
         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em" class="larkui-icon icon-svg index-module_size_wVASz" style="width: 16px; min-width: 16px; height: 16px;"><defs></defs><path d="M527.744 32c20.8 0.192 40.32 8.32 55.04 23.04l386.112 386.24c14.912 14.848 23.104 34.56 23.104 55.68 0 20.992-8.192 40.704-23.04 55.552l-416.512 416.512c-14.784 14.784-34.624 22.976-55.68 22.976a78.08 78.08 0 0 1-55.616-23.04L55.104 582.784A78.272 78.272 0 0 1 32 527.552V110.72C32 67.2 67.2 32 110.72 32h417.024zM267.136 267.136a128.064 128.064 0 1 0 181.184 181.12 128.064 128.064 0 0 0-181.184-181.12z"></path></svg>
       </span>
-      <span class="tag-breadcrumb-item">查尔斯的标签</span>
+      <span class="tag-breadcrumb-item">我的标签</span>
     </div>
     <div>
       <el-row :gutter="10">
@@ -89,6 +89,7 @@
 import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
 import articleData from '../../../../article-data.json'
+import { formatDate } from '../utils.ts'
 import '../styles/article-meta-data.css'
 
 const { theme } = useData()
@@ -104,10 +105,10 @@ const toggleTag = (tagTitle: string) => {
 
 /**
  * 初始化Tag数据(感谢https://github.com/clark-cui/vitepress-blog-zaun)
- * [{tagTitle: [article1, article2, ...], ...}]
+ * {tagTitle1: [article1, article2, ...}
  */
 function initTags(articleData) {
-  const tags: any = {};
+  const tags: any = {}
   for (let i = 0; i < articleData.length; i++) {
     const article = articleData[i]
     const articleTags = article.tags
@@ -123,16 +124,6 @@ function initTags(articleData) {
     }
   }
   return tags
-}
-
-/**
- * 格式化时间
- */
-function formatDate(date) {
-  const formatDate = computed(() => new Date(date))
-  const isoDatetime = computed(() => formatDate.value.toISOString())
-  const datetime = formatDate.value.toLocaleString('zh', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'})
-  return datetime
 }
 </script>
 
@@ -256,11 +247,11 @@ svg:not(:root) {
 .result-item-title {
   margin: 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 22px;
 }
 .ant-list-item .title {
-  font-weight: 500;
+  font-weight: 400;
   color: var(--vp-c-text-1);
 }
 .result-item-description {
