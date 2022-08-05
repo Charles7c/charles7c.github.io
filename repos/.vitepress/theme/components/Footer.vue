@@ -38,6 +38,9 @@ const { theme } = useData()
 .VPFooter.has-sidebar {
   display: none;
 }
+a:hover {
+  color: var(--vp-c-brand);
+}
 @media (min-width: 768px) {
   .VPFooter {
     padding: 25px;

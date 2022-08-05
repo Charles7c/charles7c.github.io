@@ -133,9 +133,11 @@ function initTags(articleData) {
   --el-card-bg-color: var(--vp-c-bg);
   color: var(--vp-c-text-1);
 }
-
 :deep(.el-tag) {
   background-color: var(--vp-c-bg);
+}
+.vp-doc a:hover {
+  color: var(--vp-c-brand);
 }
 
 /** 头部样式 */
