@@ -85,7 +85,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
-import { IconTags } from '@arco-design/web-vue/es/icon'
 import articleData from '../../../../article-data.json'
 import { formatDate } from '../utils.ts'
 import '../styles/article-meta-data.css'

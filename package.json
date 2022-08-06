@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "Charles's personal knowledge repositories.",
   "main": "index.js",
-  "author": "Charles7c",
-  "license": "MIT",
   "scripts": {
     "dev": "node collect-article-data.mjs && vitepress dev repos",
     "build": "node collect-article-data.mjs && vitepress build repos",
@@ -17,10 +15,28 @@
     "@arco-design/web-vue": "^2.34.1",
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.4",
-    "element-plus": "^2.2.9",
     "fast-glob": "^3.2.11",
     "gitalk": "^1.7.2",
     "gray-matter": "^4.0.3",
     "vue": "^3.2.37"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charles7c/charles7c.github.io.git"
+  },
+  "keywords": [
+    "blog",
+    "charles7c",
+    "vitepress-blog",
+    "vitepress",
+    "vuepress",
+    "vite",
+    "vue"
+  ],
+  "author": "Charles7c",
+  "license": "MIT",
+  "homepage": "https://github.com/Charles7c/charles7c.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/Charles7c/charles7c.github.io/issues"
   }
 }
