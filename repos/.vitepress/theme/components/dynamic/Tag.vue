@@ -254,12 +254,15 @@ svg:not(:root) {
   margin: 8px 0;
 }
 .vp-doc a {
+  font-weight: 400;
+  font-size: 14px;
   color: var(--vp-c-text-1);
 }
 .vp-doc a:hover {
   color: var(--vp-c-brand);
 }
 .meta-content a {
+  font-size: 14px;
   color: var(--vp-c-text-2);
 }
 </style>
