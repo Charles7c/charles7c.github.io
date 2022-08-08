@@ -18,7 +18,7 @@
     "fast-glob": "^3.2.11",
     "gitalk": "^1.7.2",
     "gray-matter": "^4.0.3",
-    "unplugin-vue-components": "^0.22.0",
+    "unplugin-vue-components": "0.22.0",
     "vue": "^3.2.37"
   },
   "repository": {
