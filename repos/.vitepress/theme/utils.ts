@@ -15,7 +15,7 @@ export function formatDate(date) {
  */
 export function getQueryParam(paramName) {
   const reg = new RegExp("(^|&)"+ paramName +"=([^&]*)(&|$)")
-  let value = window.location.search.substr(1).match(reg)
+  let value = decodeURIComponent(window.location.search.substr(1)).match(reg)
   if (value != null) {
     return unescape(value[2])
   } 

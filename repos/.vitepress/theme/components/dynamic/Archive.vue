@@ -1,8 +1,9 @@
 <template>
   <div class="timeline-wrap">
-    <!-- <div class="timeline-header">
-      <span>{{ title }}</span>
-    </div> -->
+    <div class="timeline-header" v-if="category">
+      <svg role="img" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><title>所属分类</title><path d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2a8.15 8.15 0 0 0-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256z m635.3 512H159l103.3-256h612.4L771.3 768z"></path></svg>
+      <span>{{ category }}</span>
+    </div>
     <div class="timeline-item" v-for="(item, year) in archiveData">
       <div class="year">
         <img class="chinese-zodiac" :src="'/img/svg/chinese-zodiac/' + getChineseZodiac(year.replace('年', '')) + '.svg'" :title="getChineseZodiac(year.replace('年', ''))" alt="生肖">
@@ -15,14 +16,10 @@
           </span>
           <div class="articles">
             <span v-for="article in articles" class="article">
-              <svg v-if="article.categories.includes('Bug万象集')" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="arco-icon arco-icon-bug" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #f53f3f;"><title>Bug万象集</title><path d="M24 42c-6.075 0-11-4.925-11-11V18h22v13c0 6.075-4.925 11-11 11Zm0 0V23m11 4h8M5 27h8M7 14a4 4 0 0 0 4 4h26a4 4 0 0 0 4-4m0 28v-.5a6.5 6.5 0 0 0-6.5-6.5M7 42v-.5a6.5 6.5 0 0 1 6.5-6.5M17 14a7 7 0 1 1 14 0"></path></svg>
-
-              <svg v-else-if="article.categories.includes('杂碎逆袭史')" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="arco-icon arco-icon-bulb" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #ff7d00;"><title>杂碎逆袭史</title><path d="M17 42h14m6-24c0 2.823-.9 5.437-2.43 7.568-1.539 2.147-3.185 4.32-3.77 6.897l-.623 2.756A1 1 0 0 1 29.2 36H18.8a1 1 0 0 1-.976-.779l-.624-2.756c-.584-2.576-2.23-4.75-3.77-6.897A12.94 12.94 0 0 1 11 18c0-7.18 5.82-13 13-13s13 5.82 13 13Z"></path></svg>
-
-              <svg v-else-if="article.categories.includes('方案春秋志')" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="arco-icon arco-icon-code" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #165dff;"><title>方案春秋志</title><path d="M16.734 12.686 5.42 24l11.314 11.314m14.521-22.628L42.57 24 31.255 35.314M27.2 6.28l-6.251 35.453"></path></svg>
-
-              <svg v-else viewBox="0 0 48 48" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" class="arco-icon arco-icon-bookmark" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #00b42a;"><path d="M16 16h16M16 24h8"></path><path d="M24 41H8V6h32v17"></path><path d="M30 29h11v13l-5.5-3.5L30 42V29Z"></path></svg>
-              
+              <svg v-if="article.categories.includes('Bug万象集')" role="img" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="arco-icon arco-icon-bug" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #f53f3f;"><title>Bug万象集</title><path d="M24 42c-6.075 0-11-4.925-11-11V18h22v13c0 6.075-4.925 11-11 11Zm0 0V23m11 4h8M5 27h8M7 14a4 4 0 0 0 4 4h26a4 4 0 0 0 4-4m0 28v-.5a6.5 6.5 0 0 0-6.5-6.5M7 42v-.5a6.5 6.5 0 0 1 6.5-6.5M17 14a7 7 0 1 1 14 0"></path></svg>
+              <svg v-else-if="article.categories.includes('杂碎逆袭史')" role="img" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="arco-icon arco-icon-bulb" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #ff7d00;"><title>杂碎逆袭史</title><path d="M17 42h14m6-24c0 2.823-.9 5.437-2.43 7.568-1.539 2.147-3.185 4.32-3.77 6.897l-.623 2.756A1 1 0 0 1 29.2 36H18.8a1 1 0 0 1-.976-.779l-.624-2.756c-.584-2.576-2.23-4.75-3.77-6.897A12.94 12.94 0 0 1 11 18c0-7.18 5.82-13 13-13s13 5.82 13 13Z"></path></svg>
+              <svg v-else-if="article.categories.includes('方案春秋志')" role="img" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" class="arco-icon arco-icon-code" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #165dff;"><title>方案春秋志</title><path d="M16.734 12.686 5.42 24l11.314 11.314m14.521-22.628L42.57 24 31.255 35.314M27.2 6.28l-6.251 35.453"></path></svg>
+              <svg v-else role="img" viewBox="0 0 48 48" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" class="arco-icon arco-icon-bookmark" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #00b42a;"><path d="M16 16h16M16 24h8"></path><path d="M24 41H8V6h32v17"></path><path d="M30 29h11v13l-5.5-3.5L30 42V29Z"></path></svg>
               <a :href="article.path" class="title" target="_blank">{{ article.title }}</a>
               <br>
               <span>{{ formatDate(article.date) }}</span>
@@ -37,13 +34,29 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import articleData from '../../../../../article-data.json'
-import { formatDate } from '../../utils.ts'
+import { formatDate, getQueryParam } from '../../utils.ts'
 
-articleData.sort((a, b) => b.date.localeCompare(a.date))
+const $articleData = []
+
+// 如果URL路径有category参数, 默认筛选出指定category, 例如: /archives.html?category=Bug万象集
+let category = getQueryParam('category')
+if (category && category.trim() != '') {
+  for (let i = 0; i < articleData.length; i++) {
+    let article = articleData[i]
+    if (article.categories && article.categories.includes(category)) {
+      $articleData.push(article)
+    }
+  }
+} else {
+  $articleData.push(...articleData)
+}
+
+// 对文章数据进行降序排序
+$articleData.sort((a, b) => b.date.localeCompare(a.date))
 
 const archiveData = {}
-for (let i = 0; i < articleData.length; i++) {
-  const article = articleData[i]
+for (let i = 0; i < $articleData.length; i++) {
+  const article = $articleData[i]
   let year = (new Date(article.date).getFullYear()) + '年'
   let month = (new Date(article.date).getMonth() + 1) + '月'
 
@@ -102,12 +115,23 @@ function getChineseZodiac(year) {
 }
 
 .timeline-wrap .timeline-header {
-  padding-bottom: 16px;
+  padding-bottom: 20px;
+}
+
+.timeline-wrap .timeline-header svg {
+  position: absolute;
+  left: -10px;
+  top: 3px;
+  fill: var(--vp-c-text-2);
+  height: 18px;
+  width: 18px;
 }
 
 .timeline-wrap .timeline-header span {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+  position: relative;
+  left: 12px;
 }
 
 .timeline-wrap .timeline-item {
