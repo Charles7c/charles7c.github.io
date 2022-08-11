@@ -68,7 +68,11 @@ const tags = computed(() => initTags(articleData))
 // 点击指定Tag后进行选中
 let selectTag = ref('')
 const toggleTag = (tagTitle: string) => {
-  selectTag.value = tagTitle
+  if (selectTag.value && selectTag.value == tagTitle) {
+    selectTag.value = null
+  } else {
+    selectTag.value = tagTitle
+  }
 }
 
 // 如果URL路径有tag参数, 默认选中指定Tag, 例如: /tags?tag=Git
