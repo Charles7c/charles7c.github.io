@@ -10,6 +10,8 @@
 
     <!-- 内容 -->
     <div>
+      <!-- 标签云 -->
+      <WordCloud :dataList="dataList" :style="{ width: '100%', height: '130px' }" />
       <a-row :gutter="24">
         <!-- 标签列表区域 -->
         <a-col :span="24">
@@ -42,7 +44,6 @@
               </div>
             </a-list-item>
           </a-list>
-
           <a-card
             :style="{ width: '100%' }"
             class="no-result"
@@ -57,32 +58,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import md5 from 'blueimp-md5'
 import articleData from '../../../../../article-data.json'
 import { formatDate, getQueryParam } from '../../utils.ts'
 
-// 获取所有Tag数据
 const tags = computed(() => initTags(articleData))
-
-// 点击指定Tag后进行选中
-let selectTag = ref('')
-const toggleTag = (tagTitle: string) => {
-  if (selectTag.value && selectTag.value == tagTitle) {
-    selectTag.value = null
-  } else {
-    selectTag.value = tagTitle
-  }
-}
-
-// 如果URL路径有tag参数, 默认选中指定Tag, 例如: /tags?tag=Git
-let tag = getQueryParam('tag')
-if (tag && tag.trim() != '') {
-  toggleTag(tag)
-}
-
 /**
- * 初始化Tag数据(感谢https://github.com/clark-cui/vitepress-blog-zaun)
+ * 初始化标签数据
  * {tagTitle1: [article1, article2, ...}
  */
 function initTags(articleData) {
@@ -102,6 +85,35 @@ function initTags(articleData) {
     }
   }
   return tags
+}
+
+// 点击指定Tag后进行选中
+let selectTag = ref('')
+const toggleTag = (tagTitle: string) => {
+  if (selectTag.value && selectTag.value == tagTitle) {
+    selectTag.value = null
+  } else {
+    selectTag.value = tagTitle
+  }
+}
+
+// 如果URL路径有tag参数, 默认选中指定Tag, 例如: /tags?tag=Git
+let tag = getQueryParam('tag')
+if (tag && tag.trim() != '') {
+  toggleTag(tag)
+}
+
+const dataList = computed(() => initWordCloud(tags))
+/**
+ * 初始化词云数据
+ * [{"name": xx, "value": xx}]
+ */
+function initWordCloud(tags) {
+  const dataList = []
+  for (let tag in tags.value) {
+    dataList.push({"name": tag, "value": tags.value[tag].length})
+  }
+  return dataList
 }
 </script>
 

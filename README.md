@@ -41,7 +41,7 @@ yarn build
 - [x] 主页美化：参照 vite 文档主页进行美化
 - [x] 自定义页脚：支持ICP备案号、公安备案号、版权信息配置（符合大陆网站审核要求）
 - [x] 文章元数据信息显示：文章标题下显示作者、发布时间、所属分类、标签列表等信息
-- [x] 《我的标签》：模仿语雀标签页风格，https://www.yuque.com/r/语雀用户名/tags?tag=
+- [x] 《我的标签》：模仿语雀标签页风格，https://www.yuque.com/r/语雀用户名/tags?tag=，另有标签云展示
 - [x] 《我的归档》：自定义时间轴，展示历史文章数据。年份前可展示生肖，可按分类、标签筛选
 - [x] 更多细节优化：敬请发现
 - [ ] 文章评论：Gitalk
@@ -75,12 +75,14 @@ yarn build
 
 - [vuejs/vitepress](https://github.com/vuejs/vitepress) （本知识库基于 vitepress 构建）
 - [vitejs/vite](https://github.com/vitejs/vite) （参考主页美化）
-- [brc-dd/vitepress-with-arco](https://github.com/brc-dd/vitepress-with-arco) （感谢 vitepress 维护者 brc-dd 的帮助）
-- [brc-dd/vitepress-blog-demo](https://github.com/brc-dd/vitepress-blog-demo)
 - [windicss/docs](https://github.com/windicss/docs) （参考配置文件拆分）
-- [dingqianwen/my-blog](https://github.com/dingqianwen/my-blog) （参考 Gitalk 配置暗黑主题）
+- [brc-dd/vitepress-blog-demo](https://github.com/brc-dd/vitepress-blog-demo) （感谢 vitepress 维护者 brc-dd 的热心帮助）
+- [brc-dd/vitepress-with-arco](https://github.com/brc-dd/vitepress-with-arco) 
 - [clark-cui/vitepress-blog-zaun](https://github.com/clark-cui/vitepress-blog-zaun) （参考文章标签的数据处理方案）
+- [dingqianwen/my-blog](https://github.com/dingqianwen/my-blog) （参考 Gitalk 配置暗黑主题）
+- [xiaoxian521/pure-admin-utils-docs](https://github.com/xiaoxian521/pure-admin-utils-docs) （参考词云组件的使用）
 - [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue) （使用部分组件及图标）
+- [antvis/G2plot](https://github.com/antvis/G2plot) （使用部分图表）
 - ......
 
 ## License

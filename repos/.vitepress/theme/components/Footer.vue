@@ -14,7 +14,7 @@
           <img src="/img/badge/gongan.png" title="联网备案号">
         </span>
         <span class="content">
-          <a :href="'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footerConfig.publicSecurityRecordCode.replace('号', '').substring(theme.footerConfig.publicSecurityRecordCode.indexOf(' ') + 1)" target="_blank">{{ theme.footerConfig.publicSecurityRecordCode }}</a>
+          <a :href="'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footerConfig.publicSecurityRecordCode.replace('号', '').substring(theme.footerConfig.publicSecurityRecordCode.indexOf('备') + 1)" target="_blank">{{ theme.footerConfig.publicSecurityRecordCode }}</a>
         </span>
       </p>
       <p class="copyright" v-html="theme.footerConfig.copyright"></p>

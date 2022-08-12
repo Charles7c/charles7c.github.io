@@ -2,7 +2,6 @@ import glob  from 'fast-glob'
 import matter from 'gray-matter'
 import fs from 'node:fs/promises'
 
-// 感谢: https://github.com/brc-dd/vitepress-blog-demo
 const articleData = await Promise.all(
   glob.sync('./repos/**/*.md', {
     onlyFiles: true,

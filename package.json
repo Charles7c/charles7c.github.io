@@ -12,7 +12,9 @@
     "vitepress": "^1.0.0-alpha.4"
   },
   "dependencies": {
-    "@arco-design/web-vue": "^2.34.1",
+    "@antv/g2plot": "^2.4.20",
+    "@arco-design/web-vue": "^2.35.0",
+    "@pureadmin/utils": "^0.0.33",
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.4",
     "fast-glob": "^3.2.11",

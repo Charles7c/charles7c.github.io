@@ -44,7 +44,6 @@ function renderGitalk(options) {
   gitalk.render('comment-container')
 
   /*
-  // 感谢: https://github.com/dingqianwen/my-blog
   // 如果点赞，先判断有没有登录
   let $gc = $('#gitalk-container');
   $gc.on('click', '.gt-comment-like', function () {
