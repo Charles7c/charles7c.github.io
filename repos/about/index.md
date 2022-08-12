@@ -1,7 +1,8 @@
 ---
+title: 关于知识库
+aside: false
 editLink: false
 lastUpdated: false
-aside: false
 ---
 
 <img width=100% src="../public/img/svg/about-repos-header.svg" alt="头部图" />

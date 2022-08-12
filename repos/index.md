@@ -2,7 +2,7 @@
 layout: home
 
 title: 查尔斯的知识库
-titleTemplate: 个人知识库
+titleTemplate: 个人知识库，记录和分享个人碎片化、结构化、体系化的知识内容
 
 hero:
   name: 查尔斯的知识库
