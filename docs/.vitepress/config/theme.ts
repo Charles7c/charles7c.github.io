@@ -48,16 +48,15 @@ export const themeConfig: DefaultTheme.Config = {
     type: 'gitalk',
     options: {
       clientID: '1de126ce1fbdbe049709',
-      clientSecret: '97e359a006ba7b0d8e9d9bf38b83de59eb69ecba',
+      clientSecret: '035fe49874a43e5cefc28a99b7e40b1925319c62',
       repo: 'charles7c.github.io-comments',
       owner: 'Charles7c',
       admin: ['Charles7c'],
       language: 'zh-CN',
       distractionFreeMode: false,
       // 默认: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
-      // 感谢: https://prohibitorum.top/2022/07/26/%E8%A7%A3%E5%86%B3-Gitalk-%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96-Github-Token-%E9%97%AE%E9%A2%98/
       proxy: 'https://cors-server-ecru.vercel.app/github_access_token'
     },
-    hideComments: true // 全局隐藏评论，默认 false
+    showComment: true // 是否显示评论
   }
 }

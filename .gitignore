@@ -19,7 +19,6 @@ coverage/
 .vscode
 
 # Temp files
-yarn.lock
 package-lock.json
 .vite_opt_cache
 

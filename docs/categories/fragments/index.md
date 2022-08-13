@@ -2,6 +2,7 @@
 editLink: false
 lastUpdated: false
 aside: false
+showComment: false
 ---
 
 # "杂碎"逆袭史

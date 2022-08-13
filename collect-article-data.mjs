@@ -3,10 +3,10 @@ import matter from 'gray-matter'
 import fs from 'node:fs/promises'
 
 const articleData = await Promise.all(
-  glob.sync('./repos/**/*.md', {
+  glob.sync('./docs/**/*.md', {
     onlyFiles: true,
     objectMode: true,
-    ignore: ['./repos/**/index.md', './repos/**/tags.md', './repos/**/archives.md', './repos/**/me.md'], // without !
+    ignore: ['./docs/**/index.md', './docs/**/tags.md', './docs/**/archives.md', './docs/**/me.md'], // without !
   }).map(async (article) => {
     const file = matter.read(`${article.path}`)
     const { data, path } = file

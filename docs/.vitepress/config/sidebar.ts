@@ -23,25 +23,25 @@ function getItemsByDate (path: string) {
   let items: DefaultTheme.SidebarItem[] = []
 
   // 1.获取所有年份目录
-  sync(`repos/${path}/*`, {
+  sync(`docs/${path}/*`, {
     onlyDirectories: true,
     objectMode: true
   }).forEach(({ name }) => {
     let year = name
     // 2.获取所有月份目录
-    sync(`repos/${path}/${year}/*`, {
+    sync(`docs/${path}/${year}/*`, {
       onlyDirectories: true,
       objectMode: true
     }).forEach(({ name }) => {
       let month = name
       // 3.获取所有日期目录
-      sync(`repos/${path}/${year}/${month}/*`, {
+      sync(`docs/${path}/${year}/${month}/*`, {
         onlyDirectories: true,
         objectMode: true
       }).forEach(({ name }) => {
         let day = name
         // 4.获取日期目录下的所有文章
-        sync(`repos/${path}/${year}/${month}/${day}/*`, {
+        sync(`docs/${path}/${year}/${month}/${day}/*`, {
           onlyFiles: true,
           objectMode: true
         }).forEach(({ name }) => {
@@ -93,13 +93,13 @@ function getItems (path: string) {
   let items: DefaultTheme.SidebarItem[] = []
 
   // 1.获取所有分组目录
-  sync(`repos/${path}/*`, {
+  sync(`docs/${path}/*`, {
     onlyDirectories: true,
     objectMode: true
   }).forEach(({ name }) => {
     let groupName = name
     // 2.获取分组下的所有文章
-    sync(`repos/${path}/${groupName}/*`, {
+    sync(`docs/${path}/${groupName}/*`, {
       onlyFiles: true,
       objectMode: true
     }).forEach(({ name }) => {

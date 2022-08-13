@@ -41,35 +41,35 @@ yarn build
 - [x] 主页美化：参照 vite 文档主页进行美化
 - [x] 自定义页脚：支持ICP备案号、公安备案号、版权信息配置（符合大陆网站审核要求）
 - [x] 文章元数据信息显示：文章标题下显示作者、发布时间、所属分类、标签列表等信息
-- [x] 《我的标签》：模仿语雀标签页风格，https://www.yuque.com/r/语雀用户名/tags?tag=，另有标签云展示
+- [x] 《我的标签》：模仿语雀标签页风格，另有标签云展示。语雀标签页地址：https://www.yuque.com/r/语雀用户名/tags?tag=
 - [x] 《我的归档》：自定义时间轴，展示历史文章数据。年份前可展示生肖，可按分类、标签筛选
 - [x] 更多细节优化：敬请发现
-- [ ] 文章评论：Gitalk
+- [x] 文章评论：目前仅支持Gitalk
 
 ## 部分页面截图
 
 ### 主页美化
 
-![主页](./repos/public/screenshot/主页.png)
+![主页](./docs/public/screenshot/主页.png)
 
 ### 文章元数据信息
 
-![文章元数据信息](./repos/public/screenshot/文章元数据信息.png)
+![文章元数据信息](./docs/public/screenshot/文章元数据信息.png)
 
 ### 我的标签
 
-![我的标签](./repos/public/screenshot/我的标签1.png)
-![我的标签](./repos/public/screenshot/我的标签2.png)
+![我的标签](./docs/public/screenshot/我的标签1.png)
+![我的标签](./docs/public/screenshot/我的标签2.png)
 
 ### 我的归档
 
-![我的归档](./repos/public/screenshot/我的归档1.png)
-![我的归档](./repos/public/screenshot/我的归档2.png)
+![我的归档](./docs/public/screenshot/我的归档1.png)
+![我的归档](./docs/public/screenshot/我的归档2.png)
 
-### 文章评论（未完待续)
+### 文章评论
 
-![文章评论](./repos/public/screenshot/文章评论1.png)
-![文章评论](./repos/public/screenshot/文章评论2.png)
+![文章评论](./docs/public/screenshot/文章评论1.png)
+![文章评论](./docs/public/screenshot/文章评论2.png)
 
 ## 致谢
 
@@ -80,6 +80,7 @@ yarn build
 - [brc-dd/vitepress-with-arco](https://github.com/brc-dd/vitepress-with-arco) 
 - [clark-cui/vitepress-blog-zaun](https://github.com/clark-cui/vitepress-blog-zaun) （参考文章标签的数据处理方案）
 - [dingqianwen/my-blog](https://github.com/dingqianwen/my-blog) （参考 Gitalk 配置暗黑主题）
+- [Dedicatus546/Dedicatus546.github.io](https://github.com/Dedicatus546/Dedicatus546.github.io) （参考 Gitalk 跨域调用 API 失效的解决方案）
 - [xiaoxian521/pure-admin-utils-docs](https://github.com/xiaoxian521/pure-admin-utils-docs) （参考词云组件的使用）
 - [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue) （使用部分组件及图标）
 - [antvis/G2plot](https://github.com/antvis/G2plot) （使用部分图表）

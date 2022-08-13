@@ -3,29 +3,27 @@
   "version": "1.0.0",
   "description": "Charles's personal knowledge repositories.",
   "main": "index.js",
+  "author": "Charles7c",
+  "license": "MIT",
   "scripts": {
-    "dev": "node collect-article-data.mjs && vitepress dev repos",
-    "build": "node collect-article-data.mjs && vitepress build repos",
-    "serve": "vitepress serve repos"
+    "dev": "node collect-article-data.mjs && vitepress dev docs",
+    "build": "node collect-article-data.mjs && vitepress build docs",
+    "serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.4"
-  },
-  "dependencies": {
     "@antv/g2plot": "^2.4.20",
     "@arco-design/web-vue": "^2.35.0",
     "@pureadmin/utils": "^0.0.33",
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.4",
     "fast-glob": "^3.2.11",
-    "gitalk": "^1.7.2",
     "gray-matter": "^4.0.3",
     "unplugin-vue-components": "0.22.0",
+    "vitepress": "^1.0.0-alpha.4",
     "vue": "^3.2.37"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Charles7c/charles7c.github.io.git"
+  "dependencies": {
+    "gitalk": "^1.7.2"
   },
   "keywords": [
     "blog",
@@ -36,9 +34,10 @@
     "vite",
     "vue"
   ],
-  "author": "Charles7c",
-  "license": "MIT",
-  "homepage": "https://github.com/Charles7c/charles7c.github.io#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charles7c/charles7c.github.io.git"
+  },
   "bugs": {
     "url": "https://github.com/Charles7c/charles7c.github.io/issues"
   }

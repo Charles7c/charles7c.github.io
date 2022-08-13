@@ -3,6 +3,7 @@ title: 关于我
 aside: false
 editLink: false
 lastUpdated: false
+showComment: false
 ---
 
 <img width=100% src="../public/img/svg/about-me-header.svg" alt="头部图" />

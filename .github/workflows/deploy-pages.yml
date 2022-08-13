@@ -17,24 +17,28 @@ jobs:
   # 任务1: 部署 GitHub Pages
   deploy-github-pages:
     runs-on: ubuntu-latest
-
     steps:
       # 1、检出源码
       - name: Checkout
         uses: actions/checkout@v3
-
-      # 2、安装模块并打包
-      - name: Install and Build
-        run: |
-          yarn install
-          yarn build
-
-      # 3、部署 GitHub Pages
+      # 2、安装 Node 环境
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      # 3、安装依赖
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      # 4、打包
+      - name: Build
+        run: yarn build
+      # 5、部署 GitHub Pages
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           BRANCH: pages
-          FOLDER: repos/.vitepress/dist
+          FOLDER: docs/.vitepress/dist
 
   # 任务2: 部署 Gitee Pages
   deploy-gitee-pages:

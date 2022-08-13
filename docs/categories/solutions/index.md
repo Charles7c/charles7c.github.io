@@ -2,6 +2,7 @@
 editLink: false
 lastUpdated: false
 aside: false
+showComment: false
 ---
 
 # 方案春秋志
