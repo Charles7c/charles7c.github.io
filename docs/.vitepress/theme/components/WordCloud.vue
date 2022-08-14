@@ -15,7 +15,6 @@ const props = defineProps({
   }
 })
 
-
 // 渲染WordCloud
 const theme = G2.getTheme('dark')
 G2.registerTheme('customize-dark', {
@@ -42,7 +41,7 @@ debounce(() => {
     random: () => 0.5,
   })
   wordCloud.render()
-}, 20)()
+}, 5)()
 
 watch(isDark, (value) => {
   value

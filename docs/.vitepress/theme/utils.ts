@@ -21,3 +21,16 @@ export function getQueryParam(paramName) {
   } 
   return null
 }
+
+/**
+ * 跳转到指定链接
+ * @param paramName 参数名
+ * @param paramValue 参数值
+ */
+export function goToLink(url, paramName, paramValue) {
+  if (paramName) {
+    location.href = url + '?' + paramName + '=' + paramValue
+  } else {
+    location.href = url
+  }
+}

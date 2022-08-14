@@ -26,7 +26,7 @@
       </span>
       <span class="meta-content">
         <span v-for="(category, index) in categories" :key="index">
-          <a href="javascript:void(0);" @click="router.go('/archives.html?category=' + category)" target="_self" title="按分类归档">{{ category }}</a>
+          <a href="javascript:void(0);" @click="goToLink('/archives.html', 'category', category)" target="_self" title="按分类归档">{{ category }}</a>
           <span v-if="index != categories.length - 1">, </span>
         </span>
       </span>
@@ -37,7 +37,7 @@
       </span>
       <span class="meta-content">
         <span v-for="(tag, index) in tags" :key="index">
-          <a href="javascript:void(0);" @click="router.go('/archives.html?tag=' + tag)" target="_self" title="按标签归档">{{ tag }}</a>
+          <a href="javascript:void(0);" @click="goToLink('/archives.html', 'tag', tag)" target="_self" title="按标签归档">{{ tag }}</a>
           <span v-if="index != tags.length - 1">, </span>
         </span>
       </span>
@@ -47,15 +47,14 @@
 
 <script lang="ts" setup>
 import { reactive, toRefs } from 'vue'
-import { useData, useRouter } from 'vitepress'
+import { useData } from 'vitepress'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { goToLink } from '../utils.ts'
 
 dayjs.extend(relativeTime)
 dayjs.locale('zh-cn')
-
-const router = useRouter()
 
 // 定义文章属性
 const props = defineProps({
