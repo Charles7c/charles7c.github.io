@@ -13,7 +13,6 @@ showComment: false
         <img src="https://readme-typing-svg.herokuapp.com?size=35&color=40B883&center=true&vCenter=true&width=1000&lines=Hello%2C+welcome+to+my+page;My+web+name+is+Charles7c;I'm+currently+working+on+java+backend+development;My+motto:+“东隅已逝，桑榆非晚”;Thanks" alt="欢迎语" />
     </a>
 </div>
-
 <br>
 
 <div align="center">
@@ -29,11 +28,11 @@ showComment: false
     <a href="https://blog.csdn.net/Charles_7c" target="_blank" style="display: inline-block;">
         <img src="https://img.shields.io/badge/CSDN-查尔斯-FC5531?logo=C&logoColor=FC5531" alt="CSDN个人主页" />
     </a>&nbsp;
-    <a href="https://www.yuque.com/charles7c" target="_blank" style="display: inline-block;">
-        <img src="https://img.shields.io/badge/语雀-查尔斯-38D27D" alt="语雀个人主页" />
-    </a>&nbsp;
     <a href="https://juejin.cn/user/685744115170142" target="_blank" style="display: inline-block;">
         <img src="https://img.shields.io/badge/掘金-查尔斯-1E80FF" alt="掘金个人主页" />
+    </a>&nbsp;
+    <a href="https://www.yuque.com/charles7c" target="_blank" style="display: inline-block;">
+        <img src="https://img.shields.io/badge/语雀-查尔斯-38D27D" alt="语雀个人主页" />
     </a>&nbsp;
 </div>
 
