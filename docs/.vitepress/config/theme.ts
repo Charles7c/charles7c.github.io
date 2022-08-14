@@ -46,17 +46,6 @@ export const themeConfig: DefaultTheme.Config = {
   // 自定义扩展: 评论配置
   commentConfig: {
     type: 'gitalk',
-    options: {
-      clientID: '1de126ce1fbdbe049709',
-      clientSecret: '035fe49874a43e5cefc28a99b7e40b1925319c62',
-      repo: 'charles7c.github.io-comments',
-      owner: 'Charles7c',
-      admin: ['Charles7c'],
-      language: 'zh-CN',
-      distractionFreeMode: false,
-      // 默认: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
-      proxy: 'https://cors-server-ecru.vercel.app/github_access_token'
-    },
     showComment: true // 是否显示评论
   }
 }

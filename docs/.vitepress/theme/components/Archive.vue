@@ -81,8 +81,8 @@
 <script lang="ts" setup>
 import { computed, watchEffect } from 'vue'
 import { useRouter } from 'vitepress'
-import articleData from '../../../../../article-data.json'
-import { formatDate, getQueryParam } from '../../utils.ts'
+import articleData from '../../../../article-data.json'
+import { formatDate, getQueryParam } from '../utils.ts'
 
 const router = useRouter()
 

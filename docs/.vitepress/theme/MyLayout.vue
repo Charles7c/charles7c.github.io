@@ -13,8 +13,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 import md5 from 'blueimp-md5'
-import Comment from './components/Comment.vue'
-import Footer from './components/Footer.vue'
 
 const { Layout } = DefaultTheme
 const { page, theme, frontmatter } = useData()

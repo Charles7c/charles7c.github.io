@@ -12,7 +12,7 @@ const articleData = await Promise.all(
     const { data, path } = file
     return {
       ...data,
-      path: path.replace(/\.md$/, '.html').replace('./repos/', '')
+      path: path.replace(/\.md$/, '.html').replace('./docs/', '')
     }
   })
 )

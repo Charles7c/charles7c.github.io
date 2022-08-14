@@ -60,8 +60,8 @@
 <script lang="ts" setup>
 import { computed, ref, onMounted } from 'vue'
 import md5 from 'blueimp-md5'
-import articleData from '../../../../../article-data.json'
-import { formatDate, getQueryParam } from '../../utils.ts'
+import articleData from '../../../../article-data.json'
+import { formatDate, getQueryParam } from '../utils.ts'
 
 const tags = computed(() => initTags(articleData))
 /**

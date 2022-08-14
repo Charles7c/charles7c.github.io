@@ -4,7 +4,7 @@ import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 export default {
   plugins: [
     Components({
-      dirs: ['.vitepress/theme/components/dynamic'],
+      dirs: ['.vitepress/theme/components'],
       include: [/\.vue$/, /\.md$/],
       resolvers: [ArcoResolver({ sideEffect: true, resolveIcons: true })]
     })

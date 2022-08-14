@@ -11,19 +11,20 @@
     "serve": "vitepress serve docs"
   },
   "devDependencies": {
+    "unplugin-vue-components": "0.22.0",
+    "vitepress": "^1.0.0-alpha.4",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
     "@antv/g2plot": "^2.4.20",
     "@arco-design/web-vue": "^2.35.0",
     "@pureadmin/utils": "^0.0.33",
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.4",
     "fast-glob": "^3.2.11",
+    "gitalk": "^1.7.2",
     "gray-matter": "^4.0.3",
-    "unplugin-vue-components": "0.22.0",
-    "vitepress": "^1.0.0-alpha.4",
-    "vue": "^3.2.37"
-  },
-  "dependencies": {
-    "gitalk": "^1.7.2"
+    "jquery": "^3.6.0"
   },
   "keywords": [
     "blog",
