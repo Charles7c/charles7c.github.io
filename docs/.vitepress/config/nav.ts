@@ -11,7 +11,7 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/categories/'
   },
   {
-    text: '我的小课',
+    text: '我的小册',
     items: [
       { text: 'MyBatis快速入门', link: '/courses/mybatis/index', activeMatch: '/courses/mybatis/' }
     ],
