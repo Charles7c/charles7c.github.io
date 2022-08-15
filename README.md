@@ -26,7 +26,7 @@ git clone https://github.com/Charles7c/charles7c.github.io.git
 yarn install
 # 3.dev 运行，访问：http://localhost:3000
 yarn dev
-# 4.打包，文件存放位置：repos/.vitepress/dist
+# 4.打包，文件存放位置：docs/.vitepress/dist
 yarn build
 # 5.部署
 # 5.1 在 GitHub 启用 GitHub Pages 
