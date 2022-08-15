@@ -120,7 +120,7 @@ function getItems (path: string) {
       groups.push({
         text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length}篇)`,
         collapsible: true,
-        collapsed: true,
+        collapsed: false,
         items: items
       })
     }
@@ -128,8 +128,5 @@ function getItems (path: string) {
     // 4.清空侧边栏分组下标题数组
     items = []
   })
-
-  // 5.将第一个侧边栏分组的标题展开
-  groups[0].collapsed = false
   return groups
 }
