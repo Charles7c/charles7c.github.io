@@ -17,10 +17,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
  * @returns {DefaultTheme.SidebarGroup[]}
  */
 function getItemsByDate (path: string) {
-  // 侧边栏分组数组
-  let groups: DefaultTheme.SidebarGroup[] = []
-  // 侧边栏分组下标题数组
-  let items: DefaultTheme.SidebarItem[] = []
+  // 侧边栏年份分组数组
+  let yearGroups: DefaultTheme.SidebarGroup[] = []
 
   // 1.获取所有年份目录
   sync(`docs/${path}/*`, {
@@ -28,12 +26,16 @@ function getItemsByDate (path: string) {
     objectMode: true
   }).forEach(({ name }) => {
     let year = name
+    // 侧边栏文章标题数组
+    let articleItems: DefaultTheme.SidebarItem[] = []
+
     // 2.获取所有月份目录
     sync(`docs/${path}/${year}/*`, {
       onlyDirectories: true,
       objectMode: true
     }).forEach(({ name }) => {
       let month = name
+
       // 3.获取所有日期目录
       sync(`docs/${path}/${year}/${month}/*`, {
         onlyDirectories: true,
@@ -46,36 +48,25 @@ function getItemsByDate (path: string) {
           objectMode: true
         }).forEach(({ name }) => {
           // 向前追加标题
-          items.unshift({
-            text: name,
+          articleItems.unshift({
+            text: name.replace('.md', ''),
             link: `/${path}/${year}/${month}/${day}/${name}`
           })
         })
       })
+    })
 
-      // 5.向前追加到分组
-      if (items.length > 0) {
-        // 去除标题名中的扩展名
-        for (let i = 0; i < items.length; i++) {
-          let text = items[i].text
-          items[i].text = text.replace('.md', '')
-        }
-        groups.unshift({
-          text: `${year}年${month}月 (${items.length}篇)`,
-          collapsible: true,
-          collapsed: true,
-          items: items
-        })
-      }
-
-      // 6.清空侧边栏分组下标题数组
-      items = []
+    yearGroups.unshift({
+      text: `${year}年 (共 ${articleItems.length} 篇)`,
+      collapsible: true,
+      collapsed: true,
+      items: articleItems
     })
   })
 
-  // 7.将第一个侧边栏分组的标题展开
-  groups[0].collapsed = false
-  return groups
+  // 将第一个侧边栏分组展开
+  yearGroups[0].collapsed = false
+  return yearGroups
 }
 
 /**

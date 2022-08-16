@@ -1,7 +1,7 @@
 ---
+showArticleMetadata: false
 editLink: false
 lastUpdated: false
-aside: false
 showComment: false
 ---
 
