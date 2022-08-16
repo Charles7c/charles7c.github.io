@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "unplugin-vue-components": "0.22.0",
-    "vitepress": "^1.0.0-alpha.4",
+    "vitepress": "^1.0.0-alpha.5",
     "vue": "^3.2.37"
   },
   "dependencies": {
