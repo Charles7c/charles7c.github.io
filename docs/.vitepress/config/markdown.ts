@@ -1,7 +1,11 @@
 import type { MarkdownOptions } from 'vitepress'
 
 export const markdown: MarkdownOptions = {
-  theme: 'one-dark-pro', // Shiki主题, 所有主题参见: https://github.com/shikijs/shiki/blob/main/docs/themes.md
+  // Shiki主题, 所有主题参见: https://github.com/shikijs/shiki/blob/main/docs/themes.md
+  theme: {
+    light: 'material-palenight',
+    dark: 'one-dark-pro'
+  },
   lineNumbers: true, // 启用行号
 
   // 在所有文档的<h1>标签后添加<ArticleMetadata/>组件

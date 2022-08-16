@@ -2,6 +2,10 @@ body {
   font-size: 16px;
 }
 
+pre, code, kbd, samp {
+  font-family: var(--vp-font-family-mono);
+}
+
 .vp-doc h2 {
   margin: 15px 0 16px;
   padding-top: 10px;
