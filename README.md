@@ -45,6 +45,7 @@ yarn build
 - [x] 《我的归档》：自定义时间轴，展示历史文章数据。年份前可展示生肖，可按分类、标签筛选
 - [x] 更多细节优化：敬请发现
 - [x] 文章评论：目前仅支持Gitalk
+- [x] 版权声明：文末显示版权声明，可自由配置采用的版权协议
 
 ## 部分页面截图
 
@@ -70,6 +71,10 @@ yarn build
 
 ![文章评论](./docs/public/screenshot/文章评论1.png)
 ![文章评论](./docs/public/screenshot/文章评论2.png)
+
+### 版权声明
+
+![版权声明](./docs/public/screenshot/版权声明.png)
 
 ## 致谢
 
