@@ -48,7 +48,7 @@ onMounted(() => {
     // 如果点赞，先判断有没有登录
     let $gc = $('#comment-container');
     $gc.on('click', '.gt-comment-like', function () {
-      if (!localStorage.getItem('GT_ACCESS_TOKEN')) {
+      if (!window.localStorage.getItem('GT_ACCESS_TOKEN')) {
         Message.warning({
           content:'点赞前，请您先进行登录',
           closable: true

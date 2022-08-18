@@ -43,7 +43,7 @@ const { theme, frontmatter } = useData()
 const data = reactive({
   author: frontmatter.value?.author ?? theme.value.articleMetadataConfig.author,
   authorLink: frontmatter.value?.authorLink ?? theme.value.articleMetadataConfig.authorLink,
-  articleLink: decodeURI(location.href)
+  articleLink: decodeURI(window.location.href)
 })
 const { author, authorLink, articleLink } = toRefs(data)
 </script>

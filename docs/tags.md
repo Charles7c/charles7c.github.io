@@ -6,4 +6,6 @@ lastUpdated: false
 showComment: false
 ---
 
-<Tag />
+<ClientOnly>
+	<Tag />
+</ClientOnly>

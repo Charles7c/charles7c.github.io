@@ -5,7 +5,7 @@ export default {
   plugins: [
     Components({
       dirs: ['.vitepress/theme/components'],
-      include: [/\.vue$/, /\.md$/],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [ArcoResolver({ sideEffect: true, resolveIcons: true })]
     })
   ],

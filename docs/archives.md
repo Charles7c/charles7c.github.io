@@ -6,4 +6,6 @@ lastUpdated: false
 showComment: false
 ---
 
-<Archive />
+<ClientOnly>
+	<Archive />
+</ClientOnly>

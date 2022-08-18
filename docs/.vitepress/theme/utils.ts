@@ -29,8 +29,8 @@ export function getQueryParam(paramName) {
  */
 export function goToLink(url, paramName, paramValue) {
   if (paramName) {
-    location.href = url + '?' + paramName + '=' + paramValue
+    window.location.href = url + '?' + paramName + '=' + paramValue
   } else {
-    location.href = url
+    window.location.href = url
   }
 }
