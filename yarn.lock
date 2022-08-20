@@ -2042,10 +2042,10 @@ vite@^3.0.8:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress@^1.0.0-alpha.8:
-  version "1.0.0-alpha.8"
-  resolved "https://registry.npmjs.org/vitepress/-/vitepress-1.0.0-alpha.8.tgz#b6a3b503c2ea3ed0a44a16539849c02fa996c090"
-  integrity sha512-kTRN5DCagvMqr9OjylSV9/waGg0IHrxL0hBVuJoz7ykleZq2qR02n5CaiFq5QrSB/VRBGqiVsFQzet9vJsXS8g==
+vitepress@^1.0.0-alpha.9:
+  version "1.0.0-alpha.9"
+  resolved "https://registry.npmjs.org/vitepress/-/vitepress-1.0.0-alpha.9.tgz#3426c8c6da2a63a811356f27e42fb9d521038aeb"
+  integrity sha512-+VxgjflIcssbuyUBRYjZRpQ8w25v6XnIbXFmm9qwLVaqZdC0rN6qViEp7oRwA3HUlrGxj7GEzqQjW7xj4+E83w==
   dependencies:
     "@docsearch/css" "^3.2.1"
     "@docsearch/js" "^3.2.1"

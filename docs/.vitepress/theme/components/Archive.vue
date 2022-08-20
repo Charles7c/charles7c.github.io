@@ -68,7 +68,7 @@
               <svg v-else @click="goToLink('/archives.html', 'category', article.categories[0])" role="img" viewBox="0 0 48 48" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" class="arco-icon arco-icon-bookmark" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" style="color: #00b42a;"><path d="M16 16h16M16 24h8"></path><path d="M24 41H8V6h32v17"></path><path d="M30 29h11v13l-5.5-3.5L30 42V29Z"></path></svg>
               <a :href="article.path" class="title" target="_blank">{{ article.title }}</a>
               <br>
-              <ArticleMetadata :article="article" :showCategory="false" />
+              <ArticleMetadata :article="article" />
             </span>
           </div>
         </div>
