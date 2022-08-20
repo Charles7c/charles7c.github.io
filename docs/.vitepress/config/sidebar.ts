@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { sync } from 'fast-glob'
+import matter from 'gray-matter'
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/categories/issues/': getItemsByDate("categories/issues"),
@@ -22,13 +23,16 @@ function getItemsByDate (path: string) {
   // 侧边栏年份分组数组
   let yearGroups: DefaultTheme.SidebarGroup[] = []
 
+  // 置顶数组
+  let topArticleItems: DefaultTheme.SidebarItem[] = []
+
   // 1.获取所有年份目录
   sync(`docs/${path}/*`, {
     onlyDirectories: true,
     objectMode: true
   }).forEach(({ name }) => {
     let year = name
-    // 侧边栏文章标题数组
+    // 年份数组
     let articleItems: DefaultTheme.SidebarItem[] = []
 
     // 2.获取所有月份目录
@@ -48,16 +52,27 @@ function getItemsByDate (path: string) {
         sync(`docs/${path}/${year}/${month}/${day}/*`, {
           onlyFiles: true,
           objectMode: true
-        }).forEach(({ name }) => {
-          // 向前追加标题
+        }).forEach((article) => {
+          const articleFile = matter.read(`${article.path}`)
+          const { data } = articleFile
+          if (data.isTop) {
+            // 向置顶分组前追加标题
+            topArticleItems.unshift({
+              text: data.title,
+              link: `/${path}/${year}/${month}/${day}/${data.title}`
+            })
+          }
+
+          // 向年份分组前追加标题
           articleItems.unshift({
-            text: name.replace('.md', ''),
-            link: `/${path}/${year}/${month}/${day}/${name}`
+            text: data.title,
+            link: `/${path}/${year}/${month}/${day}/${data.title}`
           })
         })
       })
     })
 
+    // 添加年份分组
     yearGroups.unshift({
       text: `${year}年 (共 ${articleItems.length} 篇)`,
       collapsible: true,
@@ -66,8 +81,21 @@ function getItemsByDate (path: string) {
     })
   })
 
-  // 将第一个侧边栏分组展开
-  yearGroups[0].collapsed = false
+  if (topArticleItems.length > 0) {
+    // 添加置顶分组
+    yearGroups.unshift({
+      text: `🔝我的置顶 (共 ${topArticleItems.length} 篇)`,
+      collapsible: true,
+      collapsed: false,
+      items: topArticleItems
+    })
+
+    // 将最近年份分组展开
+    yearGroups[1].collapsed = false
+  } else {
+    // 将最近年份分组展开
+    yearGroups[0].collapsed = false
+  }
   return yearGroups
 }
 
