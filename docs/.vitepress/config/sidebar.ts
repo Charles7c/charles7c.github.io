@@ -84,7 +84,7 @@ function getItemsByDate (path: string) {
   if (topArticleItems.length > 0) {
     // 添加置顶分组
     yearGroups.unshift({
-      text: `🔝我的置顶 (共 ${topArticleItems.length} 篇)`,
+      text: `📑 我的置顶 (共 ${topArticleItems.length} 篇)`,
       collapsible: true,
       collapsed: false,
       items: topArticleItems
