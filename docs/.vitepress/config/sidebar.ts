@@ -59,14 +59,14 @@ function getItemsByDate (path: string) {
             // 向置顶分组前追加标题
             topArticleItems.unshift({
               text: data.title,
-              link: `/${path}/${year}/${month}/${day}/${data.title}`
+              link: `/${path}/${year}/${month}/${day}/${article.name.replace('.md', '')}`
             })
           }
 
           // 向年份分组前追加标题
           articleItems.unshift({
             text: data.title,
-            link: `/${path}/${year}/${month}/${day}/${data.title}`
+            link: `/${path}/${year}/${month}/${day}/${article.name.replace('.md', '')}`
           })
         })
       })
