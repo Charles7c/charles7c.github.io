@@ -36,7 +36,7 @@ if (type.value && type.value == 'gitalk') {
     language: 'zh-CN',
     distractionFreeMode: false,
     // 默认: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
-    proxy: 'https://cors-server-charles7c.vercel.app/github_access_token'
+    proxy: 'https://vercel.charles7c.top/github_access_token'
   })
 }
 
