@@ -40,7 +40,7 @@ tags:
 
 1. 克隆后端项目仓库到本地（笔者没有在 git bash 中操作，而是在 cmd 中进行的）
 
-   ```bash
+   ```sh
    git clone https://gitee.com/Charles7c/eladminx.git
    cd eladminx
    ```
@@ -49,7 +49,7 @@ tags:
 
 2. 将前端仓库作为后端仓库的远程仓库，起别名为 frontend（这个随便起）
 
-   ```bash
+   ```sh
    git remote add -f frontend https://gitee.com/Charles7c/eladminx-web.git
    ```
 
@@ -57,7 +57,7 @@ tags:
 
 3. 将前端仓库的 master 分支（自己选择哪个分支）合并到后端仓库
 
-   ```bash
+   ```sh
    git merge --strategy ours --no-commit frontend/master
    ```
 
@@ -71,7 +71,7 @@ tags:
 
    这是因为后端仓库的本地分支历史记录和前端仓库的历史记录不匹配，人家 Git 怀疑你是不是合并错了，但咱们知道就是要合并，写个声明 “表明出事儿与人家无关”就可以了。
 
-   ```bash
+   ```sh
    git merge --strategy ours --allow-unrelated-histories --no-commit frontend/master
    ```
 
@@ -79,20 +79,20 @@ tags:
 
 4. 将前端仓库的 master 分支内容放到在后端仓库内刚建好的 eladminx-web 文件夹中
 
-   ```bash
+   ```sh
    mkdir eladminx-web
    git read-tree --prefix=eladminx-web/ -u frontend/master
    ```
 
 5. 提交刚才的修改（毕竟你刚才又合并又创建文件夹的，肯定要提交修改啊）
 
-   ```bash
+   ```sh
    git commit -m "迁移前端项目仓库，与后端项目仓库合并"
    ```
 
 6. 最后将本地的修改强制推送到远程仓库即可
 
-   ```bash
+   ```sh
    git push --force
    ```
 

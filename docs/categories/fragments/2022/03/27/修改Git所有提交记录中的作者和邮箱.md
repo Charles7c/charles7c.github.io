@@ -22,7 +22,7 @@ tags:
 
 2. 复制下方脚本内容到脚本文件中，然后编辑替换好错误邮箱、正确作者和邮箱（如果是在 cmd 中执行，#!/bin/sh 就替换为 #!/bin/bat）
 
-   ```shell
+   ```sh
    #!/bin/sh
    
    git filter-branch --env-filter '

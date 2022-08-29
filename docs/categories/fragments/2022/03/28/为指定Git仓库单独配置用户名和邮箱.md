@@ -29,7 +29,7 @@ tags:
 
 我们先一起回忆下全局配置用户名和邮箱的方法，在任意 Git 仓库里进行如下配置即可：
 
-```shell
+```sh
 # 全局配置用户名
 git config --global user.name "Charles7c"
 # 全局配置邮箱
@@ -40,7 +40,7 @@ git config --global user.email "charles7c@126.com"
 
 局部配置的方法也是非常简单，首先进入指定的 Git 仓库，然后进行如下配置即可：
 
-```shell
+```sh
 # 进入指定 Git 仓库
 cd HelloWorld
 # 局部配置用户名
@@ -55,7 +55,7 @@ git config user.email "charles7c@126.com"
 当然了，你也可以去其他没进行局部配置的仓库看看，看看它们的用户名和邮箱有没有受到影响。
 :::
 
-```shell
+```sh
 # 查看所在 Git 仓库配置的用户名
 git config user.name
 # 查看所在 Git 仓库配置的邮箱

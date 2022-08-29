@@ -22,13 +22,13 @@ tags:
 
 1. 修改最后一次提交的作者和邮箱信息
 
-   ```bash
+   ```sh
    git commit --amend --author="Charles7c <charles7c@126.com>"
    ```
 
 2. 最后将本地的修改强制推送到远程仓库即可（如果你没推送到远程仓库，这步就不需要执行了）
 
-   ```bash
+   ```sh
    git push --force
    ```
 
@@ -36,7 +36,7 @@ tags:
 
 **C：** 另外说一下，如果你要修改最后一次提交记录的 commit message，执行下面的命令就可以了。
 
-```bash
+```sh
 git commit --amend -m "要修改为的提交信息"
 ```
 
