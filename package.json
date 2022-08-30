@@ -12,18 +12,18 @@
   },
   "devDependencies": {
     "unplugin-vue-components": "^0.22.4",
-    "vitepress": "^1.0.0-alpha.12",
-    "vue": "^3.2.37"
+    "vitepress": "^1.0.0-alpha.13",
+    "vue": "^3.2.38"
   },
   "dependencies": {
     "@antv/g2plot": "^2.4.20",
-    "@arco-design/web-vue": "^2.35.0",
+    "@arco-design/web-vue": "^2.35.2",
     "blueimp-md5": "^2.19.0",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "fast-glob": "^3.2.11",
-    "gitalk": "^1.7.2",
+    "gitalk": "^1.8.0",
     "gray-matter": "^4.0.3",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.1"
   },
   "keywords": [
     "blog",
