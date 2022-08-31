@@ -84,7 +84,6 @@ const { author, authorLink, date, toDate, categories, tags, showCategory } = toR
 }
 .meta-item {
   display: inline-block;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   vertical-align: middle;
