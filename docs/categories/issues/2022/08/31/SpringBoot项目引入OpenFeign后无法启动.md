@@ -94,6 +94,20 @@ public class FeignConfig {
         }
         return Logger.Level.FULL;
     }
+    
+    /**
+     * 解决 javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException: No subject alternative names present
+     * @return /
+     */
+    @Bean
+    public Client client() {
+        try {
+            SSLContext context = new SSLContextBuilder().loadTrustMaterial(null, (chain, authType) -> true).build();
+            return new Client.Default(context.getSocketFactory(), new NoopHostnameVerifier());
+        } catch (Exception e) {
+            return new Client.Default(null, null);
+        }
+    }
 }
 ```
 
