@@ -10,13 +10,13 @@ tags:
  - SQL优化
 ---
 
-# 个人SQL优化技巧
+# 个人SQL优化技巧 <Badge text="持续更新" type="warning" />
 
 <!-- more -->
 
 ## 查询优化
 
-### （建议）如果确定结果只有一条，使用 LIMIT 1
+### 如果确定结果只有一条，使用 LIMIT 1 <Badge text="建议" />
 
 我们在根据一个或多个条件查询数据时，如果确定查询结果只有一条，可以在结尾处添加 LIMIT 1 进行限制。
 
@@ -36,7 +36,7 @@ SELECT * FROM `sys_user` WHERE `email` = 'charles7c@126.com' LIMIT 1;
 ```
 :::
 
-### （强制）避免隐式类型转换
+### 避免隐式类型转换 <Badge text="强制" type="error" />
 
 我们在使用 MySQL 时，或多或少都感受过 MySQL 的隐式类型转换。例如：user_id 是整数类型，但是依然可以使用字符串类型数据来进行判断。MySQL 帮你做完这种隐式类型转换是有代价的，什么代价呢？ **索引不再生效了而已** 。
 
@@ -54,7 +54,7 @@ SELECT * FROM `sys_user` WHERE `user_id` = 10;
 
 ## 数据库表设计
 
-### （建议）列名带上前缀
+### 列名带上前缀 <Badge text="建议" />
 
 部分列名带上前缀或缩写，可以有效减少在连接查询、ORM 映射等场景下刻意起别名或思考区分不同的问题。
 
@@ -80,7 +80,7 @@ LEFT JOIN `sys_contact_user` cu ON c.`customer_id` = cu.`customer_id`
 ```
 :::
 
-### （建议）非负数列添加UNSIGNED约束
+### 非负数列添加UNSIGNED约束 <Badge text="建议" />
 
 在大部分的数据存储场景中，我们只会使用正整数，如果能确定该列为非负数，建议添加 `UNSIGNED` 无符号约束。
 
@@ -93,7 +93,7 @@ tinyint：0～255
 
 ## 数据库设计
 
-### （建议）utf8mb4编码
+### utf8mb4编码 <Badge text="建议" />
 
 ::: tip 如果要存储特殊字符（例如：emoij表情符），使用 utf8mb4 编码。
 MySQL 5.5.3 后增加了一个新的编码： `utf8mb4` ，其中 mb4 是 most bytes 4 的意思，用于兼容四字节的 unicode。  

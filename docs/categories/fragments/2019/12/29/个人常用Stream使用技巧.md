@@ -11,7 +11,7 @@ tags:
  - Lambda
 ---
 
-# 个人常用Stream使用技巧
+# 个人常用Stream使用技巧 <Badge text="持续更新" type="warning" />
 
 <!-- more -->
 

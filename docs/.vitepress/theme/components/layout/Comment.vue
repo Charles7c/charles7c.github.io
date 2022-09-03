@@ -10,7 +10,7 @@ import $ from 'jquery'
 import { Message } from '@arco-design/web-vue'
 import '@arco-design/web-vue/es/message/style/css.js'
 import Gitalk from 'gitalk'
-import '../styles/gitalk.css'
+import '../../styles/components/gitalk.css'
 
 // 定义属性
 const props = defineProps({

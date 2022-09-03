@@ -45,6 +45,7 @@ yarn build
 - [x] 《我的归档》：自定义时间轴，展示历史文章数据。年份前可展示生肖，可按分类、标签筛选
 - [x] 文章评论：目前仅支持Gitalk
 - [x] 版权声明：文末显示版权声明，可自由配置采用的版权协议
+- [x] 徽章：标题后可显示徽章，此功能来自于 VitePress 未合并的 PR，如若后续被合并，则改用官方主题功能
 - [x] 更多细节优化：敬请发现
 
 ## 部分页面截图
@@ -80,6 +81,10 @@ yarn build
 
 ![版权声明](./docs/public/screenshot/版权声明.png)
 
+### 徽章
+
+![徽章](./docs/public/screenshot/徽章.png)
+
 ## 致谢
 
 - [vuejs/vitepress](https://github.com/vuejs/vitepress) （本知识库基于 vitepress 构建）
@@ -93,6 +98,7 @@ yarn build
 - [xiaoxian521/pure-admin-utils-docs](https://github.com/xiaoxian521/pure-admin-utils-docs) （参考词云组件的使用）
 - [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue) （使用部分组件及图标）
 - [antvis/G2plot](https://github.com/antvis/G2plot) （使用部分图表）
+- [richardo2016/vitepress-pr](https://github.com/vuejs/vitepress/pull/1134) （使用徽章）
 - ......
 
 ## License

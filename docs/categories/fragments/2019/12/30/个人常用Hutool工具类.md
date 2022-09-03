@@ -11,7 +11,7 @@ tags:
  - Hutool
 ---
 
-# 个人常用Hutool工具类
+# 个人常用Hutool工具类 <Badge text="持续更新" type="warning" />
 
 ## 前言
 

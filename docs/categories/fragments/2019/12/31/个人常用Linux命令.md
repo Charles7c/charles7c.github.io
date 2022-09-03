@@ -9,7 +9,7 @@ tags:
  - Linux
 ---
 
-# 个人常用Linux命令
+# 个人常用Linux命令 <Badge text="持续更新" type="warning" />
 
 <!-- more -->
 

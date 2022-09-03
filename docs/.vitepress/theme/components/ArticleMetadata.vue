@@ -26,7 +26,7 @@
       </span>
       <span class="meta-content">
         <span v-for="(category, index) in categories" :key="index">
-          <a href="javascript:void(0);" @click="goToLink('/archives.html', 'category', category)" target="_self" title="按分类归档">{{ category }}</a>
+          <a href="javascript:void(0);" @click="goToLink('/archives.html', 'category', category)" target="_self" :title="category">{{ category }}</a>
           <span v-if="index != categories.length - 1">, </span>
         </span>
       </span>
@@ -37,7 +37,7 @@
       </span>
       <span class="meta-content">
         <span v-for="(tag, index) in tags" :key="index">
-          <a href="javascript:void(0);" @click="goToLink('/archives.html', 'tag', tag)" target="_self" title="按标签归档">{{ tag }}</a>
+          <a href="javascript:void(0);" @click="goToLink('/archives.html', 'tag', tag)" target="_self" :title="tag">{{ tag }}</a>
           <span v-if="index != tags.length - 1">, </span>
         </span>
       </span>

@@ -10,7 +10,7 @@ tags:
  - SQL函数
 ---
 
-# 个人常用SQL函数
+# 个人常用SQL函数 <Badge text="持续更新" type="warning" />
 
 ## 时间函数
 

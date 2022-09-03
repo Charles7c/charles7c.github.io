@@ -19,6 +19,9 @@ import { computed } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 import md5 from 'blueimp-md5'
+import Copyright from './components/layout/Copyright.vue'
+import Comment from './components/layout/Comment.vue'
+import Footer from './components/layout/Footer.vue'
 
 const { Layout } = DefaultTheme
 const { page, theme, frontmatter } = useData()
