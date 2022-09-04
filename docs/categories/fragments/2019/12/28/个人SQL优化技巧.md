@@ -80,20 +80,52 @@ LEFT JOIN `sys_contact_user` cu ON c.`customer_id` = cu.`customer_id`
 ```
 :::
 
-### 非负数列添加UNSIGNED约束 <Badge text="建议" />
+### 非负数列添加UNSIGNED无符号约束 <Badge text="建议" />
 
 在大部分的数据存储场景中，我们只会使用正整数，如果能确定该列为非负数，建议添加 `UNSIGNED` 无符号约束。
 
 ```sql
-# 不添加 UNSIGNED 约束
-tinyint：-128～127
-# 添加 UNSIGNED 约束
-tinyint：0～255
+# 不添加 UNSIGNED 约束，取值范围
+TINYINT：[-128, 127]
+# 添加 UNSIGNED 约束，取值范围
+TINYINT：[0, 255]
+```
+
+### 合理采用整数类型 <Badge text="建议" />
+
+例如：状态类的信息，状态再多能有多少个，采用 `TINYINT` 即可，减少存储空间占用。
+
+下方表数据整理于：[MySQL 5.7官方文档/数据类型/数值数据类型/整数类型](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html)
+
+| 类型      | 存储（字节） | 取值范围                  | 取值范围（无符号） |
+| :-------- | :----------- | :------------------------ | :----------------- |
+| TINYINT   | 1            | [-128, 127]               | [0, 255]           |
+| SMALLINT  | 2            | [-32768, 32767]           | [0, 65535]         |
+| MEDIUMINT | 3            | [-8388608, 8388607]       | [0, 16777215]      |
+| INT       | 4            | [-2147483648, 2147483647] | [0, 4294967295]    |
+| BIGINT    | 8            | [-2^63^, 2^63^-1]         | [0, 2^64^-1]       |
+
+### 布尔列采用bit类型 <Badge text="建议" />
+
+例如：是否删除这种只有两种状态的信息，在表设计时建议对该列设置 `bit` 类型（0表示否/假/false，1表示是/真/true），在程序语言中可以采用 boolean 类型对应。
+
+```sql
+`delFlag` bit(1) NOT NULL DEFAULT b'0' COMMENT '删除标识（0否 1是）'
+```
+
+```java
+@Data
+public class User {
+    /**
+     * 删除标识（0否 1是）
+     */
+    private Boolean delFlag;
+}
 ```
 
 ## 数据库设计
 
-### utf8mb4编码 <Badge text="建议" />
+### 采用utf8mb4编码 <Badge text="建议" />
 
 ::: tip 如果要存储特殊字符（例如：emoij表情符），使用 utf8mb4 编码。
 MySQL 5.5.3 后增加了一个新的编码： `utf8mb4` ，其中 mb4 是 most bytes 4 的意思，用于兼容四字节的 unicode。  
