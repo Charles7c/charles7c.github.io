@@ -17,7 +17,7 @@ tags:
 
 ### 查询系统详情
 
-```sh
+```shell
 # 详细输出所有信息，依次为内核名称，主机名，内核版本号，内核版本，硬件名，处理器类型，硬件平台类型，操作系统名称
 uname -a
 ```
@@ -26,7 +26,7 @@ uname -a
 
 ### 查询系统发行版本
 
-```sh
+```shell
 # 只适合Redhat系的Linux
 cat /etc/redhat-release
 ```
@@ -35,14 +35,14 @@ cat /etc/redhat-release
 
 ### 查看CPU信息
 
-```sh
+```shell
 # 逻辑CPU数量和CPU型号
 cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
 ```
 
 ![201912312031888](../../../../../public/img/2019/12/31/201912312031888.png)
 
-```sh
+```shell
 # CPU真实数量（有时候虽然逻辑CPU是8核，但可能是由两颗4核CPU构成的）
 cat /proc/cpuinfo | grep physical | uniq -c
 ```
@@ -51,7 +51,7 @@ cat /proc/cpuinfo | grep physical | uniq -c
 
 ### 查询环境变量
 
-```sh
+```shell
 env
 # 过滤环境变量中的配置
 env | grep xxx
@@ -65,37 +65,37 @@ CentOS 7.5
 
 ### 查看防火墙状态
 
-```sh
+```shell
 systemctl status firewalld
 ```
 
 ### 开启防火墙
 
-```sh
+```shell
 systemctl start firewalld
 ```
 
 ### 关闭防火墙
 
-```sh
+```shell
 systemctl stop firewalld
 ```
 
 ### 查看开放的端口列表
 
-```sh
+```shell
 firewall-cmd --zone=public --list-ports
 ```
 
 ### 查看防火墙某个端口是否开放
 
-```sh
+```shell
 firewall-cmd --query-port=端口号/tcp
 ```
 
 ### 开放端口
 
-```sh
+```shell
 # 开放某个端口
 firewall-cmd --zone=public --add-port=端口号/tcp --permanent
 # 开放指定端口范围
@@ -104,13 +104,13 @@ firewall-cmd --zone=public --add-port=端口号起-端口号止/tcp --permanent
 
 ### 关闭端口
 
-```sh
+```shell
 firewall-cmd --zone=public --remove-port=端口号/tcp --permanent
 ```
 
 ### 重启防火墙（防火墙配置立即生效）
 
-```sh
+```shell
 firewall-cmd --reload
 ```
 
@@ -118,7 +118,7 @@ firewall-cmd --reload
 
 ### 查询RAM信息(内存)
 
-```sh
+```shell
 # 用于查看有关系统 RAM 使用情况的信息（带大小单位）
 free -h
 ```
@@ -127,22 +127,52 @@ free -h
 
 ### 查询ROM信息(磁盘)
 
-```sh
+```shell
 # 以磁盘分区为单位查看文件系统，可以获取硬盘被占用了多少空间，目前还剩下多少空间等信息
 df -h
 ```
 
 ![201912312032777](../../../../../public/img/2019/12/31/201912312032777.png)
 
-### 查看进程内存占用
+### 查看当前进程状态
 
-```sh
+```shell
+ps
+```
+
+#### 常见用法
+
+```shell
+# 查询指定进程
+ps -ef | grep 进程关键字
+```
+
+查询后我们往往还会使用 `kill` 或 `pkill` 命令来结束指定进程。
+
+```shell
+# 通过进程ID，结束指定进程（-9代表无条件退出）
+kill -9 进程ID
+
+# 通过进程名，结束指定进程
+# 例如：nginx启动后是两个进程，想要结束还需要分别 kill -9，直接 pkill -9 nginx 一次就搞定了
+pkill -9 进程名
+```
+
+### 实时显示进程状态
+
+```shell
 # 空格键手动刷新，按 q 键退出
 top
 ```
 
 ::: tip 笔者说
-Windows 任务管理器大家都特别熟悉，Linux 的 top 命令类似于此。
+top 命令也是用来查看进程状态的，相比于 ps 命令，top 命令不同之处如下：
+1. top 命令可以持续监视进程信息，ps 命令是进程运行情况的 "快照"
+2. top 命令可以监视CPU负载、内存负载等综合系统信息
+3. top 命令可以监视进程的CPU、内存占用情况，按占用资源的大小降序排列
+3. top 命令可以操作进程，改变进程优先级
+
+简单记忆的话就是：ps 命令一般是用于查看某个进程是否在运行的命令，而 top 命令一般是用于查看哪些进程占用CPU、内存较高，好让我们能对它进行“优化”的命令。
 :::
 
 ![202209012051588](../../../../../public/img/2019/12/31/202209012051588.png)
@@ -214,4 +244,15 @@ Windows 任务管理器大家都特别熟悉，Linux 的 top 命令类似于此�
 | %MEM                        | 进程使用的物理内存百分比                                     |
 | TIME+                       | 进程使用的 CPU 时间总计，单位1/100秒                         |
 | COMMAND                     | 命令名                                                       |
+
+## 文件编辑相关
+
+### 文本编辑器
+
+```shell
+# 如果指定位置不存在该名称文件，则在保存时自动新建
+vi 文件名
+# vim 是 vi 的升级版，类似于 notepad 和 notepad++，额外支持语法高亮等功能
+vim 文件名
+```
 
