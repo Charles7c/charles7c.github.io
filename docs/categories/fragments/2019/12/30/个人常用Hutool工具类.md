@@ -13,8 +13,6 @@ tags:
 
 # 个人常用Hutool工具类 <Badge text="持续更新" type="warning" />
 
-## 前言
-
 **C：** 技术圈常说一句：“你要会写轮子，也要会用轮子”。工作的时候，为了提升开发效率，节约开发时间，也常常提醒自己不要重复造 “轮子”。
 
 每次开启一个新项目，除了搭建项目必备环境之外，必然要整理一下之前项目沉淀下来的工具类，然后 C V 大法。习惯了一些工具类后，新项目中用不了或是换一下总是感觉缺点什么，再加上每个人都有自己遇到或沉淀的工具类，项目中遇到工具类重复也是很常见的事儿。
@@ -29,7 +27,7 @@ tags:
 
 ## 判断相等
 
-### Java官方
+### 传统用法
 
 判断两个内容相等很常见了吧？
 
@@ -62,7 +60,9 @@ public static boolean equals(Object a, Object b) {
 
 在 Java 中，判断不同内容是否相等有多种情况，这在《阿里巴巴Java开发手册》中也有强调，笔者用 ObjectUtil 分别示范下不同情况的使用方法。
 
-> 【强制】所有整型包装类对象之间值的比较，全部使用 equals 方法比较。 说明：对于 Integer var = ? 在-128 至 127 之间的赋值，Integer 对象是在 IntegerCache.cache 产生， 会复用已有对象，这个区间内的 Integer 值可以直接使用==进行判断，但是这个区间之外的所有数据，都 会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用 equals 方法进行判断。 
+::: warning 《阿里巴巴Java开发手册》
+【强制】所有整型包装类对象之间值的比较，全部使用 equals 方法比较。 说明：对于 Integer var = ? 在-128 至 127 之间的赋值，Integer 对象是在 IntegerCache.cache 产生， 会复用已有对象，这个区间内的 Integer 值可以直接使用==进行判断，但是这个区间之外的所有数据，都 会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用 equals 方法进行判断。 
+:::
 
 ```java
 System.out.println(ObjectUtil.equal(null, null)); // true
@@ -135,9 +135,12 @@ public static boolean equals(Object obj1, Object obj2) {
     return equal(obj1, obj2);
 }
 ```
-> 【强制】BigDecimal 的等值比较应使用 compareTo()方法，而不是 equals()方法。 说明：equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo() 则会忽略精度。
->
-> 说明：equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo()则会忽略精度。
+
+::: warning 《阿里巴巴Java开发手册》
+【强制】BigDecimal 的等值比较应使用 compareTo()方法，而不是 equals()方法。 说明：equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo() 则会忽略精度。
+
+说明：equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo()则会忽略精度。
+:::
 
 诚然，从上方源代码中我们可以清楚地看到 ObjectUtil 比较的时候还区分了 BigDecimal 类型，这也轻松的解决了此强制问题。
 
@@ -166,14 +169,17 @@ public static boolean equals(BigDecimal bigNum1, BigDecimal bigNum2) {
 ```
 ### NumberUtil
 
-> 【强制】浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用 equals 来判断。
->
-> 说明：浮点数采用“尾数+阶码”的编码方式，类似于科学计数法的“有效数字+指数”的表示方式。二进 制无法精确表示大部分的十进制小数。
->
-> 解决方法：
->
-> 1. 指定一个误差范围，两个浮点数的差值在此范围之内，则认为是相等的。
-> 2. 使用 BigDecimal 来定义值，再进行浮点数的运算操作。
+::: warning 《阿里巴巴Java开发手册》
+
+【强制】浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用 equals 来判断。
+
+说明：浮点数采用“尾数+阶码”的编码方式，类似于科学计数法的“有效数字+指数”的表示方式。二进 制无法精确表示大部分的十进制小数。
+
+解决方法：
+
+1. 指定一个误差范围，两个浮点数的差值在此范围之内，则认为是相等的。
+2. 使用 BigDecimal 来定义值，再进行浮点数的运算操作。
+:::
 
 浮点数比较的时候依然可以使用 ObjectUtil，但是也可以直接采用 NumberUtil：
 
@@ -214,6 +220,186 @@ public static boolean equals(float num1, float num2) {
 }
 ```
 
-## 后记
+## 程序计时
 
-**C：** 我个人对 Hutool 还是非常认可的，经过这么久的打磨，基础工具类日趋完善，用起来也放心。各位同学，根据自己项目的实际情况来选择吧。
+### 传统用法
+
+为了计算程序执行耗时，通常的做法是在程序段前后分别记录一个时间毫秒值变量，然后用结束时间毫秒值减去开始时间毫秒值就可以了。
+
+```java
+long startTime = System.currentTimeMillis();
+
+// 要计时的程序片段
+// ...
+
+long endTime = System.currentTimeMillis();
+System.out.println("总耗时：" + (endTime - startTime) + "ms");
+```
+
+### TimeInterval
+
+实际上传统方法也没什么问题，但是当我们需要持续计时的时候，它就不是那么美丽了。Hutool 提供了 `TimeInterval` 来帮助我们实现灵活计时的需求。
+
+```java
+TimeInterval timer = DateUtil.timer();
+
+// 要计时的程序片段1
+// ...
+
+System.out.println("总耗时：" + timer.interval() + "ms");
+
+// 要计时的程序片段2
+// ...
+
+System.out.println("总耗时：" + timer.interval() + "ms");
+// ...
+```
+
+## UUID生成器
+
+### 传统用法
+
+利用 JDK 内置的 `java.util.UUID`，可以生成 32 位的 UUID，但一般我们使用的时候还要再对其“加工”一下，转换成字符串并去除连字符。
+
+```java
+UUID uuid = UUID.randomUUID();
+// 转换为字符串
+String uuidStr = uuid.toString();
+System.out.println(uuidStr); // 7f4c0b42-d066-4baa-bc24-4d74a69ea78e
+
+// 去除连字符
+String replaceUuidStr = uuidStr.replace("-", "");
+System.out.println(replaceUuidStr); // 7f4c0b42d0664baabc244d74a69ea78e
+```
+
+### IdUtil
+
+::: tip Hutool文档
+Hutool重写了java.util.UUID的逻辑，对应类为cn.hutool.core.lang.UUID，使生成不带-的UUID字符串不再需要做字符替换，性能提升一倍左右。
+:::
+
+```java
+String uuidStr = IdUtil.fastUUID();
+System.out.println(uuidStr); // f69c5c5c-73fd-4286-b338-133927789d71
+
+String simpleUuidStr = IdUtil.fastSimpleUUID();
+System.out.println(simpleUuidStr); // 6905bc8239c1489a9f6fb18cee1d6884
+// ...
+```
+
+## 获取Spring
+
+### SpringUtil
+
+::: tip Hutool文档
+使用Spring Boot时，通过依赖注入获取bean是非常方便的，但是在工具化的应用场景下，想要动态获取bean就变得非常困难，于是Hutool封装了Spring中Bean获取的工具类——SpringUtil。
+:::
+
+要使用 SpringUtil，首先要完成两个操作。
+
+1. 使用 `ComponentScan` 额外指定组件扫描包（记得别忘了也把自己的扫描包也加上）
+2. 使用 `@Import` 导入 SpringUtil 类
+
+```java
+@SpringBootApplication
+@Import(cn.hutool.extra.spring.SpringUtil.class)
+@ComponentScan(basePackages = {"com.xxx", "cn.hutool.extra.spring"})
+public class WebApiApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(args);
+    }
+}
+```
+
+常见用法：
+
+```java
+// 获取 Spring 容器中的指定对象
+UserMapper userMapper = SpringUtil.getBean(UserMapper.class);
+// 获取配置文件中的指定属性值
+String activeProfile = SpringUtil.getProperty("spring.profiles.active");
+// ...
+```
+
+## 集合操作
+
+集合的出现极大的解决了复杂数据处理的需要，但仅凭 JDK 内置的集合方法，还是略显“苦涩”。
+
+### MapUtil
+
+顾名思义，MapUtil 生来是为了更方便的操作 Map 集合的。
+
+::: tip 笔者说
+单是能快速帮你创建指定初始容量大小的 Map 集合这一点就爱了。
+:::
+
+::: warning 《阿里巴巴Java开发手册》
+【推荐】 集合初始化时， 指定集合初始值大小。  
+
+说明： HashMap 使用 HashMap(int initialCapacity) 初始化，如果暂时无法确定集合大小， 那么指定默认值（ 16） 即可。  
+
+正例： initialCapacity = (需要存储的元素个数 / 负载因子) + 1。 注意负载因子（即 loader factor） 默认为 0.75，如果暂时无法确定初始值大小，请设置为 16（即默认值） 。  
+
+反例： HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素增加而被迫不断扩容，
+resize()方法总共会调用 8 次，反复重建哈希表和数据迁移。当放置的集合元素个数达千万级时会影响程序
+性能。
+:::
+
+```java
+// 判断是否为空、不为空
+Map<String, Object> map1 = null;
+Map<String, Object> map2 = new HashMap<>();
+boolean flag1 = MapUtil.isEmpty(map1); // true
+boolean flag2 = MapUtil.isNotEmpty(map1); // false
+boolean flag3 = MapUtil.isEmpty(map2); // true
+boolean flag4 = MapUtil.isNotEmpty(map2); // false
+System.out.println(flag1);
+System.out.println(flag2);
+System.out.println(flag3);
+System.out.println(flag4);
+
+// 快速创建单键值对的 HashMap
+HashMap<String, String> map3 = MapUtil.of("CN", "中国");
+// 快速创建单键值对的 LinkedHashMap
+HashMap<String, String> map4 = MapUtil.of("CN", "中国", true);
+
+// 快速创建指定初始容量大小的 HashMap
+HashMap<Object, Object> map5 = MapUtil.newHashMap(2);
+
+// 快速创建LinkedHashMap
+HashMap<Object, Object> map6 = MapUtil.newHashMap(true);
+// 快速创建指定初始容量大小的 LinkedHashMap
+HashMap<Object, Object> map7 = MapUtil.newHashMap(2, true);
+// ...
+```
+
+**MapUtil 的 newHashMap() 源代码，如下：** 
+
+```java
+/**
+ * 新建一个HashMap
+ *
+ * @param <K>  Key类型
+ * @param <V>  Value类型
+ * @param size 初始大小，由于默认负载因子0.75，传入的size会实际初始大小为size / 0.75 + 1
+ * @return HashMap对象
+ */
+public static <K, V> HashMap<K, V> newHashMap(int size) {
+    return newHashMap(size, false);
+}
+
+/**
+ * 新建一个HashMap
+ *
+ * @param <K>     Key类型
+ * @param <V>     Value类型
+ * @param size    初始大小，由于默认负载因子0.75，传入的size会实际初始大小为size / 0.75 + 1
+ * @param isOrder Map的Key是否有序，有序返回 {@link LinkedHashMap}，否则返回 {@link HashMap}
+ * @return HashMap对象
+ * @since 3.0.4
+ */
+public static <K, V> HashMap<K, V> newHashMap(int size, boolean isOrder) {
+    int initialCapacity = (int) (size / DEFAULT_LOAD_FACTOR) + 1;
+    return isOrder ? new LinkedHashMap<>(initialCapacity) : new HashMap<>(initialCapacity);
+}
+```
