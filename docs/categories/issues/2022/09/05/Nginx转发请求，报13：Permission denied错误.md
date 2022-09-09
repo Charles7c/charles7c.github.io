@@ -105,6 +105,6 @@ setsebool -P httpd_can_network_connect 1
 
 执行后，立竿见影。忍不住感叹：Linux 知识学无止境。
 
-## 参考文献
+## 参考资料
 
-[1]liweitao7610. 解决SELinux阻止Nginx访问服务[EB/OL]. https://blog.csdn.net/liweitao7610/article/details/107073852. 2022-09-05
+[1]解决SELinux阻止Nginx访问服务：https://blog.csdn.net/liweitao7610/article/details/107073852
