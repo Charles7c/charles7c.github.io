@@ -49,7 +49,7 @@
     <!-- 时间轴主体 -->
     <div class="timeline-item" v-for="(item, year) in archiveData">
       <div class="year">
-        <img class="chinese-zodiac" @click="goToLink('/archives.html', 'year', year.replace('年', ''))" :src="'/img/svg/chinese-zodiac/' + getChineseZodiac(year.replace('年', '')) + '.svg'" :title="getChineseZodiac(year.replace('年', ''))" alt="生肖">
+        <img class="chinese-zodiac" @click="goToLink('/archives.html', 'year', year.replace('年', ''))" :src="'/img/svg/chinese-zodiac/' + getChineseZodiac(year.replace('年', '')) + '.svg'" :title="getChineseZodiacAlias(year.replace('年', ''))" alt="生肖">
         <span>{{ year }}</span>
       </div>
       <div class="timeline-item-content">
@@ -181,6 +181,38 @@ function getChineseZodiac(year) {
       return 'horse'
     case 11:
       return 'goat'
+  }
+}
+
+/**
+ * 获取生肖名称
+ */
+function getChineseZodiacAlias(year) {
+  switch(year % 12){
+    case 0:
+      return '猴年'
+    case 1:
+      return '鸡年'
+    case 2:
+      return '狗年'
+    case 3:
+      return '猪年'
+    case 4:
+      return '鼠年'
+    case 5:
+      return '牛年'
+    case 6:
+      return '虎年'
+    case 7:
+      return '兔年'
+    case 8:
+      return '龙年'
+    case 9:
+      return '蛇年'
+    case 10:
+      return '马年'
+    case 11:
+      return '羊年'
   }
 }
 </script>
