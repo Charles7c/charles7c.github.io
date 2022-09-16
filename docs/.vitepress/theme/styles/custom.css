@@ -11,3 +11,7 @@ pre, code, kbd, samp {
   padding-top: 10px;
   border-top: none;
 }
+
+.VPDoc .content-container img {
+  border-radius: 5px;
+}
