@@ -23,7 +23,9 @@
     "fast-glob": "^3.2.11",
     "gitalk": "^1.8.0",
     "gray-matter": "^4.0.3",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "mermaid": "^9.1.7",
+    "vitepress-plugin-mermaid": "^2.0.8"
   },
   "keywords": [
     "blog",

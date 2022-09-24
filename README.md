@@ -46,6 +46,7 @@ yarn build
 - [x] 文章评论：目前仅支持Gitalk
 - [x] 版权声明：文末显示文章版权声明，可自由配置采用的版权协议
 - [x] 徽章：标题后可显示徽章，此功能来自于 VitePress 未合并的 PR，如若后续被合并，则改用官方主题功能
+- [x] Mermaid 流程图：在 Markdown 中绘制流程图、状态图、时序图、甘特图、饼图等，更多语法请参见：[Mermaid 官方文档](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md) 。（Typora 编辑器也支持 `mermaid` 语法）
 - [x] 更多细节优化：敬请发现
 
 ## 部分页面截图
@@ -86,12 +87,17 @@ yarn build
 
 ![徽章](./docs/public/screenshot/徽章.png)
 
+### Mermaid 流程图
+
+![Mermaid流程图](./docs/public/screenshot/Mermaid流程图1.png)
+![Mermaid流程图](./docs/public/screenshot/Mermaid流程图2.png)
+
 ## 致谢
 
-- [vuejs/vitepress](https://github.com/vuejs/vitepress) （本知识库基于 vitepress 构建）
+- [vuejs/vitepress](https://github.com/vuejs/vitepress) （本知识库基于 VitePress 构建）
 - [vitejs/vite](https://github.com/vitejs/vite) （参考主页美化）
 - [windicss/docs](https://github.com/windicss/docs) （参考配置文件拆分）
-- [brc-dd/vitepress-blog-demo](https://github.com/brc-dd/vitepress-blog-demo) （感谢 vitepress 维护者 brc-dd 的热心帮助）
+- [brc-dd/vitepress-blog-demo](https://github.com/brc-dd/vitepress-blog-demo) （感谢 VitePress 维护者 brc-dd 的热心帮助）
 - [brc-dd/vitepress-with-arco](https://github.com/brc-dd/vitepress-with-arco) 
 - [clark-cui/vitepress-blog-zaun](https://github.com/clark-cui/vitepress-blog-zaun) （参考文章标签的数据处理方案）
 - [dingqianwen/my-blog](https://github.com/dingqianwen/my-blog) （参考 Gitalk 配置暗黑主题）
@@ -100,6 +106,8 @@ yarn build
 - [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue) （使用部分组件及图标）
 - [antvis/G2plot](https://github.com/antvis/G2plot) （使用部分图表）
 - [richardo2016/vitepress-pr](https://github.com/vuejs/vitepress/pull/1134) （使用徽章）
+- [emersonbottero/vitepress-plugin-mermaid](emersonbottero/vitepress-plugin-mermaid) （VitePress Mermaid 流程图插件）
+- [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md)
 - ......
 
 ## License
