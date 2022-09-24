@@ -106,7 +106,7 @@ yarn build
 - [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue) （使用部分组件及图标）
 - [antvis/G2plot](https://github.com/antvis/G2plot) （使用部分图表）
 - [richardo2016/vitepress-pr](https://github.com/vuejs/vitepress/pull/1134) （使用徽章）
-- [emersonbottero/vitepress-plugin-mermaid](emersonbottero/vitepress-plugin-mermaid) （VitePress Mermaid 流程图插件）
+- [emersonbottero/vitepress-plugin-mermaid](https://github.com/emersonbottero/vitepress-plugin-mermaid) （VitePress Mermaid 流程图插件）
 - [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md)
 - ......
 
