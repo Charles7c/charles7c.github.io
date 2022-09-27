@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "unplugin-vue-components": "^0.22.7",
-    "vitepress": "^1.0.0-alpha.16",
+    "vitepress": "^1.0.0-alpha.17",
     "vue": "^3.2.39"
   },
   "dependencies": {
@@ -26,6 +26,13 @@
     "jquery": "^3.6.1",
     "mermaid": "^9.1.7",
     "vitepress-plugin-mermaid": "^2.0.8"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   },
   "keywords": [
     "blog",
