@@ -29,7 +29,7 @@ pnpm install
 # 4.dev 运行，访问：http://localhost:5173
 pnpm dev
 # 5.打包，文件存放位置：docs/.vitepress/dist
-# 如果是部署到 GitHub Pages，可以利用 GitHub Action，在 push 到 GitHub 后自动部署打包
+# 如果是部署到 GitHub Pages，可以利用 GitHub Actions，在 push 到 GitHub 后自动部署打包
 # 详情见：.github/workflows/deploy-pages.yml，根据个人需要删减工作流配置
 pnpm build
 # 6.部署
@@ -40,7 +40,7 @@ pnpm build
 ## 已扩展功能（持续优化细节）
 
 - [x] 拆分配置文件：解决“大”配置文件问题，提取公有配置选项进行复用，方便维护
-- [x] GitHub Action：push 到 GitHub，自动进行项目打包及 GitHub Pages 部署，并同步到 Gitee Pages（可根据个人需要自行删减同步 Gitee Pages 部分工作流配置）
+- [x] GitHub Actions：push 到 GitHub，自动进行项目打包及 GitHub Pages 部署，并同步到 Gitee Pages（可根据个人需要自行删减同步 Gitee Pages 部分工作流配置）
 - [x] 自动生成侧边栏：将文章按规律性目录存放后，侧边栏将自动生成，支持文章置顶🔝（在文章 frontmatter 中配置 `isTop: true`，即可在侧边栏自动出现置顶分组）
 - [x] 主页美化：参照 vite 文档主页进行美化
 - [x] 自定义页脚：支持ICP备案号、公安备案号、版权信息配置（符合大陆网站审核要求）
