@@ -45,10 +45,11 @@ docker rmi 镜像ID/镜像名称 [镜像ID/镜像名称...]
 
 # 删除所有镜像
 docker rmi `docker images -q`
+docker rmi $(docker images -q)
 ```
 
 ::: tip 笔者说
-`-q` 是 quiet 的意思，加上这个参数后，docker images 输出的就不是镜像详细列表了，而是镜像 ID 列表，通常用于编写脚本时使用。  
+`q` 是 quiet 的意思，加上这个参数后，docker images 输出的就不是镜像详细列表了，而是镜像 ID 列表，通常用于编写脚本时使用。  
 
 所以，上方删除所有镜像的命令实际是 docker rmi 镜像ID1 镜像ID2...
 :::
@@ -103,7 +104,14 @@ docker ps [-a] | grep 容器关键词
 :::
 
 ```shell
-docker run -d [-p 宿主机端口:容器内部端口] [-v 宿主机目录:容器内部目录] [--network 网络名称 --network-alias 网络别名] --name 容器名称 镜像名称[:标签/版本]
+# -d 指定容器在后台运行
+# -p 指定容器和宿主机的网络端口映射
+# -v 指定容器和宿主机的目录挂载
+# --network 指定容器使用的网络
+# --network-alias 指定容器在网络中的别名
+# -m 限定容器内存大小
+# --name 指定容器名称
+docker run -d [-p 宿主机端口:容器内部端口] [-v 宿主机目录:容器内部目录] [--network 网络名称 --network-alias 网络别名] [-m xxxm] --name 容器名称 镜像名称[:标签/版本]
 ```
 
 ### 停止容器
@@ -113,11 +121,12 @@ docker run -d [-p 宿主机端口:容器内部端口] [-v 宿主机目录:容器
 docker stop 容器ID/容器名称 [容器ID/容器名称...]
 
 # 停止所有容器
-docker stop `docker ps -a -q`
+docker stop `docker ps -aq`
+docker stop $(docker ps -aq)
 ```
 
 ::: tip 笔者说
-`-q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。  
+`q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。  
 
 所以，上方停止所有容器的命令实际是 docker stop 容器1ID 容器2ID...
 :::
@@ -128,6 +137,12 @@ docker stop `docker ps -a -q`
 docker start 容器ID/容器名称
 ```
 
+### 重启容器
+
+```shell
+docker restart 容器ID/容器名称
+```
+
 ### 删除容器
 
 ```shell
@@ -135,11 +150,12 @@ docker start 容器ID/容器名称
 docker rm 容器ID/容器名称 [容器ID/容器名称...]
 
 # 删除所有容器
-docker rm `docker ps -a -q`
+docker rm `docker ps -aq`
+docker rm $(docker ps -aq)
 ```
 
 ::: tip 笔者说
-`-q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。  
+`q` 是 quiet 的意思，加上这个参数后，docker ps 输出的就不是容器详细列表了，而是容器 ID 列表，通常用于编写脚本时使用。  
 
 所以，上方删除所有容器的命令实际是 docker rm 容器1ID 容器2ID...
 :::
@@ -174,6 +190,19 @@ docker cp 宿主机内文件路径 容器名称:容器内文件路径
 docker commit [-a "作者"] [-m "信息"] 容器ID/容器名称 镜像名称[:标签/版本]
 ```
 
+### 查看容器日志
+
+```shell
+# -f/--flow 跟踪日志输出
+# -t/--timestamps 显示时间戳
+# -n/--tail 从日志末尾显示的行数，默认为 all
+# --since 自某个时间之后的日志
+# 例如：--since "2022-09-30" 表示显示2022年9月30日后的日志
+# 例如：--since 30m 表示显示最近 30 分钟内的日志
+# --until 某个时间之前的日志
+docker logs -f [-t] [-n 行数] [--since 开始时间] [--until 结束时间] 容器ID/容器名称
+```
+
 ## 网络相关
 
 ### 查看网络列表
@@ -182,7 +211,7 @@ docker commit [-a "作者"] [-m "信息"] 容器ID/容器名称 镜像名称[:�
 docker network ls
 ```
 
-### 创建bridge网络
+### 创建 bridge 网络
 
 ```shell
 docker network create 网络名称
@@ -192,5 +221,14 @@ docker network create 网络名称
 
 ```shell
 docker network rm 网络ID/网络名称
+```
+
+## 其他
+
+### 查看 docker 版本
+
+```shell
+docker -v
+docker version
 ```
 

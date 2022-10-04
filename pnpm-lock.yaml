@@ -13,7 +13,7 @@ specifiers:
   mermaid: ^9.1.7
   unplugin-vue-components: ^0.22.7
   vite: ^3.1.4
-  vitepress: 1.0.0-alpha.18
+  vitepress: 1.0.0-alpha.19
   vitepress-plugin-mermaid: ^2.0.8
   vitepress-plugin-search: 1.0.4-alpha.11
   vue: ^3.2.40
@@ -33,9 +33,9 @@ devDependencies:
   mermaid: 9.1.7
   unplugin-vue-components: 0.22.7_vue@3.2.40
   vite: 3.1.4
-  vitepress: 1.0.0-alpha.18
-  vitepress-plugin-mermaid: 2.0.8_ql3umhllj3co7bmzu4pyzm7oja
-  vitepress-plugin-search: 1.0.4-alpha.11_bnu6kmso44e6fxf5vkxksz3znu
+  vitepress: 1.0.0-alpha.19
+  vitepress-plugin-mermaid: 2.0.8_i35lglxa75ma3mhclupyrji6nm
+  vitepress-plugin-search: 1.0.4-alpha.11_nvmgxcm7cozn4csefdube5au3y
   vue: 3.2.40
 
 packages:
@@ -473,8 +473,8 @@ packages:
     resolution: {integrity: sha512-w7hEHXnPMEZ+4nGKl/KDRVpxkwYxYExuHOYXyzIzCDzEZ9ZCGMAewulr9IqJu2LR4N37fcnb1XVeuZ09qgOxhA==}
     dev: true
 
-  /@vitejs/plugin-vue/3.1.0_vite@3.1.4+vue@3.2.40:
-    resolution: {integrity: sha512-fmxtHPjSOEIRg6vHYDaem+97iwCUg/uSIaTzp98lhELt2ISOQuDo2hbkBdXod0g15IhfPMQmAxh4heUks2zvDA==}
+  /@vitejs/plugin-vue/3.1.2_vite@3.1.4+vue@3.2.40:
+    resolution: {integrity: sha512-3zxKNlvA3oNaKDYX0NBclgxTQ1xaFdL7PzwF6zj9tGFziKwmBa3Q/6XcJQxudlT81WxDjEhHmevvIC4Orc1LhQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
@@ -2703,7 +2703,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress-plugin-mermaid/2.0.8_ql3umhllj3co7bmzu4pyzm7oja:
+  /vitepress-plugin-mermaid/2.0.8_i35lglxa75ma3mhclupyrji6nm:
     resolution: {integrity: sha512-ywWxTeg9kMv7ZPf/igCBF4ZHhWZAyRtbPnA12ICQuNK2AMp7r5IHOfnuX1EJQf8gNdsh8bcvvSvm8Ll92fdOTw==}
     peerDependencies:
       mermaid: ^8.0.0 || ^9.0.0
@@ -2711,10 +2711,10 @@ packages:
       vitepress: ^0.21.6 || ^1.0.0 || ^1.0.0-alpha
     dependencies:
       mermaid: 9.1.7
-      vitepress: 1.0.0-alpha.18
+      vitepress: 1.0.0-alpha.19
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.11_bnu6kmso44e6fxf5vkxksz3znu:
+  /vitepress-plugin-search/1.0.4-alpha.11_nvmgxcm7cozn4csefdube5au3y:
     resolution: {integrity: sha512-fKJIpPj6QGQeXda31Dx5f9DtCYnPVHKQVsOUpnJOzahWHPPgGofslwwvwaeRMWIGvpslxi/m4RVK6C+ydqKukA==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -2723,17 +2723,17 @@ packages:
       vue: '3'
     dependencies:
       vite: 3.1.4
-      vitepress: 1.0.0-alpha.18
+      vitepress: 1.0.0-alpha.19
       vue: 3.2.40
     dev: true
 
-  /vitepress/1.0.0-alpha.18:
-    resolution: {integrity: sha512-6Co3/t+oeF6vxJxG7/uy5/wIr+P/8szeFjn3gu/dpJ1aOGA0gnQ+61P8J52b2VTFSDpFC63adLvUFacdCJXywg==}
+  /vitepress/1.0.0-alpha.19:
+    resolution: {integrity: sha512-0FIUZB6JGXio7SELDDUkyQoMjmO/UAXqDXmznzOsBKsdZ3EHlyb6NaP/V/BMfN5S8+GV88ScbIL0jd/pDzkLBg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.1
       '@docsearch/js': 3.2.1
-      '@vitejs/plugin-vue': 3.1.0_vite@3.1.4+vue@3.2.40
+      '@vitejs/plugin-vue': 3.1.2_vite@3.1.4+vue@3.2.40
       '@vue/devtools-api': 6.4.2
       '@vueuse/core': 9.3.0_vue@3.2.40
       body-scroll-lock: 4.0.0-beta.0
