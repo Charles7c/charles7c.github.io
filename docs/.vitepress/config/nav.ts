@@ -6,6 +6,7 @@ export const nav: DefaultTheme.Config['nav'] = [
     items: [
       { text: 'Bug万象集', link: '/categories/issues/index', activeMatch: '/categories/issues/' },
       { text: '"杂碎"逆袭史', link: '/categories/fragments/index', activeMatch: '/categories/fragments/' },
+      { text: '工具四海谈', link: '/categories/tools/index', activeMatch: '/categories/tools/' },
       { text: '方案春秋志', link: '/categories/solutions/index', activeMatch: '/categories/solutions/' }
     ],
     activeMatch: '/categories/'
