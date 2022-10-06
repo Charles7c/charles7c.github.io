@@ -6,7 +6,7 @@ categories:
  - Bug万象集
 tags:
  - IDE
- - IntelliJ_IDEA
+ - "IntelliJ IDEA"
 ---
 
 # Command line is too long. Shorten command line for XXX or also for Spring Boot default configuration？
