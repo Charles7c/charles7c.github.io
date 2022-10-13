@@ -9,9 +9,9 @@
     "@arco-design/web-vue": "^2.37.4",
     "markdown-it": "^13.0.1",
     "mermaid": "^9.1.7",
-    "unplugin-vue-components": "^0.22.7",
-    "vite": "^3.1.4",
-    "vitepress": "1.0.0-alpha.19",
+    "unplugin-vue-components": "^0.22.8",
+    "vite": "^3.1.7",
+    "vitepress": "1.0.0-alpha.20",
     "vitepress-plugin-mermaid": "^2.0.8",
     "vitepress-plugin-search": "1.0.4-alpha.11",
     "vue": "^3.2.40"
