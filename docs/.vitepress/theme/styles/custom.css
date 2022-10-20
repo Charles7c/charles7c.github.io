@@ -15,3 +15,28 @@ pre, code, kbd, samp {
 .VPDoc .content-container img {
   border-radius: 5px;
 }
+
+/* slim scroll bar for windows based web browsers - works on chrome, edge, and safari */
+::-webkit-scrollbar {
+      width: 3px;
+        height: 3px;
+        
+}
+
+/* scrolling track/backgronund color */
+::-webkit-scrollbar-track {
+      background: #3b3b3b;
+      
+}
+
+/* scrolling handle */
+::-webkit-scrollbar-thumb {
+      background: #42b883;
+      
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+      background: #36986c;
+      
+}
