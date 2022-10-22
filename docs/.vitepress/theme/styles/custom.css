@@ -15,3 +15,30 @@ pre, code, kbd, samp {
 .VPDoc .content-container img {
   border-radius: 5px;
 }
+
+/* slim scroll bar for windows based web browsers - works on firefox */
+* {
+  scrollbar-color: var(--vp-c-divider-light) var(--vp-button-alt-bg);
+  scrollbar-width: thin;
+}
+
+/* slim scroll bar for windows based web browsers - works on chrome, edge, and safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* scrolling handle */
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider-light);
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-button-alt-hover-bg);
+}
+
+/* scrolling track/backgronund color */
+::-webkit-scrollbar-track {
+  background: var(--vp-button-alt-bg);
+}
