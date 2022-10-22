@@ -15,6 +15,10 @@ tags:
 
 ## 系统相关
 
+::: tip 已测试系统
+CentOS
+:::
+
 ### 查询系统详情
 
 ```shell
@@ -57,9 +61,26 @@ env
 env | grep xxx
 ```
 
+### 编辑环境变量
+
+```shell
+# 1、打开 profile 文件
+vim /etc/profile
+
+# 2、在其中插入环境变量配置
+# 添加 JAVA_HOME 环境变量
+JAVA_HOME=/opt/disk/java/jdk1.8.0_202
+CLASSPATH=.:$JAVA_HOME/lib.tools.jar
+PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME CLASSPATH PATH
+
+# 3、重新加载环境变量
+source /etc/profile
+```
+
 ## 防火墙相关
 
-::: tip 已测试适用系统
+::: tip 已测试系统
 CentOS 7.5
 :::
 
@@ -115,6 +136,10 @@ firewall-cmd --reload
 ```
 
 ## 监控相关
+
+::: tip 已测试系统
+CentOS
+:::
 
 ### 查询RAM信息(内存)
 
@@ -245,7 +270,20 @@ top 命令也是用来查看进程状态的，相比于 ps 命令，top 命令�
 | TIME+                       | 进程使用的 CPU 时间总计，单位1/100秒                         |
 | COMMAND                     | 命令名                                                       |
 
+### 查看socket状态
+
+```shell
+# -t：显示 tcp socket
+# -a：显示所有的
+# -l：显示本地打开的端口
+ss -tal
+```
+
 ## 文件编辑相关
+
+::: tip 已测试系统
+CentOS
+:::
 
 ### 文本编辑器
 

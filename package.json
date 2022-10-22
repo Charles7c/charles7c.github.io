@@ -10,8 +10,8 @@
     "markdown-it": "^13.0.1",
     "mermaid": "^9.1.7",
     "unplugin-vue-components": "^0.22.8",
-    "vite": "^3.1.7",
-    "vitepress": "1.0.0-alpha.21",
+    "vite": "^3.1.8",
+    "vitepress": "1.0.0-alpha.22",
     "vitepress-plugin-mermaid": "^2.0.8",
     "vitepress-plugin-search": "1.0.4-alpha.11",
     "vue": "^3.2.40"
@@ -19,7 +19,7 @@
   "dependencies": {
     "@antv/g2plot": "^2.4.20",
     "blueimp-md5": "^2.19.0",
-    "dayjs": "^1.11.5",
+    "dayjs": "^1.11.6",
     "fast-glob": "^3.2.12",
     "gitalk": "^1.8.0",
     "gray-matter": "^4.0.3",

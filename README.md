@@ -54,6 +54,10 @@ pnpm build
 - [x] 徽章：标题后可显示徽章，此功能来自于 VitePress 未合并的 PR，如若后续被合并，则改用官方主题功能
 - [x] Mermaid 流程图：在 Markdown 中绘制流程图、状态图、时序图、甘特图、饼图等，更多语法请参见：[Mermaid 官方文档](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md) 。（Typora 编辑器也支持 `mermaid` 语法）
 - [x] 更多细节优化：敬请发现
+  - [x] 文章内图片增加圆角样式优化（[#56](https://github.com/Charles7c/charles7c.github.io/issues/56)）
+  - [x] 浏览器滚动条样式优化（支持 Firfox、谷歌系浏览器）（[#69](https://github.com/Charles7c/charles7c.github.io/pull/69)）
+  - [x] ......
+
 
 ## 部分页面截图
 
