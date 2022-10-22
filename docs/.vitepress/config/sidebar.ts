@@ -9,6 +9,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/categories/tools/': getItemsByDate("categories/tools"),
 
   '/courses/java/': getItems("courses/java"),
+  '/courses/mysql/': getItems("courses/mysql"),
   '/courses/mybatis/': getItems("courses/mybatis")
 }
 
@@ -75,7 +76,7 @@ function getItemsByDate (path: string) {
 
     // 添加年份分组
     yearGroups.unshift({
-      text: `${year}年 (共 ${articleItems.length} 篇)`,
+      text: `${year}年 (${articleItems.length}篇)`,
       collapsible: true,
       collapsed: true,
       items: articleItems
@@ -85,7 +86,7 @@ function getItemsByDate (path: string) {
   if (topArticleItems.length > 0) {
     // 添加置顶分组
     yearGroups.unshift({
-      text: `📑 我的置顶 (共 ${topArticleItems.length} 篇)`,
+      text: `📑 我的置顶 (${topArticleItems.length}篇)`,
       collapsible: true,
       collapsed: false,
       items: topArticleItems
@@ -113,6 +114,10 @@ function getItems (path: string) {
   let groups: DefaultTheme.SidebarGroup[] = []
   // 侧边栏分组下标题数组
   let items: DefaultTheme.SidebarItem[] = []
+  let total = 0
+  // 当分组内文章数量少于 2 篇或文章总数显示超过 20 篇时，自动折叠分组
+  const groupCollapsedSize = 2
+  const titleCollapsedSize = 20
 
   // 1.获取所有分组目录
   sync(`docs/${path}/*`, {
@@ -124,28 +129,25 @@ function getItems (path: string) {
     sync(`docs/${path}/${groupName}/*`, {
       onlyFiles: true,
       objectMode: true
-    }).forEach(({ name }) => {
+    }).forEach((article) => {
+      const articleFile = matter.read(`${article.path}`)
+      const { data } = articleFile
       // 向前追加标题
       items.push({
-        text: name,
-        link: `/${path}/${groupName}/${name}`
+        text: data.title,
+        link: `/${path}/${groupName}/${article.name.replace('.md', '')}`
       })
+      total ++
     })
 
     // 3.向前追加到分组
-    if (items.length > 0) {
-      // 去除标题名中的前缀和扩展名
-      for (let i = 0; i < items.length; i++) {
-        let text = items[i].text
-        items[i].text = text.replace('.md', '').substring(text.indexOf('-') + 1)
-      }
-      groups.push({
-        text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length}篇)`,
-        collapsible: true,
-        collapsed: false,
-        items: items
-      })
-    }
+    // 当分组内文章数量少于 A 篇或文章总数显示超过 B 篇时，自动折叠分组
+    groups.push({
+      text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length}篇)`,
+      collapsible: true,
+      collapsed: items.length < groupCollapsedSize || total > titleCollapsedSize,
+      items: items
+    })
 
     // 4.清空侧边栏分组下标题数组
     items = []

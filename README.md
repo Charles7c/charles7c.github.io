@@ -53,6 +53,9 @@ pnpm build
 - [x] 版权声明：文末显示文章版权声明，可自由配置采用的版权协议
 - [x] 徽章：标题后可显示徽章，此功能来自于 VitePress 未合并的 PR，如若后续被合并，则改用官方主题功能
 - [x] Mermaid 流程图：在 Markdown 中绘制流程图、状态图、时序图、甘特图、饼图等，更多语法请参见：[Mermaid 官方文档](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md) 。（Typora 编辑器也支持 `mermaid` 语法）
+- [ ] 本地搜索：等待 [emersonbottero/vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search) 作者修复中文检索问题
+  - [ ] 如需体验，可将 `docs/vite.config.ts` 文件中的注释去除掉（本地搜索和 algolia 搜索无法同时使用，开启本地搜索后 algolia 搜索配置将不再生效）
+
 - [x] 更多细节优化：敬请发现
   - [x] 文章内图片增加圆角样式优化（[#56](https://github.com/Charles7c/charles7c.github.io/issues/56)）
   - [x] 浏览器滚动条样式优化（支持 Firfox、谷歌系浏览器）（[#69](https://github.com/Charles7c/charles7c.github.io/pull/69)）
@@ -118,6 +121,7 @@ pnpm build
 - [richardo2016/vitepress-pr](https://github.com/vuejs/vitepress/pull/1134) （使用徽章）
 - [emersonbottero/vitepress-plugin-mermaid](https://github.com/emersonbottero/vitepress-plugin-mermaid) （VitePress Mermaid 流程图插件）
 - [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md)
+- [emersonbottero/vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search) （VitePress 本地搜索插件）
 - ......
 
 ## License

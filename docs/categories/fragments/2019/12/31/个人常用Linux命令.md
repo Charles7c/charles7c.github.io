@@ -74,7 +74,7 @@ CLASSPATH=.:$JAVA_HOME/lib.tools.jar
 PATH=$JAVA_HOME/bin:$PATH
 export JAVA_HOME CLASSPATH PATH
 
-# 3、重新加载环境变量
+# 3、重新加载 profile 文件，使最新配置生效
 source /etc/profile
 ```
 
