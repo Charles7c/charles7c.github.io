@@ -16,27 +16,29 @@ pre, code, kbd, samp {
   border-radius: 5px;
 }
 
-/* slim scroll bar for windows based web browsers - works on chrome, edge, and safari */
-::-webkit-scrollbar {
-      width: 3px;
-        height: 3px;
-        
+/* slim scroll bar for windows based web browsers - works on firefox */
+* {
+  scrollbar-color: var(--vp-c-divider-light) var(--vp-button-alt-bg);
+  scrollbar-width: thin;
 }
 
-/* scrolling track/backgronund color */
-::-webkit-scrollbar-track {
-      background: #3b3b3b;
-      
+/* slim scroll bar for windows based web browsers - works on chrome, edge, and safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
 /* scrolling handle */
 ::-webkit-scrollbar-thumb {
-      background: #42b883;
-      
+  background: var(--vp-c-divider-light);
 }
 
 /* handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-      background: #36986c;
-      
+  background: var(--vp-button-alt-hover-bg);
+}
+
+/* scrolling track/backgronund color */
+::-webkit-scrollbar-track {
+  background: var(--vp-button-alt-bg);
 }
