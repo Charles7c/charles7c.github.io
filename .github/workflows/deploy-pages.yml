@@ -9,15 +9,22 @@ on:
     branches: [main, master]
   # 定时执行，字段含义：分钟 小时 日 月 星期
   # 注意：
-  # 1.时间采用的是 UTC 时间
-  #   例如：（UTC）00:00 ==（GMT+0800）08:00
-  #   例如：（UTC）17:30 ==（GMT+0800）01:30
+  # 1.如果没有在下方配置时区，那默认采用的是 UTC 时间
+  #   即，你配置的 0 0 * * *（UTC）00:00 实际上是（GMT+0800）08:00
+  #   只有你配置为 00 16 * * *（UTC）16:00 实际上才是 GMT+0800）00:00
   # 2.官方声明：schedule 事件在 GitHub Actions 工作流运行期间负载过高时可能会延迟。 高负载时间包括每小时的开始时间。 为了降低延迟的可能性，建议将您的工作流程安排在不同时间运行。
-  #   例如：笔者之前设定的定时规则为 0 0 * * *，实际（GMT+0800）执行时间通常在 9:10 ~ 10:00，甚至会出现在 10:00 之后执行的情况
+  #   例如：笔者之前没设置时区前设定的定时规则为 0 0 * * *，实际（GMT+0800）执行时间通常在 9:10 ~ 10:00，甚至会出现在 10:00 之后执行的情况
+  # 3.建议不只是定时执行的时候注意时间，自己 push 时也注意时间，早点休息
+  #   例如：笔者多次亲身经历，凌晨时间 pages build and deployment 任务大概能持续 8 分钟的 Current status: deployment_queued 状态，
+  #        即使能进入 Current status: deployment_in_progress 和 Current status: syncing_files 状态，如果文件多点，没一会儿就 Error: Timeout reached, aborting! 超时失败了
   schedule:
-    - cron: 21 17 * * *
+    - cron: 30 1 * * *
   # 可手动执行
   workflow_dispatch:
+
+# 设置时区（默认是 UTC 时间）
+env:
+  TZ: Asia/Shanghai
 
 jobs:
   # 任务1: 部署 GitHub Pages
@@ -27,25 +34,36 @@ jobs:
       # 1、检出源码
       - name: Checkout
         uses: actions/checkout@v3
-      # 2、安装 PNPM
+        with:
+          # 默认只拉取分支最近一次的 commit，可能会导致一些文章的 GitInfo 变量无法获取，设为 0 代表拉取所有分支所有提交
+          fetch-depth: 0
+      # 2、配置 Git
+      # 主要是 quotePath，默认情况下，文件名包含中文时，git 会使用引号把文件名括起来，这会导致 action 中无法读取 :GitInfo 变量
+      - name: Git Configuration
+        run: |
+          git config --global core.quotePath false
+          git config --global core.autocrlf false
+          git config --global core.safecrlf true
+          git config --global core.ignorecase false  
+      # 3、安装 PNPM
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
           version: latest
-      # 3、安装 Node 环境
+      # 4、安装 Node 环境
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
           cache: pnpm
-      # 4、安装依赖
+      # 5、安装依赖
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      # 5、打包
+      # 6、打包
       - name: Build
         run: pnpm build
-      # 6、部署 GitHub Pages
+      # 7、部署 GitHub Pages
       - name: Deploy GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

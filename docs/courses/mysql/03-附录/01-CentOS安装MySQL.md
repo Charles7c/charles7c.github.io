@@ -46,7 +46,11 @@ yum -y install libaio
 
 ## 下载并上传安装包
 
-可前往 [官网](https://downloads.mysql.com/archives/community) 下载 MySQL 安装包然后上传到服务器。也可以直接在服务器内下载。
+可前往 [官网](https://downloads.mysql.com/archives/community) 下载 MySQL Linux 安装包然后上传到服务器。
+
+![202210222130166](../../../public/img/2022/10/22/202210222130166.png)
+
+也可以直接在服务器内下载。
 
 ```shell
 wget https://cdn.mysql.com/archives/mysql-5.7/mysql-5.7.39-linux-glibc2.12-x86_64.tar.gz
@@ -64,6 +68,7 @@ wget https://cdn.mysql.com/archives/mysql-5.7/mysql-5.7.39-linux-glibc2.12-x86_6
 tar -zxvf mysql-5.7.39-linux-glibc2.12-x86_64.tar.gz -C /opt/disk
 
 # 重命名目录
+cd /opt/disk
 mv mysql-5.7.39-linux-glibc2.12-x86_64 mysql
 
 # 创建 MySQL 数据存储目录
