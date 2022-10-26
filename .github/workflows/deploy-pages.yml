@@ -4,7 +4,7 @@ on:
   # 推送时执行
   push:
     branches: [main, master]
-  # pr时执行
+  # pr 时执行
   pull_request:
     branches: [main, master]
   # 定时执行，字段含义：分钟 小时 日 月 星期
