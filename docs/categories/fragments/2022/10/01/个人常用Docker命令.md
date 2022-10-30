@@ -105,13 +105,23 @@ docker ps [-a] | grep 容器关键词
 
 ```shell
 # -d 指定容器在后台运行
+# --name 指定容器名称
+# -m 限定容器内存大小
+# --restart 指定重新启动方式，always 表示始终重启
+# -e 指定环境变量配置
 # -p 指定容器和宿主机的网络端口映射
 # -v 指定容器和宿主机的目录挂载
 # --network 指定容器使用的网络
 # --network-alias 指定容器在网络中的别名
-# -m 限定容器内存大小
-# --name 指定容器名称
-docker run -d [-p 宿主机端口:容器内部端口] [-v 宿主机目录:容器内部目录] [--network 网络名称 --network-alias 网络别名] [-m xxxm] --name 容器名称 镜像名称[:标签/版本]
+
+docker run -d \
+--name 容器名称 镜像名称[:标签/版本] \
+[-m xxxm] \
+--restart=always \
+[-e 环境变量名=环境变量值] \
+[-p 宿主机端口:容器内部端口] \
+[-v 宿主机目录:容器内部目录] \
+[--network 网络名称 --network-alias 网络别名]
 ```
 
 ### 停止容器
@@ -163,9 +173,9 @@ docker rm $(docker ps -aq)
 ### 进入容器内部
 
 ```shell
-docker exec -it 容器ID/容器名称 /bin/bash
+docker exec -it 容器ID/容器名称 bash
 
-docker exec -it 容器ID/容器名称 /bin/sh
+docker exec -it 容器ID/容器名称 sh
 ```
 
 ### 从容器内部退出
@@ -246,5 +256,11 @@ docker network rm 网络ID/网络名称
 ```shell
 docker -v
 docker version
+```
+
+### 查看 docker 信息
+
+```shell
+docker info
 ```
 

@@ -37,14 +37,14 @@ docker pull osixia/openldap:1.5.0
 **下方的配置，切记要根据个人实际情况来修改。**  
 :::
 
+- 容器的名称
+- 镜像名称:版本
+- 是否设置自启动？
 - 是否端口映射？
+- 环境变量配置
 - 映射的话映射到宿主机哪个端口？
 - 是否挂载卷？
 - 挂载的话要挂载宿主机哪个目录？
-- 具体的环境配置
-- 是否设置自启动？
-- 容器的名称
-- 镜像名称:版本
 - ......
 - 等自定义配置
 
@@ -58,15 +58,15 @@ docker pull osixia/openldap:1.5.0
 #   allow：检查客户端证书，没有证书或证书错误，都允许连接
 #   never：不验证客户端证书
 docker run -d \
--p 389:389 -p 636:636 \
--v /opt/disk/openldap/database:/var/lib/ldap \
--v /opt/disk/openldap/conf:/etc/ldap/slapd.d \
---env LDAP_ORGANISATION="baidu" \
---env LDAP_DOMAIN="baidu.com" \
---env LDAP_ADMIN_PASSWORD="123456" \
---env LDAP_TLS_VERIFY_CLIENT=try \
+--name openldap osixia/openldap:1.5.0 \
 --restart=always \
---name openldap osixia/openldap:1.5.0
+-e LDAP_ORGANISATION="baidu" \
+-e LDAP_DOMAIN="baidu.com" \
+-e LDAP_ADMIN_PASSWORD="123456" \
+-e LDAP_TLS_VERIFY_CLIENT=try \
+-p 389:389 -p 636:636 \
+-v /opt/disk/docker/volumes/openldap/conf:/etc/ldap/slapd.d \
+-v /opt/disk/docker/volumes/openldap/data:/var/lib/ldap
 ```
 
 ## 验证
@@ -78,3 +78,34 @@ docker run -d \
 ![202210262026266](../../../../../public/img/2022/10/26/202210262026266.png)
 
 ![202210262026566](../../../../../public/img/2022/10/26/202210262026566.png)
+
+## Docker Compose脚本
+
+如果你是用的 docker-compose 来安装，下方附上相应 docker-compose.yml 脚本内容。
+
+```yaml
+version: '3'
+services:
+  openldap:
+    container_name: openldap
+    image: osixia/openldap:1.5.0
+    restart: always
+    environment:
+      LDAP_ORGANISATION: baidu
+      LDAP_DOMAIN: baidu.com
+      LDAP_ADMIN_PASSWORD: 123456
+      LDAP_TLS_VERIFY_CLIENT: try
+    ports:
+      - 389:389
+      - 636:636
+    volumes:
+      - /opt/disk/docker/volumes/openldap/conf:/etc/ldap/slapd.d
+      - /opt/disk/docker/volumes/openldap/data:/var/lib/ldap
+```
+
+编写好 docker-compose.yml 脚本后，在脚本同级目录执行下方命令即可。
+
+```shell
+docker-compose up -d
+```
+

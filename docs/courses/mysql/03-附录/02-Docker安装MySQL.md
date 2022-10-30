@@ -1,17 +1,17 @@
 ---
-title: Docker 安装 Consul 详细步骤
+title: Docker 安装 MySQL 详细步骤
 author: 查尔斯
-date: 2022/10/25 22:00
+date: 2022/10/30 17:36
 categories:
- - 杂碎逆袭史
+ - MySQL快速入门
 tags:
- - Consul
+ - MySQL
  - Docker
  - 容器
 showComment: false
 ---
 
-# Docker 安装 Consul 详细步骤
+# Docker 安装 MySQL 详细步骤
 
 ::: tip 笔者说
 笔者下面的步骤及配置是基于指定版本的实践，大多数程序大多数情况下在相差不大的版本时可以直接参考。（当然了，即使是非 Docker 方式安装程序也是一样道理）  
@@ -28,7 +28,7 @@ showComment: false
 变化的版本，不利于生产环境部署的稳定。无论是后续在其他环境部署还是扩容集群等场景均要求根据架构要求指定好版本。
 
 ```shell
-docker pull consul:1.13.3
+docker pull mysql:8.0.29
 ```
 
 ## 运行容器
@@ -40,6 +40,7 @@ docker pull consul:1.13.3
 - 容器的名称
 - 镜像名称:版本
 - 是否设置自启动？
+- 环境变量配置
 - 是否端口映射？
 - 映射的话映射到宿主机哪个端口？
 - 是否挂载卷？
@@ -48,17 +49,27 @@ docker pull consul:1.13.3
 - 等自定义配置
 
 ```shell
+# MYSQL_ROOT_PASSWORD：root 用户密码
 docker run -d \
---name consul consul:1.13.3 \
+--name mysql mysql:8.0.29 \
 --restart=always \
--p 18500:8500 \
--v /opt/disk/docker/volumes/consul/conf:/consul/conf \
--v /opt/disk/docker/volumes/consul/data:/consul/data
+-e TZ=Asia/Shanghai \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-p 13307:3306 \
+-v /opt/disk/docker/volumes/mysql/conf:/etc/mysql/conf.d \
+-v /opt/disk/docker/volumes/mysql/data:/var/lib/mysql \
+-v /opt/disk/docker/volumes/mysql/logs:/logs \
+# 将 MySQL 8.0 默认密码策略修改为原来策略 (MySQL 8.0 对其默认策略做了更改，会导致密码无法匹配)
+--default-authentication-plugin=mysql_native_password \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_general_ci \
+--explicit_defaults_for_timestamp=true \
+--lower_case_table_names=1
 ```
 
 ## 验证
 
-服务器开放好相应端口或设置好安全组规则后，访问 `http://宿主机IP:映射的端口` （例如按上方配置那就是：http://宿主机IP:18500）即可看到 Consul 界面。
+服务器开放好相应端口或设置好安全组规则后，直接用 Navicat 连接即可。
 
 ## Docker Compose脚本
 
@@ -67,17 +78,25 @@ docker run -d \
 ```yaml
 version: '3'
 services:
-  consul:
-    container_name: consul
-    image: consul:1.13.3
-    restart: always
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.29
     environment:
       TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
     ports:
-      - 18500:8500
+      - 13307:3306
     volumes:
-      - /opt/disk/docker/volumes/consul/conf:/consul/conf
-      - /opt/disk/docker/volumes/consul/data:/consul/data
+      - /opt/disk/docker/volumes/mysql/conf:/etc/mysql/conf.d
+      - /opt/disk/docker/volumes/mysql/data:/var/lib/mysql
+      - /opt/disk/docker/volumes/mysql/logs:/logs
+    command:
+      # 将 MySQL 8.0 默认密码策略修改为原来策略 (MySQL 8.0 对其默认策略做了更改，会导致密码无法匹配)
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
 ```
 
 编写好 docker-compose.yml 脚本后，在脚本同级目录执行下方命令即可。
