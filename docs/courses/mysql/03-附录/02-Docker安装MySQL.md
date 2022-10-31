@@ -65,6 +65,8 @@ docker run -d \
 --collation-server=utf8mb4_general_ci \
 --explicit_defaults_for_timestamp=true \
 --lower_case_table_names=1
+# 使用该参数，容器内的 root 用户才拥有真正的 root 权限
+--privileged=true
 ```
 
 ## 验证
@@ -83,7 +85,7 @@ services:
     image: mysql:8.0.29
     environment:
       TZ: Asia/Shanghai
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: dcits_cmp_mysql_001!!!
     ports:
       - 13307:3306
     volumes:
@@ -91,12 +93,13 @@ services:
       - /opt/disk/docker/volumes/mysql/data:/var/lib/mysql
       - /opt/disk/docker/volumes/mysql/logs:/logs
     command:
-      # 将 MySQL 8.0 默认密码策略修改为原来策略 (MySQL 8.0 对其默认策略做了更改，会导致密码无法匹配)
+      # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
       --default-authentication-plugin=mysql_native_password
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_general_ci
       --explicit_defaults_for_timestamp=true
       --lower_case_table_names=1
+    privileged: true
 ```
 
 编写好 docker-compose.yml 脚本后，在脚本同级目录执行下方命令即可。

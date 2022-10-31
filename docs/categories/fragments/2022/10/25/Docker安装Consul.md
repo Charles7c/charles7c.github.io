@@ -53,7 +53,9 @@ docker run -d \
 --restart=always \
 -p 18500:8500 \
 -v /opt/disk/docker/volumes/consul/conf:/consul/conf \
--v /opt/disk/docker/volumes/consul/data:/consul/data
+-v /opt/disk/docker/volumes/consul/data:/consul/data \
+# 使用该参数，容器内的 root 用户才拥有真正的 root 权限
+--privileged=true
 ```
 
 ## 验证
@@ -78,6 +80,7 @@ services:
     volumes:
       - /opt/disk/docker/volumes/consul/conf:/consul/conf
       - /opt/disk/docker/volumes/consul/data:/consul/data
+    privileged: true
 ```
 
 编写好 docker-compose.yml 脚本后，在脚本同级目录执行下方命令即可。

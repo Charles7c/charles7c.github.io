@@ -40,7 +40,7 @@ Java 环境是配置好的，那还得是看脚本自身的问题了。其实，
 Java 启动脚本内容······
 ```
 
-## 解决方案
+## 解决方案1
 
 既然以往的经验不能提供帮助，那就对症下药，提示说找不到 java 命令，那说明它识别不到 Java 环境配置，帮它一把就得了呗。复制一份 Java 环境配置，放在脚本内容前，相当于每次执行这个脚本的时候，先做一次临时环境配置。
 
@@ -50,8 +50,42 @@ Java 启动脚本内容······
 
 ```shell
 #!/bin/bash
-JAVA_HOME=/usr/local/java/jdk1.8.0_202 # 如果你要使用，记得替换为你自己实际的 JDK 安装路径
-export PATH=$PATH:$JAVA_HOME/bin
+JAVA_HOME=/opt/disk/java/jdk1.8.0_202 # 如果你要使用，记得替换为你自己实际的 JDK 安装路径
+CLASSPATH=.:$JAVA_HOME/lib.tools.jar
+PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME CLASSPATH PATH
 
 Java 启动脚本内容······
 ```
+
+## 解决方案2
+
+这个问题的根源，其实是因为 `/etc/profile` 或者 `/etc/security/limit.d` 这些文件中配置的环境变量仅对通过 pam 登录的用户生效，systemd 系统服务是不读这些配置的，所以这就造成登录到终端时查看环境变量和手动启动应用都一切正常，但是系统服务无法正常启动应用。
+
+所以，如果想让 systemd 系统服务使用环境变量也可以在编写的服务内指定好环境变量。
+
+```shell
+[Unit]
+Description=xxx
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+# 如果你要使用，记得替换为你自己实际的 JDK 安装路径
+Environment="JAVA_HOME=/opt/disk/java/jdk1.8.0_202"
+Environment="CLASSPATH=.:$JAVA_HOME/lib.tools.jar"
+Environment="PATH=$JAVA_HOME/bin:$PATH"
+ExecStart=/bin/bash /opt/disk/xxx/start-schedule.sh
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
+```
+
+修改完系统服务，别忘了重新加载和重新启动。
+
+```shell
+systemctl daemon-reload
+systemctl restart xxx
+```
+

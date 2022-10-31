@@ -66,7 +66,9 @@ docker run -d \
 -e LDAP_TLS_VERIFY_CLIENT=try \
 -p 389:389 -p 636:636 \
 -v /opt/disk/docker/volumes/openldap/conf:/etc/ldap/slapd.d \
--v /opt/disk/docker/volumes/openldap/data:/var/lib/ldap
+-v /opt/disk/docker/volumes/openldap/data:/var/lib/ldap \
+# 使用该参数，容器内的 root 用户才拥有真正的 root 权限
+--privileged=true
 ```
 
 ## 验证
@@ -91,9 +93,9 @@ services:
     image: osixia/openldap:1.5.0
     restart: always
     environment:
-      LDAP_ORGANISATION: baidu
-      LDAP_DOMAIN: baidu.com
-      LDAP_ADMIN_PASSWORD: 123456
+      LDAP_ORGANISATION: dcits
+      LDAP_DOMAIN: fucloud.net
+      LDAP_ADMIN_PASSWORD: dcits1991!
       LDAP_TLS_VERIFY_CLIENT: try
     ports:
       - 389:389
@@ -101,6 +103,7 @@ services:
     volumes:
       - /opt/disk/docker/volumes/openldap/conf:/etc/ldap/slapd.d
       - /opt/disk/docker/volumes/openldap/data:/var/lib/ldap
+    privileged: true
 ```
 
 编写好 docker-compose.yml 脚本后，在脚本同级目录执行下方命令即可。
