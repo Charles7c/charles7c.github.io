@@ -1,5 +1,5 @@
 ---
-title: 个人常用Linux命令
+title: 个人常用 Linux 命令
 author: 查尔斯
 date: 2019/12/31 21:00
 isTop: true
@@ -9,14 +9,14 @@ tags:
  - Linux
 ---
 
-# 个人常用Linux命令 <Badge text="持续更新" type="warning" />
+# 个人常用 Linux 命令 <Badge text="持续更新" type="warning" />
 
 <!-- more -->
 
 ## 系统相关
 
 ::: tip 已测试系统
-CentOS
+CentOS 7.5、8.2
 :::
 
 ### 查询系统详情
@@ -57,31 +57,55 @@ cat /proc/cpuinfo | grep physical | uniq -c
 
 ```shell
 env
+
 # 过滤环境变量中的配置
 env | grep xxx
 ```
 
 ### 编辑环境变量
 
+1. 编辑 /etc/profile 文件
+
+   ```shell
+   vim /etc/profile
+   ```
+
+2. 在文件末尾插入环境变量配置
+
+   打开编辑器后，按下 shift + g，跳转到文件末尾，按 o 进入插入模式，将下方配置插入进去后，按 ESC 进入一般模式，再按 :wq 保存并退出。
+
+   例如：插入 JAVA_HOME 环境变量配置
+
+   ```shell
+   JAVA_HOME=/opt/disk/java/jdk1.8.0_202
+   CLASSPATH=.:$JAVA_HOME/lib.tools.jar
+   PATH=$JAVA_HOME/bin:$PATH
+   export JAVA_HOME CLASSPATH PATH
+   ```
+
+3. 重新加载 /etc/profile 文件，使最新配置生效
+
+   ```shell
+   source /etc/profile
+   ```
+
+### 查询端口占用
+
 ```shell
-# 1、打开 profile 文件
-vim /etc/profile
+# 查询指定端口占用情况，还可以显示出占用该端口的进程 PID
+netstat -anp | grep 端口号
+```
 
-# 2、在其中插入环境变量配置
-# 添加 JAVA_HOME 环境变量
-JAVA_HOME=/opt/disk/java/jdk1.8.0_202
-CLASSPATH=.:$JAVA_HOME/lib.tools.jar
-PATH=$JAVA_HOME/bin:$PATH
-export JAVA_HOME CLASSPATH PATH
+### 查询程序位置
 
-# 3、重新加载 profile 文件，使最新配置生效
-source /etc/profile
+```shell
+whereis 程序名
 ```
 
 ## 防火墙相关
 
 ::: tip 已测试系统
-CentOS 7.5
+CentOS 7.5、8.2
 :::
 
 ### 查看防火墙状态
@@ -135,10 +159,101 @@ firewall-cmd --zone=public --remove-port=端口号/tcp --permanent
 firewall-cmd --reload
 ```
 
+## 系统服务相关
+
+::: tip 已测试系统
+CentOS 7.5、8.2
+:::
+
+### 查看服务状态
+
+```shell
+systemctl status 服务名
+```
+
+### 重新加载服务配置
+
+```shell
+systemctl daemon-reload
+```
+
+### 启动服务
+
+```shell
+systemctl start 服务名
+```
+
+### 停止服务
+
+```shell
+systemctl stop 服务名
+```
+
+### 重启服务
+
+```shell
+systemctl restart 服务名
+```
+
+### 设置服务开机自启
+
+```shell
+# 开机自启
+systemctl enable 服务名
+
+# 取消服务开机自启
+systemctl diable 服务名
+```
+
+### 创建服务
+
+1. 创建并编辑服务文件
+
+   ```shell
+   vim /etc/systemd/system/服务名.service
+   ```
+
+2. 编写服务配置
+
+   ```shell
+   [Unit]
+   Description=服务描述
+   Wants=network-online.target
+   After=network-online.target
+   
+   [Service]
+   # 设置环境变量
+   Environment="xxx=xxx"
+   # 设置服务执行命令或脚本
+   ExecStart=/bin/bash xxx.sh
+   KillSignal=SIGTERM
+   
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+3. 重新加载服务配置
+
+   ```shell
+   systemctl daemon-reload
+   ```
+
+4. 启动服务
+
+   ```
+   systemctl start 服务名
+   ```
+
+5. 设置服务开机自启
+
+   ```shell
+   systemctl enable 服务名
+   ```
+
 ## 监控相关
 
 ::: tip 已测试系统
-CentOS
+CentOS 7.5、8.2
 :::
 
 ### 查询RAM信息(内存)
@@ -279,13 +394,77 @@ top 命令也是用来查看进程状态的，相比于 ps 命令，top 命令�
 ss -tal
 ```
 
-## 文件编辑相关
+## 文件和目录相关
 
 ::: tip 已测试系统
-CentOS
+CentOS 7.5、8.2
 :::
 
-### 文本编辑器
+### 创建文件
+
+```shell
+touch 文件名
+```
+
+### 创建目录
+
+```shell
+# -p 表示当该目录的父目录不存在时，会自动创建
+mkdir -p 目录路径
+```
+
+例如：
+
+- `mkdir -p /opt/disk/software` 创建 software 目录
+- `mkdir -p /opt/disk/{software,data}` 同时创建 software 和 data 两个目录，甚至可以更多
+
+### 删除文件或目录
+
+```shell
+# -r 对目录进行递归删除，包含子目录
+# -f 删除时不进行确认
+rm -rf 文件名/目录名
+```
+
+### 复制文件或目录
+
+```shell
+cp 文件名/目录名 目录路径
+```
+
+例如：
+
+- `cp test test2`：
+  - 如果 test2 目录存在，表示将 test 目录复制一份到 test2 目录下
+  - 如果 test2 目录不存在，表示将 test 目录在当前目录下复制一份，命名为 test2 目录（cp 命令还可以在复制时实现文件/目录的重命名操作）
+
+::: tip 无法执行的强制覆盖
+大多数情况下，命令后带上 `-f` 参数就代表要强制执行，不需要进行确认输入。可当我们在 cp 命令后加上 `-f` 命令后，却发现当指定位置下存在同名文件/目录时，它依然会提示我们要进行确认。这是为什么呢？  
+
+输入 `alias cp` 命令，然后可以看到这么一行输出，它输出的内容在告诉我们 cp 命令实际上是 `cp -i` 命令的别名  。
+
+`alias cp='cp -i'`  
+
+它代表着 cp 命令在执行时，实际执行的是 `cp -i`，`-i` 表示如果要复制到位置已经有同名文件，会进行确认提示是否覆盖。  
+
+如果你依然想强制覆盖，有两种方法：
+1. 使用原生 cp 命令：`/bin/cp -rf 文件名/目录名 目录路径`
+2. 临时接触 cp 命令别名设置：`unalias cp` 
+:::
+
+### 剪切/移动文件或目录
+
+```shell
+mv 文件名/目录名 目录路径
+```
+
+例如：
+
+- `mv test test2`：
+  - 如果 test2 目录存在，表示将 test 目录移动到 test2 目录下
+  - 如果 test2 目录不存在，表示将 test 目录重命名为 test2（mv 命令还可以在剪切/移动时实现文件/目录的重命名操作，所以，虽然 Linux 中没有重命名命令，但你只要在原目录下对文件/目录进行剪切/移动，那就可以实现重命名的效果了）
+
+### 编辑文件
 
 ```shell
 # 如果指定位置不存在该名称文件，则在保存时自动新建
@@ -294,3 +473,43 @@ vi 文件名
 vim 文件名
 ```
 
+常见操作：
+
+- 一般模式（默认进入一般模式，此时为只读状态）
+
+  - 按 `i` 键：进入插入模式，在当前光标左侧插入
+
+  - 按 `I` 键：进入插入模式，在当前光标所在行行首插入
+
+  - 按 `a` 键：进入插入模式，在当前光标右侧插入
+
+  - 按 `A` 键：进入插入模式，在当前光标所在行行尾插入
+
+  - 按 `o` 键：进入插入模式，在当前光标所在行下一行插入
+
+  - 按 `O` 键：进入插入模式，在当前光标所在行上一行插入
+  - 按 `r` 键：可以对光标所在位置进行替换，适合替换一个错误字符的情况
+  - 按 `yy` 键：复制当前光标所在行
+    - 按 `p` 键：将按 `yy` 键复制的内容，粘贴到当前光标的下一行
+  - 按 `:` 键：进入底行模式/命令模式
+
+- 插入模式
+
+  - 按 `ESC` 键：退回到一般模式
+
+- 底行模式/命令模式
+
+  - 输入 `w`：保存不退出
+  - 输入 `q`：退出（如果修改了文件，无法退出，只能使用强制退出）
+  - 输入 `wq` / `x`：保存并退出
+  - 输入 `q!`：强制退出
+
+### 查找文件
+
+```shell
+find 目录名 -name 文件名关键词 
+```
+
+例如：
+
+- `find / -name nginx`：全盘查找 nginx 文件
