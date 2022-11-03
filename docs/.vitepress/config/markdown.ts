@@ -6,7 +6,7 @@ export const markdown: MarkdownOptions = {
     light: 'material-palenight',
     dark: 'one-dark-pro'
   },
-  lineNumbers: true, // 启用行号
+  // lineNumbers: true, // 启用行号
 
   // 在所有文档的<h1>标签后添加<ArticleMetadata/>组件
   config: (md) => {
