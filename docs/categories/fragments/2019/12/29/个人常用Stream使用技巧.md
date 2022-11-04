@@ -1,5 +1,5 @@
 ---
-title: 个人常用Stream使用技巧
+title: 个人常用 Stream 使用技巧
 author: 查尔斯
 date: 2019/12/29 15:00
 isTop: true
@@ -11,7 +11,7 @@ tags:
  - Lambda
 ---
 
-# 个人常用Stream使用技巧 <Badge text="持续更新" type="warning" />
+# 个人常用 Stream 使用技巧 <Badge text="持续更新" type="warning" />
 
 <!-- more -->
 

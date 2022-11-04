@@ -5,7 +5,7 @@ import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   plugins: [
-    //SearchPlugin(),
+    // SearchPlugin({}),
     Components({
       dirs: ['.vitepress/theme/components'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],

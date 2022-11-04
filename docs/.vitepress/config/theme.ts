@@ -17,7 +17,7 @@ export const themeConfig: DefaultTheme.Config = {
   },
   // 编辑链接配置
   editLink: {
-    pattern: 'https://github.com/Charles7c/charles7c.github.io/edit/main/repos/:path',
+    pattern: 'https://github.com/Charles7c/charles7c.github.io/edit/main/docs/:path',
     text: '不妥之处，敬请雅正'
   },
   // 全文搜索配置

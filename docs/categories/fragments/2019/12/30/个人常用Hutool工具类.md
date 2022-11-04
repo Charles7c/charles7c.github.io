@@ -1,5 +1,5 @@
 ---
-title: 个人常用Hutool工具类
+title: 个人常用 Hutool 工具类
 author: 查尔斯
 date: 2019/12/30 19:00
 isTop: true
@@ -11,7 +11,7 @@ tags:
  - Hutool
 ---
 
-# 个人常用Hutool工具类 <Badge text="持续更新" type="warning" />
+# 个人常用 Hutool工 具类 <Badge text="持续更新" type="warning" />
 
 **C：** 技术圈常说一句：“你要会写轮子，也要会用轮子”。工作的时候，为了提升开发效率，节约开发时间，也常常提醒自己不要重复造 “轮子”。
 

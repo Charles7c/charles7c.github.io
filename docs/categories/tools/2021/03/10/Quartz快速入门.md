@@ -1,5 +1,5 @@
 ---
-title: Quartz快速入门
+title: Quartz 快速入门
 author: 查尔斯
 date: 2021/03/10 18:58
 categories:
@@ -9,7 +9,7 @@ tags:
  - 作业调度
 ---
 
-# Quartz快速入门
+# Quartz 快速入门
 
 ## 前言
 

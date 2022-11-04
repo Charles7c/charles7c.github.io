@@ -1,5 +1,5 @@
 ---
-title: Postman快速入门
+title: Postman 快速入门
 author: 查尔斯
 date: 2021/03/06 17:55
 categories:
@@ -9,7 +9,7 @@ tags:
  - API
 ---
 
-# Postman快速入门
+# Postman 快速入门
 
 ## 前言
 

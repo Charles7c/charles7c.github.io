@@ -51,7 +51,7 @@ pnpm build
 - [x] 《我的归档》：自定义时间轴，展示历史文章数据。年份前可展示生肖，还可按分类、标签筛选
 - [x] 文章评论：目前仅支持Gitalk
 - [x] 版权声明：文末显示文章版权声明，可自由配置采用的版权协议
-- [x] 徽章：标题后可显示徽章，此功能来自于 VitePress 未合并的 PR，如若后续被合并，则改用官方主题功能
+- [x] ~~徽章：标题后可显示徽章，此功能来自于 VitePress 未合并的 PR，如若后续被合并，则改用官方主题功能（[官方已合并于 v1.0.0-alpha.27](https://github.com/vuejs/vitepress/issues/1239)）~~
 - [x] Mermaid 流程图：在 Markdown 中绘制流程图、状态图、时序图、甘特图、饼图等，更多语法请参见：[Mermaid 官方文档](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md) 。（Typora 编辑器也支持 `mermaid` 语法）
 - [ ] 本地搜索：等待 [emersonbottero/vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search) 作者修复中文检索问题
   - [ ] 如需体验，可将 `docs/vite.config.ts` 文件中的注释去除掉（本地搜索和 algolia 搜索无法同时使用，开启本地搜索后 algolia 搜索配置将不再生效）
@@ -96,10 +96,6 @@ pnpm build
 
 ![版权声明](./docs/public/screenshot/版权声明.png)
 
-### 徽章
-
-![徽章](./docs/public/screenshot/徽章.png)
-
 ### Mermaid 流程图
 
 ![Mermaid流程图](./docs/public/screenshot/Mermaid流程图1.png)
@@ -118,7 +114,6 @@ pnpm build
 - [xiaoxian521/pure-admin-utils-docs](https://github.com/xiaoxian521/pure-admin-utils-docs) （参考词云组件的使用）
 - [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue) （使用部分组件及图标）
 - [antvis/G2plot](https://github.com/antvis/G2plot) （使用部分图表）
-- [richardo2016/vitepress-pr](https://github.com/vuejs/vitepress/pull/1134) （使用徽章）
 - [emersonbottero/vitepress-plugin-mermaid](https://github.com/emersonbottero/vitepress-plugin-mermaid) （VitePress Mermaid 流程图插件）
 - [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md)
 - [emersonbottero/vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search) （VitePress 本地搜索插件）

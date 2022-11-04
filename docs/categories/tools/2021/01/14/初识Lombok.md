@@ -1,5 +1,5 @@
 ---
-title: 初识Lombok
+title: 初识 Lombok
 author: 查尔斯
 date: 2021/01/14 09:05
 categories:
@@ -9,9 +9,7 @@ tags:
  - Lombok
 ---
 
-
-
-# 初识Lombok
+# 初识 Lombok
 
 ## 前言
 

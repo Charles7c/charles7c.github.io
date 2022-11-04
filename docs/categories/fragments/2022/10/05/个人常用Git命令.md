@@ -1,5 +1,5 @@
 ---
-title: 个人常用Git命令
+title: 个人常用 Git 命令
 author: 查尔斯
 date: 2022/10/05 21:30
 isTop: true
@@ -9,7 +9,7 @@ tags:
  - Git
 ---
 
-# 个人常用Git命令 <Badge text="持续更新" type="warning" />
+# 个人常用 Git 命令 <Badge text="持续更新" type="warning" />
 
 ## 初始配置
 

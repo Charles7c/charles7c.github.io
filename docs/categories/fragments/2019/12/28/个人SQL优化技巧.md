@@ -1,5 +1,5 @@
 ---
-title: 个人SQL优化技巧
+title: 个人 SQL 优化技巧
 author: 查尔斯
 date: 2019/12/28 10:00
 isTop: true
@@ -10,7 +10,7 @@ tags:
  - SQL优化
 ---
 
-# 个人SQL优化技巧 <Badge text="持续更新" type="warning" />
+# 个人 SQL 优化技巧 <Badge text="持续更新" type="warning" />
 
 <!-- more -->
 

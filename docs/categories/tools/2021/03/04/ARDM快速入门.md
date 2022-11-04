@@ -1,5 +1,5 @@
 ---
-title: Another Redis Desktop Manager快速入门
+title: Another Redis Desktop Manager 快速入门
 author: 查尔斯
 date: 2021/03/04 23:19
 categories:
@@ -9,7 +9,7 @@ tags:
  - 管理工具
 ---
 
-# Another Redis Desktop Manager快速入门
+# Another Redis Desktop Manager 快速入门
 
 ## 前言
 

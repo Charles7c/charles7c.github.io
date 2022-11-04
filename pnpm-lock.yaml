@@ -6,16 +6,17 @@ specifiers:
   blueimp-md5: ^2.19.0
   dayjs: ^1.11.6
   fast-glob: ^3.2.12
+  flexsearch: ^0.7.31
   gitalk: ^1.8.0
   gray-matter: ^4.0.3
   jquery: ^3.6.1
   markdown-it: ^13.0.1
-  mermaid: ^9.1.7
+  mermaid: 9.1.7
   unplugin-vue-components: ^0.22.9
-  vite: ^3.2.1
-  vitepress: 1.0.0-alpha.26
+  vite: ^3.2.2
+  vitepress: 1.0.0-alpha.27
   vitepress-plugin-mermaid: ^2.0.8
-  vitepress-plugin-search: 1.0.4-alpha.14
+  vitepress-plugin-search: 1.0.4-alpha.15
   vue: ^3.2.41
 
 dependencies:
@@ -29,13 +30,14 @@ dependencies:
 
 devDependencies:
   '@arco-design/web-vue': 2.38.0_vue@3.2.41
+  flexsearch: 0.7.31
   markdown-it: 13.0.1
   mermaid: 9.1.7
   unplugin-vue-components: 0.22.9_vue@3.2.41
-  vite: 3.2.1
-  vitepress: 1.0.0-alpha.26
-  vitepress-plugin-mermaid: 2.0.8_sj2y2ekbtck2gfw5ouyx75j7fy
-  vitepress-plugin-search: 1.0.4-alpha.14_edwxd2s5a3ayuywbdcmqzhfm3m
+  vite: 3.2.2
+  vitepress: 1.0.0-alpha.27
+  vitepress-plugin-mermaid: 2.0.8_akngdwt3wrqker4c44iwtrvydu
+  vitepress-plugin-search: 1.0.4-alpha.15_jqf4rwmsymnrb4kzh6io7s4tmi
   vue: 3.2.41
 
 packages:
@@ -479,18 +481,37 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
+  /@types/flexsearch/0.7.3:
+    resolution: {integrity: sha512-HXwADeHEP4exXkCIwy2n1+i0f1ilP1ETQOH5KDOugjkTFZPntWo0Gr8stZOaebkxsdx+k0X/K6obU/+it07ocg==}
+    dev: true
+
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
+    dev: true
+
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: true
 
-  /@vitejs/plugin-vue/3.1.2_vite@3.2.1+vue@3.2.41:
+  /@vitejs/plugin-vue/3.1.2_vite@3.2.2+vue@3.2.41:
     resolution: {integrity: sha512-3zxKNlvA3oNaKDYX0NBclgxTQ1xaFdL7PzwF6zj9tGFziKwmBa3Q/6XcJQxudlT81WxDjEhHmevvIC4Orc1LhQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.1
+      vite: 3.2.2
       vue: 3.2.41
     dev: true
 
@@ -1710,6 +1731,10 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
 
+  /flexsearch/0.7.31:
+    resolution: {integrity: sha512-XGozTsMPYkm+6b5QL3Z9wQcJjNYxp0CYn3U1gO7dwD6PAqU1SVWZxI9CCg3z+ml3YfqdPnrBehaBrnH2AGKbNA==}
+    dev: true
+
   /fmin/0.0.2:
     resolution: {integrity: sha512-sSi6DzInhl9d8yqssDfGZejChO8d2bAGIpysPsvYsxFe898z89XhCZg6CPNV3nhUhFefeC/AXZK2bAJxlBjN6A==}
     dependencies:
@@ -2471,14 +2496,6 @@ packages:
       kind-of: 6.0.3
     dev: false
 
-  /shiki-processor/0.1.1_shiki@0.11.1:
-    resolution: {integrity: sha512-K2v/JNHdMRGFnbcVqAgvPU8qmZNgtiBrYcYKe3O6Lx2W0RoyiwzrrpCUU917b2r2EMS+2FNgRIgz9xvtmF/L7w==}
-    peerDependencies:
-      shiki: ^0.11.1
-    dependencies:
-      shiki: 0.11.1
-    dev: true
-
   /shiki/0.11.1:
     resolution: {integrity: sha512-EugY9VASFuDqOexOgXR18ZV+TbFrQHeCpEYaXamO+SZlsnT/2LxuLBX25GGtIrwaEVFXUAbUQ601SWE2rMwWHA==}
     dependencies:
@@ -2704,8 +2721,8 @@ packages:
       webpack-virtual-modules: 0.4.5
     dev: true
 
-  /vite/3.2.1:
-    resolution: {integrity: sha512-ADtMkfHuWq4tskJsri2n2FZkORO8ZyhI+zIz7zTrDAgDEtct1jdxOg3YsZBfHhKjmMoWLOSCr+64qrEDGo/DbQ==}
+  /vite/3.2.2:
+    resolution: {integrity: sha512-pLrhatFFOWO9kS19bQ658CnRYzv0WLbsPih6R+iFeEEhDOuYgYCX2rztUViMz/uy/V8cLCJvLFeiOK7RJEzHcw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -2734,7 +2751,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress-plugin-mermaid/2.0.8_sj2y2ekbtck2gfw5ouyx75j7fy:
+  /vitepress-plugin-mermaid/2.0.8_akngdwt3wrqker4c44iwtrvydu:
     resolution: {integrity: sha512-ywWxTeg9kMv7ZPf/igCBF4ZHhWZAyRtbPnA12ICQuNK2AMp7r5IHOfnuX1EJQf8gNdsh8bcvvSvm8Ll92fdOTw==}
     peerDependencies:
       mermaid: ^8.0.0 || ^9.0.0
@@ -2742,35 +2759,39 @@ packages:
       vitepress: ^0.21.6 || ^1.0.0 || ^1.0.0-alpha
     dependencies:
       mermaid: 9.1.7
-      vitepress: 1.0.0-alpha.26
+      vitepress: 1.0.0-alpha.27
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.14_edwxd2s5a3ayuywbdcmqzhfm3m:
-    resolution: {integrity: sha512-PvHdsv4DN4SNfbfMN2IFp6vNKLXqEVpZpvkFi5zyEdTn0nb2HtaNuAtwSeSz7gWOMZwzLQ/ncHQ0Ka5beHgASQ==}
+  /vitepress-plugin-search/1.0.4-alpha.15_jqf4rwmsymnrb4kzh6io7s4tmi:
+    resolution: {integrity: sha512-Ef/VkhTVYlECVI0H9Ck6745UNPfYFppAqnlxVSMJXdxP2vjOZ5TYNczlTTQ2p9dh16MFw/IurbL1/GrG4nXdNw==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
+      flexsearch: ^0.7.31
       vite: 2 || 3
       vitepress: ^1.0.0-alpha.13
       vue: '3'
     dependencies:
-      vite: 3.2.1
-      vitepress: 1.0.0-alpha.26
+      '@types/flexsearch': 0.7.3
+      '@types/markdown-it': 12.2.3
+      flexsearch: 0.7.31
+      markdown-it: 13.0.1
+      vite: 3.2.2
+      vitepress: 1.0.0-alpha.27
       vue: 3.2.41
     dev: true
 
-  /vitepress/1.0.0-alpha.26:
-    resolution: {integrity: sha512-XpDpflrdmyBmUQrg06q29Mhez144NvoZ48pRvNhANy/wV7E7XJ1zenQROOSADnOsAlhV1gzcNjqiFNObCk7l8A==}
+  /vitepress/1.0.0-alpha.27:
+    resolution: {integrity: sha512-7/PwlIRZANvB2uyi8oi4oMXuH84g2/pAaoymb+ObBCs60m0oVxKMPO28w7R/svqSnnE+bNDOuLzTCXt7gn513g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
       '@docsearch/js': 3.3.0
-      '@vitejs/plugin-vue': 3.1.2_vite@3.2.1+vue@3.2.41
+      '@vitejs/plugin-vue': 3.1.2_vite@3.2.2+vue@3.2.41
       '@vue/devtools-api': 6.4.5
       '@vueuse/core': 9.4.0_vue@3.2.41
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
-      shiki-processor: 0.1.1_shiki@0.11.1
-      vite: 3.2.1
+      vite: 3.2.2
       vue: 3.2.41
     transitivePeerDependencies:
       - '@algolia/client-search'
