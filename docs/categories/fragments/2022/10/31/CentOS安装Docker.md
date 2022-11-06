@@ -21,13 +21,13 @@ tags:
 1. 软件更新
 
    ```shell
-   yum update
+   yum -y update
    ```
 
 2. 安装 yum-utils
 
    ```shell
-   yum install -y yum-utils device-mapper-persistent-data lvm2
+   yum -y install yum-utils device-mapper-persistent-data lvm2
    ```
 
 3. 设置 yum 软件源

@@ -1,5 +1,5 @@
 ---
-title: 解决Windows桌面部分快捷方式图标变为空白的问题
+title: 解决 Windows 桌面部分快捷方式图标变为空白的问题
 author: 查尔斯
 date: 2022/10/15 21:10
 categories:
@@ -8,7 +8,7 @@ tags:
  - Windows
 ---
 
-# 解决Windows桌面部分快捷方式图标变为空白的问题
+# 解决 Windows 桌面部分快捷方式图标变为空白的问题
 
 ## 问题描述
 

@@ -426,6 +426,14 @@ mkdir -p 目录路径
 rm -rf 文件名/目录名
 ```
 
+如果想删除指定目录下除某个文件及某个目录之外的所有文件，可以试试通配符匹配：
+
+```shell
+# 但使用前先记得开启通配符功能，可以通过 shopt -s 查看是否开启了，on 表示已经开启
+# shopt -s extglob
+rm -rf !(target_file|target_dir)
+```
+
 ### 复制文件或目录
 
 ```shell

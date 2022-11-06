@@ -264,3 +264,40 @@ docker version
 docker info
 ```
 
+## docker-compose命令
+
+### 启动并后台运行所有的服务
+
+```shell
+docker-compose up -d
+```
+
+### 停止并删除容器、网络、卷、镜像
+
+```shell
+docker-compose down
+```
+
+### 列出项目中目前的所有容器
+
+```shell
+docker-compose ps
+```
+
+### 停止容器
+
+```shell
+docker-compose stop 容器名
+```
+
+###  启动容器
+
+```shell
+docker-compose start 容器名
+```
+
+### 修改 yml 文件后，重新启动并后台运行
+
+```shell
+docker-compose up --force-recreate -d
+```
