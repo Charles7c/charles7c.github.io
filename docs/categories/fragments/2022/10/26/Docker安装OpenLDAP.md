@@ -93,9 +93,9 @@ services:
     image: osixia/openldap:1.5.0
     restart: always
     environment:
-      LDAP_ORGANISATION: dcits
-      LDAP_DOMAIN: fucloud.net
-      LDAP_ADMIN_PASSWORD: dcits1991!
+      LDAP_ORGANISATION: baidu
+      LDAP_DOMAIN: baidu.com
+      LDAP_ADMIN_PASSWORD: 123456
       LDAP_TLS_VERIFY_CLIENT: try
     ports:
       - 389:389

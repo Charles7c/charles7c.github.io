@@ -72,4 +72,5 @@ Error: Failed to download metadata for repo 'appstream': Cannot prepare internal
 ## 参考资料
 
 1. 【已解决】Error: Failed to download metadata for repo ‘appstream‘: Cannot prepare internal mirrorlist：https://blog.csdn.net/weixin_43252521/article/details/124409151
+1. CentOS 8 EOL如何切换源？：https://help.aliyun.com/document_detail/405635.html
 1. CentOS Project shifts focus to CentOS Stream：https://blog.centos.org/2020/12/future-is-centos-stream/
