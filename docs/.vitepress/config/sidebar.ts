@@ -98,6 +98,9 @@ function getItemsByDate (path: string) {
     // 将最近年份分组展开
     yearGroups[0].collapsed = false
   }
+
+  // 添加序号
+  addOrderNumber(yearGroups)
   return yearGroups
 }
 
@@ -152,5 +155,22 @@ function getItems (path: string) {
     // 4.清空侧边栏分组下标题数组
     items = []
   })
+
+  // 添加序号
+  addOrderNumber(groups)
   return groups
+}
+
+/**
+ * 添加序号
+ * 
+ * @param groups 分组数据
+ */
+function addOrderNumber(groups) {
+  for (var i = 0; i < groups.length; i++) {
+    for (var j = 0; j < groups[i].items.length; j++) {
+      var items = groups[i].items
+      items[j].text = `[${j + 1}] ${items[j].text}`
+    }
+  }
 }

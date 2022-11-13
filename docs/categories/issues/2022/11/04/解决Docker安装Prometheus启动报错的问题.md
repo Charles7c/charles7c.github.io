@@ -29,7 +29,7 @@ docker logs prometheus
 
 错误信息部分也很突出，level=error。
 
-```
+```shell
 caller=query_logger.go:90 level=error component=activeQueryTracker msg="Error opening quer log file" file=/opt/bitnami/prometheus/data/queries.active err="open data/queries.active: permission denied"
 panic: Unable to create mmap-ed active query log
 ```
@@ -40,9 +40,7 @@ panic: Unable to create mmap-ed active query log
 
 简单翻译一下错误信息 msg 及后面部分提示。
 
-```
-信息：打开查询日志文件时出错 file=/opt/bitnami/prometheus/data/queries.active 错误：打开 data/queries.active：拒绝访问
-```
+> 信息：打开查询日志文件时出错 file=/opt/bitnami/prometheus/data/queries.active 错误：打开 data/queries.active：拒绝访问
 
 其中的关键信息是 `permission denied`（拒绝访问），从这字面意思上可以得知和权限有关。
 
