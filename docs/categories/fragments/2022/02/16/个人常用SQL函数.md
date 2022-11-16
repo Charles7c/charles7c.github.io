@@ -65,7 +65,7 @@ TRUNCATE TABLE 表名;
      CONCAT('TRUNCATE TABLE ', TABLE_NAME, ';')
    FROM 
      information_schema.TABLES
-   WHERE TABLES_SCHEMA = '数据库名';
+   WHERE TABLE_SCHEMA = '数据库名';
    ```
 
 2. 将执行结果复制，直接执行即可
@@ -87,7 +87,7 @@ DROP TABLE 表名;
      CONCAT('DROP TABLE IF EXISTS ', TABLE_NAME, ';')
    FROM 
      information_schema.TABLES
-   WHERE TABLES_SCHEMA = '数据库名';
+   WHERE TABLE_SCHEMA = '数据库名';
    ```
 
 2. 将执行结果复制，直接执行即可

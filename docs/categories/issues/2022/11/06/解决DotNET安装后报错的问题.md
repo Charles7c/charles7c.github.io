@@ -1,20 +1,20 @@
 ---
-title: 解决 DotNET 安装完，报错：Couldn't find a valid ICU package installed on the system. Please install libicu using your package manager and try again
+title: 解决 DotNet 安装完，报错：Couldn't find a valid ICU package installed on the system. Please install libicu using your package manager and try again
 author: 查尔斯
 date: 2022/11/06 15:35
 categories:
  - Bug万象集
 tags:
- - DotNET
+ - DotNet
  - Linux
  - CentOS
 ---
 
-# 解决 DotNET 安装完，报错：Couldn't find a valid ICU package installed on the system. Please install libicu using your package manager and try again
+# 解决 DotNet 安装完，报错：Couldn't find a valid ICU package installed on the system. Please install libicu using your package manager and try again
 
 ## 问题描述
 
-**C：** 今天，笔者在一台 CentOS 7.9 服务器上手动安装完 DotNET 6.0.401 并配置好了环境变量之后，照例想查看一下是否安装成功。
+**C：** 今天，笔者在一台 CentOS 7.9 服务器上手动安装完 DotNet 6.0.401 并配置好了环境变量之后，照例想查看一下是否安装成功。
 
 ```shell
 dotnet --version

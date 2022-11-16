@@ -72,6 +72,7 @@ pnpm build
 - [x] 更多细节优化：敬请发现
   - [x] 文章内图片增加圆角样式优化（[#56](https://github.com/Charles7c/charles7c.github.io/issues/56)）
   - [x] 浏览器滚动条样式优化（支持 Firfox、谷歌系浏览器）（[#69](https://github.com/Charles7c/charles7c.github.io/pull/69)）
+  - [x] 侧边栏分组中的文章列表增加序号显示
   - [x] ......
 
 
