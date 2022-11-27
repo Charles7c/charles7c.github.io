@@ -82,7 +82,7 @@ const { author, authorLink, showPv, date, toDate, categories, tags, showCategory
 if (data.showPv) {
   // 记录并获取文章阅读数（使用文章标题 + 发布时间生成 MD5 值，作为文章的唯一标识）
   onMounted(() => {
-    $api.getPv(md5(props.article.title + props.article.date), function(data) {
+    $api.getPv(md5(props.article.title + props.article.date), location.href, function(data) {
       document.getElementById("pv").innerText = data
     })
   })

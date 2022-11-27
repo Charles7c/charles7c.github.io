@@ -25,5 +25,13 @@ export const head: HeadConfig[] = [
     hm.src = "https://hm.baidu.com/hm.js?53af4b1a12fbe40810ca7ad39f8db9c7";
     var s = document.getElementsByTagName("script")[0]; 
     s.parentNode.insertBefore(hm, s);
-  })();`]
+  })();`],
+  // 页面访问量统计
+  ['script', {}, `var pageUrl = location.href;
+  (function() {
+    var pv = document.createElement("script");
+    pv.src = "https://api.charles7c.top/blog/pv?pageUrl=" + pageUrl;
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(pv, s);
+  })();`],
 ]

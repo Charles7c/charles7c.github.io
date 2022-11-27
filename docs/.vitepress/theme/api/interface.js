@@ -1,7 +1,7 @@
 import { request } from './config'
 
-export const getPv = (id, call) => {
-    request.get(`/pv/${id}`, {}).then(result => {
+export const getPv = (id, pageUrl, call) => {
+    request.get(`/article/view/${id}?pageUrl=${pageUrl}`, {}).then(result => {
         call(process(result))
     })
 }
