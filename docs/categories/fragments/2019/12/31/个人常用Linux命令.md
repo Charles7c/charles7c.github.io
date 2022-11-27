@@ -521,3 +521,16 @@ find 目录名 -name 文件名关键词
 例如：
 
 - `find / -name nginx`：全盘查找 nginx 文件
+
+## 下载工具
+
+cURL 是一个网络数据传输项目，通常说 cURL 是指 curl 命令行工具，它支持 DICT、FILE、FTP、FTPS、Gopher、HTTP、HTTPS、IMAP、IMAPS、LDAP、LDAPS、POP3、POP3S、RTMP、RTSP、SCP、SFTP、SMB、SMBS、SMTP、SMTPS、Telnet 与 TFTP 等协议，而 curl 的底层使用的是 libcurl 库，libcurl 与 curl 组成了 cURL 项目。
+
+```shell
+# -f(--fail)：表示在服务器错误时，阻止一个返回的表示错误原因的 HTML 页面，而由 curl 命令返回一个错误码 22 来提示错误
+# -s(--silent)：不显示错误和进度信息
+# -S(--show-error)：指定只输出错误信息，通常与 -s 一起使用
+# -L(--location)：让 HTTP 请求跟随服务器的重定向，curl 默认不跟随重定向
+curl -fsSL https://get.docker.com
+```
+

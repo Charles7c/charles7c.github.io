@@ -18,6 +18,8 @@ tags:
 
 ## Docker 安装
 
+### 方式一
+
 1. 软件更新
 
    ```shell
@@ -42,11 +44,34 @@ tags:
    yum -y install docker-ce
    ```
 
-5. 检验是否安装成功
+5. 启动 docker
+
+   ```shell
+   systemctl start docker
+   ```
+
+6. 设置 docker 开机自启
+
+   ```shell
+   systemctl enable docker
+   ```
+
+7. 检验是否安装成功
 
    ```shell
    docker -v
    ```
+
+### 方式二（推荐）
+
+一条命令安装 docker。
+
+1. 下载并安装 docker
+2. 启动并设置 docker 开机自启
+
+```shell
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun && systemctl start docker && systemctl enable docker
+```
 
 ## Docker 配置
 
@@ -97,8 +122,6 @@ tags:
    systemctl daemon-reload
    # 重启 docker
    systemctl restart docker
-   # 设置 docker 开机自启
-   systemctl enable docker
    ```
 
 ## Docker Compose 安装

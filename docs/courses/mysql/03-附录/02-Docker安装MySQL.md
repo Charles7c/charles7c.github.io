@@ -50,21 +50,21 @@ docker pull mysql:8.0.29
 
 ```shell
 # MYSQL_ROOT_PASSWORD：root 用户密码
+# MYSQL_DATABASE：初始化数据库
+# MYSQL_USER：初始化普通用户
+# MYSQL_PASSWORD：初始化普通用户密码
 docker run -d \
 --name mysql mysql:8.0.29 \
 --restart=always \
 -e TZ=Asia/Shanghai \
 -e MYSQL_ROOT_PASSWORD=123456 \
--p 13307:3306 \
+-e MYSQL_DATABASE=test \
+-e MYSQL_USER=test \
+-e MYSQL_PASSWORD=123456 \
+-p 3306:3306 \
 -v /opt/disk/docker/volumes/mysql/conf:/etc/mysql/conf.d \
 -v /opt/disk/docker/volumes/mysql/data:/var/lib/mysql \
 -v /opt/disk/docker/volumes/mysql/logs:/logs \
-# 将 MySQL 8.0 默认密码策略修改为原来策略 (MySQL 8.0 对其默认策略做了更改，会导致密码无法匹配)
---default-authentication-plugin=mysql_native_password \
---character-set-server=utf8mb4 \
---collation-server=utf8mb4_general_ci \
---explicit_defaults_for_timestamp=true \
---lower_case_table_names=1
 # 使用该参数，容器内的 root 用户才拥有真正的 root 权限
 --privileged=true
 ```
@@ -85,20 +85,16 @@ services:
     image: mysql:8.0.29
     environment:
       TZ: Asia/Shanghai
-      MYSQL_ROOT_PASSWORD: dcits_cmp_mysql_001!!!
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 123456
     ports:
-      - 13307:3306
+      - 3306:3306
     volumes:
       - /opt/disk/docker/volumes/mysql/conf:/etc/mysql/conf.d
       - /opt/disk/docker/volumes/mysql/data:/var/lib/mysql
       - /opt/disk/docker/volumes/mysql/logs:/logs
-    command:
-      # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
-      --default-authentication-plugin=mysql_native_password
-      --character-set-server=utf8mb4
-      --collation-server=utf8mb4_general_ci
-      --explicit_defaults_for_timestamp=true
-      --lower_case_table_names=1
     privileged: true
 ```
 
@@ -107,3 +103,46 @@ services:
 ```shell
 docker-compose up -d
 ```
+
+## 附：安装MariaDB
+
+### 运行容器
+
+```shell
+docker run -d \
+--name mariadb mariadb \
+--restart=always \
+-e TZ=Asia/Shanghai \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-e MYSQL_DATABASE=test \
+-e MYSQL_USER=test \
+-e MYSQL_PASSWORD=123456 \
+-p 3306:3306 \
+-v /opt/disk/docker/volumes/mysql/conf:/etc/mysql/conf.d \
+-v /opt/disk/docker/volumes/mysql/data:/var/lib/mysql \
+--privileged=true
+```
+
+### Docker Compose脚本
+
+```yaml
+version: '3'
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 123456
+    ports:
+      - 3306:3306
+    volumes:
+      - /opt/disk/docker/volumes/mysql/conf:/etc/mysql/conf.d
+      - /opt/disk/docker/volumes/mysql/data:/var/lib/mysql
+    privileged: true
+```
+
