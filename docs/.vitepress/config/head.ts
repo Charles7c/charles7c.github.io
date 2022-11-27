@@ -29,9 +29,15 @@ export const head: HeadConfig[] = [
   // 页面访问量统计
   ['script', {}, `var pageUrl = location.href;
   (function() {
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.charles7c.top/blog/pv?pageUrl=' + pageUrl);
+    xhr.send();
+  })();`]
+  /*['script', {}, `var pageUrl = location.href;
+  (function() {
     var pv = document.createElement("script");
     pv.src = "https://api.charles7c.top/blog/pv?pageUrl=" + pageUrl;
     var s = document.getElementsByTagName("script")[0]; 
     s.parentNode.insertBefore(pv, s);
-  })();`],
+  })();`]*/
 ]

@@ -14,11 +14,11 @@
       </span>
       <time class="meta-content" :datetime="date.toISOString()" :title="dayjs().to(dayjs(date))">{{ date.toLocaleString('zh', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'}) }}</time>
     </div>
-    <div class="meta-item" v-if="showPv">
+    <div class="meta-item" v-if="showViewCount">
       <span class="meta-icon pv">
         <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><title>阅读数</title><path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3-7.7 16.2-7.7 35.2 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766z"></path><path d="M508 336c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176z m0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
       </span>
-      <span id="pv" class="meta-content">0</span>
+      <span class="meta-content" v-text="viewCount"></span>
     </div>
     <div class="meta-item" v-if="showCategory">
       <span class="meta-icon category">
@@ -71,19 +71,20 @@ const { theme, page } = useData()
 const data = reactive({
   author: props.article?.author ?? theme.value.articleMetadataConfig.author,
   authorLink: props.article?.authorLink ?? theme.value.articleMetadataConfig.authorLink,
-  showPv: theme.value.articleMetadataConfig?.showPv ?? false,
+  showViewCount: theme.value.articleMetadataConfig?.showViewCount ?? false,
+  viewCount: 0,
   date: new Date(props.article.date),
   categories: props.article?.categories ?? [],
   tags: props.article?.tags ?? [],
   showCategory: props.showCategory
 })
-const { author, authorLink, showPv, date, toDate, categories, tags, showCategory } = toRefs(data)
+const { author, authorLink, showViewCount, viewCount, date, toDate, categories, tags, showCategory } = toRefs(data)
 
-if (data.showPv) {
+if (data.showViewCount) {
   // 记录并获取文章阅读数（使用文章标题 + 发布时间生成 MD5 值，作为文章的唯一标识）
   onMounted(() => {
-    $api.getPv(md5(props.article.title + props.article.date), location.href, function(data) {
-      document.getElementById("pv").innerText = data
+    $api.getPv(md5(props.article.title + props.article.date), location.href, function(viewCountData) {
+      data.viewCount = viewCountData
     })
   })
 }
