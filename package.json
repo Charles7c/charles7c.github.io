@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@antv/g2plot": "^2.4.22",
+    "axios": "^1.2.0",
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.6",
     "fast-glob": "^3.2.12",
