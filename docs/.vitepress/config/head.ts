@@ -30,7 +30,7 @@ export const head: HeadConfig[] = [
   ['script', {}, `var pageUrl = location.href;
   (function() {
     xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.charles7c.top/blog/pv?pageUrl=' + pageUrl);
+    xhr.open('GET', 'https://api.charles7c.top/blog/pv?pageUrl=' + pageUrl + "&t=" + new Date().getTime());
     xhr.send();
   })();`]
   /*['script', {}, `var pageUrl = location.href;
