@@ -27,17 +27,33 @@ export const head: HeadConfig[] = [
     s.parentNode.insertBefore(hm, s);
   })();`],
   // 页面访问量统计
-  ['script', {}, `var pageUrl = location.href;
-  (function() {
+  ['script', {}, `
+  window.addEventListener('load', function() {
+    let oldHref = document.location.href, bodyDOM = document.querySelector('body');
+    const observer = new MutationObserver(function(mutations) {
+      if (oldHref != document.location.href) {
+        oldHref = document.location.href;
+        getPv()
+        window.requestAnimationFrame(function() {
+          let tmp = document.querySelector('body');
+          if(tmp != bodyDOM) {
+            bodyDOM = tmp;
+            observer.observe(bodyDOM, config);
+          }
+        })
+      }
+    });
+    const config = {
+      childList: true,
+      subtree: true
+    };
+    observer.observe(bodyDOM, config);
+    getPv()
+  }, true);
+
+  function getPv() {
     xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.charles7c.top/blog/pv?pageUrl=' + pageUrl + "&t=" + new Date().getTime());
+    xhr.open('GET', 'https://api.charles7c.top/blog/pv?pageUrl=' + location.href);
     xhr.send();
-  })();`]
-  /*['script', {}, `var pageUrl = location.href;
-  (function() {
-    var pv = document.createElement("script");
-    pv.src = "https://api.charles7c.top/blog/pv?pageUrl=" + pageUrl;
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(pv, s);
-  })();`]*/
+  }`]
 ]

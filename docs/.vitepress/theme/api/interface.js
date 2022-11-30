@@ -1,6 +1,6 @@
 import { request } from './config'
 
-export const getPv = (id, pageUrl, call) => {
+export const getArticleViewCount = (id, pageUrl, call) => {
     request.get(`/article/view/${id}?pageUrl=${pageUrl}`, {}).then(result => {
         call(process(result))
     })
@@ -14,4 +14,4 @@ function process(result) {
     }
 }
 
-export default { getPv }
+export default { getArticleViewCount }
