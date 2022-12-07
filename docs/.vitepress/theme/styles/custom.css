@@ -1,12 +1,12 @@
 /* 灰度模式 */
-html {
+/*html {
   filter: grayscale(95%);
-  -webkit-filter: grayscale(95%); /* webkit */
-  -moz-filter: grayscale(95%); /*firefox*/
-  -ms-filter: grayscale(95%); /*ie9*/
-  -o-filter: grayscale(95%); /*opera*/
+  -webkit-filter: grayscale(95%);
+  -moz-filter: grayscale(95%);
+  -ms-filter: grayscale(95%);
+  -o-filter: grayscale(95%);
   filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=.95);
-}
+}*/
 
 body {
   font-size: 16px;
