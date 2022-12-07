@@ -36,7 +36,7 @@ SELECT * FROM `sys_user` WHERE `email` = 'charles7c@126.com' LIMIT 1;
 ```
 :::
 
-### 避免隐式类型转换 <Badge text="强制" type="error" />
+### 避免隐式类型转换 <Badge text="强制" type="danger" />
 
 我们在使用 MySQL 时，或多或少都感受过 MySQL 的隐式类型转换。例如：user_id 是整数类型，但是依然可以使用字符串类型数据来进行判断。MySQL 帮你做完这种隐式类型转换是有代价的，什么代价呢？ **索引不再生效了而已** 。
 
