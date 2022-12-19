@@ -22,17 +22,15 @@ tags:
 
 这样既可以让 EXPLAIN 中的 type 达到 const 类型，又可以免去担忧在程序中出现接收是单个对象却返回了一个集合对象的异常问题。
 
-::: danger 反例
-```sql
-# user_id 是主键，主键是非空唯一的，那么不需要添加 LIMIT 进行限制
-SELECT * FROM `sys_user` WHERE `user_id` = 1;
-```
-:::
-
-::: tip 正例
-```sql
+::: code-group
+```sql [正例]
 # email 不是主键，也没有设置唯一约束，根据熵增定律，查询结果是有可能会出现多条的
 SELECT * FROM `sys_user` WHERE `email` = 'charles7c@126.com' LIMIT 1;
+```
+
+```sql [反例]
+# user_id 是主键，主键是非空唯一的，那么不需要添加 LIMIT 进行限制
+SELECT * FROM `sys_user` WHERE `user_id` = 1;
 ```
 :::
 
@@ -40,15 +38,13 @@ SELECT * FROM `sys_user` WHERE `email` = 'charles7c@126.com' LIMIT 1;
 
 我们在使用 MySQL 时，或多或少都感受过 MySQL 的隐式类型转换。例如：user_id 是整数类型，但是依然可以使用字符串类型数据来进行判断。MySQL 帮你做完这种隐式类型转换是有代价的，什么代价呢？ **索引不再生效了而已** 。
 
-::: danger 反例
-```sql
-SELECT * FROM `sys_user` WHERE `user_id` = '10';
-```
-:::
-
-::: tip 正例
-```sql
+::: code-group
+```sql [正例]
 SELECT * FROM `sys_user` WHERE `user_id` = 10;
+```
+
+```sql [反例]
+SELECT * FROM `sys_user` WHERE `user_id` = '10';
 ```
 :::
 
@@ -58,8 +54,8 @@ SELECT * FROM `sys_user` WHERE `user_id` = 10;
 
 部分列名带上前缀或缩写，可以有效减少在连接查询、ORM 映射等场景下刻意起别名或思考区分不同的问题。
 
-::: tip 个人建议
-```sql
+::: code-group
+```sql [正例]
 CREATE TABLE `sys_customer` (
   `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '客户ID',
   `customer_name` varchar(255) NOT NULL COMMENT '客户名称',
@@ -76,7 +72,6 @@ CREATE TABLE `sys_contact_user` (
 # 连接查询，你完全不需要用脑去考虑到底是 c.`id` 还是 cu.`customer_id` 的问题，都是 `customer_id`
 SELECT * FROM `sys_customer` c 
 LEFT JOIN `sys_contact_user` cu ON c.`customer_id` = cu.`customer_id`
-
 ```
 :::
 
@@ -84,12 +79,14 @@ LEFT JOIN `sys_contact_user` cu ON c.`customer_id` = cu.`customer_id`
 
 在大部分的数据存储场景中，我们只会使用正整数，如果能确定该列为非负数，建议添加 `UNSIGNED` 无符号约束。
 
-```sql
+::: code-group
+```sql [正例]
 # 不添加 UNSIGNED 约束，取值范围
 TINYINT：[-128, 127]
 # 添加 UNSIGNED 约束，取值范围
 TINYINT：[0, 255]
 ```
+:::
 
 ### 合理采用整数类型 <Badge text="建议" />
 
@@ -109,19 +106,21 @@ TINYINT：[0, 255]
 
 例如：是否删除这种只有两种状态的信息，在表设计时建议对该列设置 `bit` 类型（0表示否/假/false，1表示是/真/true），在程序语言中可以采用 boolean 类型对应。
 
-```sql
-`delFlag` bit(1) NOT NULL DEFAULT b'0' COMMENT '删除标识（0否 1是）'
+::: code-group
+```sql [SQL]
+`is_deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否已删除（0否 1是）'
 ```
 
-```java
+```java [Java]
 @Data
 public class User {
     /**
-     * 删除标识（0否 1是）
+     * 是否已删除（0否 1是）
      */
-    private Boolean delFlag;
+    private Boolean isDeleted;
 }
 ```
+:::
 
 ## 数据库设计
 

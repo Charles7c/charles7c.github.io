@@ -19,7 +19,7 @@ coverage/
 .vscode
 
 # Temp files
-package-lock.json
+cache/
 .vite_opt_cache
 
 # Other files
