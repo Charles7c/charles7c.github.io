@@ -1,16 +1,38 @@
 <template>
   <div class="meta-wrapper">
+    <div class="meta-item original">
+      <a-tag v-if="isOriginal" color="orangered" title="原创文章">
+        <template #icon>
+          <icon-trophy />
+        </template>
+        原创
+      </a-tag>
+      <a-tag v-else color="arcoblue" title="转载文章">
+        <template #icon>
+          <icon-share-alt />
+        </template>
+        转载
+      </a-tag>
+    </div>
     <div class="meta-item">
       <span class="meta-icon author">
-        <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><title>原创作者</title><path d="M858.5 763.6c-18.9-44.8-46.1-85-80.6-119.5-34.5-34.5-74.7-61.6-119.5-80.6-0.4-0.2-0.8-0.3-1.2-0.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-0.4 0.2-0.8 0.3-1.2 0.5-44.8 18.9-85 46-119.5 80.6-34.5 34.5-61.6 74.7-80.6 119.5C146.9 807.5 137 854 136 901.8c-0.1 4.5 3.5 8.2 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c0.1 4.4 3.6 7.8 8 7.8h60c4.5 0 8.1-3.7 8-8.2-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg>
+        <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+          <title>原创作者</title>
+          <path d="M858.5 763.6c-18.9-44.8-46.1-85-80.6-119.5-34.5-34.5-74.7-61.6-119.5-80.6-0.4-0.2-0.8-0.3-1.2-0.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-0.4 0.2-0.8 0.3-1.2 0.5-44.8 18.9-85 46-119.5 80.6-34.5 34.5-61.6 74.7-80.6 119.5C146.9 807.5 137 854 136 901.8c-0.1 4.5 3.5 8.2 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c0.1 4.4 3.6 7.8 8 7.8h60c4.5 0 8.1-3.7 8-8.2-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path>
+        </svg>
       </span>
       <span class="meta-content">
-        <a :href="authorLink" title="进入作者主页">{{ author }}</a>
+        <a v-if="isOriginal" :href="authorLink" title="进入作者主页">{{ author }}</a>
+        <span v-else :title="author">{{ author }}</span>
       </span>
     </div>
     <div class="meta-item">
       <span class="meta-icon date">
-        <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><title>发布时间</title><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"></path></svg>
+        <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+          <title v-if="isOriginal">发布时间</title>
+          <title v-else>转载时间</title>
+          <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"></path>
+        </svg>
       </span>
       <time class="meta-content" :datetime="date.toISOString()" :title="dayjs().to(dayjs(date))">{{ date.toLocaleString('zh', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'}) }}</time>
     </div>
@@ -31,7 +53,7 @@
         </span>
       </span>
     </div>
-    <div class="meta-item">
+    <div class="meta-item tag">
       <span class="meta-icon tag">
         <svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><title>标签列表</title><path d="M483.2 790.3L861.4 412c1.7-1.7 2.5-4 2.3-6.3l-25.5-301.4c-0.7-7.8-6.8-13.9-14.6-14.6L522.2 64.3c-2.3-0.2-4.7 0.6-6.3 2.3L137.7 444.8a8.03 8.03 0 0 0 0 11.3l334.2 334.2c3.1 3.2 8.2 3.2 11.3 0z m62.6-651.7l224.6 19 19 224.6L477.5 694 233.9 450.5l311.9-311.9z m60.16 186.23a48 48 0 1 0 67.88-67.89 48 48 0 1 0-67.88 67.89zM889.7 539.8l-39.6-39.5a8.03 8.03 0 0 0-11.3 0l-362 361.3-237.6-237a8.03 8.03 0 0 0-11.3 0l-39.6 39.5a8.03 8.03 0 0 0 0 11.3l243.2 242.8 39.6 39.5c3.1 3.1 8.2 3.1 11.3 0l407.3-406.6c3.1-3.1 3.1-8.2 0-11.3z"></path></svg>
       </span>
@@ -69,6 +91,7 @@ const props = defineProps({
 // 初始化文章元数据信息
 const { theme, page } = useData()
 const data = reactive({
+  isOriginal: props.article?.isOriginal ?? true,
   author: props.article?.author ?? theme.value.articleMetadataConfig.author,
   authorLink: props.article?.authorLink ?? theme.value.articleMetadataConfig.authorLink,
   showViewCount: theme.value.articleMetadataConfig?.showViewCount ?? false,
@@ -78,7 +101,7 @@ const data = reactive({
   tags: props.article?.tags ?? [],
   showCategory: props.showCategory
 })
-const { author, authorLink, showViewCount, viewCount, date, toDate, categories, tags, showCategory } = toRefs(data)
+const { isOriginal, author, authorLink, showViewCount, viewCount, date, toDate, categories, tags, showCategory } = toRefs(data)
 
 if (data.showViewCount) {
   // 记录并获取文章阅读数（使用文章标题 + 发布时间生成 MD5 值，作为文章的唯一标识）
@@ -94,6 +117,7 @@ if (data.showViewCount) {
 .meta-wrapper {
   margin-top: 10px;
 }
+
 .meta-item {
   display: inline-block;
   overflow: hidden;
@@ -105,8 +129,12 @@ if (data.showViewCount) {
   cursor: default;
   font-size: 14px;
 }
-.meta-item:not(:last-child) {
+.meta-item:not(.tag) {
   margin-right: 1rem;
+}
+.meta-item.original {
+  margin-right: 0.5rem;
+  margin-top: -0.5px;
 }
 .meta-icon, meta-content {
   display: inline-block;
@@ -116,6 +144,9 @@ if (data.showViewCount) {
 .meta-icon {
   position: relative;
   bottom: 1.5px;
+}
+.meta-icon.author {
+  bottom: 1.3px;
 }
 .meta-icon.date {
   bottom: 1.3px;

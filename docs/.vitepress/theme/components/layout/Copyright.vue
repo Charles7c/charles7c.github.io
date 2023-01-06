@@ -8,7 +8,10 @@
           <path d="M512.35 0C228.733 0 .5 228.233.5 511.85s228.233 511.85 511.85 511.85 511.85-228.233 511.85-511.85S795.967 0 512.35 0zm275.12 772.074c-2.1 21.294-12.797 31.99-31.991 40.488-25.593 10.697-51.185 14.896-78.877 14.896-49.086 2.099-102.37 4.298-142.858 4.298-74.678 0-136.46 0-198.342-6.398-19.195-2.1-38.389-6.398-53.285-17.095-14.895-8.497-23.493-23.493-23.493-40.488-2.1-119.465 87.475-215.437 206.84-215.437 49.085 0 100.27-4.299 149.256 2.1 100.27 12.896 181.247 113.166 172.75 217.636zM354.495 375.39c0-87.474 72.479-162.053 162.053-162.053S680.8 288.016 680.8 375.39c0 89.574-74.679 164.252-164.252 164.252-87.375 0-164.152-76.778-162.053-164.252z" fill="#249FF8"></path>
         </svg>
         <span>版权属于：</span>
-        <span><a :href="authorLink" title="进入作者主页" target="_blank">{{ author }}</a></span>
+        <span>
+          <a v-if="isOriginal" :href="authorLink" title="进入作者主页" target="_blank">{{ author }}</a>
+          <span v-else :title="author">{{ author }}</span>
+        </span>
       </div>
       <div class="item">
         <svg class="icon" width="20" height="20" viewBox="0 0 1024 1024">
@@ -17,10 +20,14 @@
           <path d="M576.491 630.355L460.028 746.818a129.565 129.565 0 0 1-182.555 0l-2.038-2.038a128.983 128.983 0 0 1 0-182.264l81.233-81.233a179.644 179.644 0 0 0 13.102 70.46l-52.7 52.408a69.878 69.878 0 0 0 0 98.703l2.038 2.038a70.169 70.169 0 0 0 98.703 0l116.463-116.463a69.878 69.878 0 0 0 0-98.703l-2.039-2.038a69.587 69.587 0 0 0-13.975-10.772l42.509-42.51a128.11 128.11 0 0 1 13.102 11.356l2.038 2.038a129.274 129.274 0 0 1 0 182.264z" fill="#FFF"></path>
           <path d="M746.236 460.902l-81.233 81.233a179.353 179.353 0 0 0-13.102-70.46l52.7-52.409a69.878 69.878 0 0 0 0-98.702l-2.039-2.038a69.878 69.878 0 0 0-98.702 0L487.397 434.989a69.878 69.878 0 0 0 0 98.702l2.038 2.038a68.422 68.422 0 0 0 13.976 10.773l-42.51 42.51a136.553 136.553 0 0 1-13.101-11.356l-2.038-2.038a128.983 128.983 0 0 1 0-182.265l116.463-116.462a129.565 129.565 0 0 1 182.555 0l2.038 2.038a128.983 128.983 0 0 1 0 182.264z" fill="#FFF"></path>
         </svg>
-        <span>本文链接：</span>
-        <span><a :href="articleLink" target="_blank">{{ articleLink }}</a></span>
+        <span v-if="isOriginal">本文链接：</span>
+        <span v-else>原文链接：</span>
+        <span>
+          <a v-if="isOriginal" :href="articleLink" target="_blank">{{ articleLink }}</a>
+          <a v-else :href="articleLink" target="_blank" :title="articleTitle">{{ articleLink }}</a>
+        </span>
       </div>
-      <div class="item">
+      <div v-if="isOriginal" class="item">
         <svg class="icon" viewBox="0 0 1024 1024">
           <title>作品协议</title>
           <path d="M0 512a512 512 0 1 0 1024 0A512 512 0 1 0 0 512z" fill="#F3B243"></path>
@@ -41,11 +48,13 @@ import { useData } from 'vitepress'
 const { theme, frontmatter } = useData()
 
 const data = reactive({
+  isOriginal: frontmatter.value?.isOriginal ?? true,
   author: frontmatter.value?.author ?? theme.value.articleMetadataConfig.author,
   authorLink: frontmatter.value?.authorLink ?? theme.value.articleMetadataConfig.authorLink,
-  articleLink: decodeURI(window.location.href)
+  articleTitle: frontmatter.value?.articleTitle ?? frontmatter.value.title,
+  articleLink: frontmatter.value?.articleLink ?? decodeURI(window.location.href)
 })
-const { author, authorLink, articleLink } = toRefs(data)
+const { isOriginal, author, authorLink, articleTitle, articleLink } = toRefs(data)
 </script>
 
 <style scoped>
