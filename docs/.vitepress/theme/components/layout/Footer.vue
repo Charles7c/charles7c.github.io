@@ -31,7 +31,7 @@ const { theme } = useData()
 .VPFooter {
   position: relative;
   z-index: var(--vp-z-index-footer);
-  border-top: 1px solid var(--vp-c-divider-light);
+  border-top: 1px solid var(--vp-c-gutter);
   padding: 25px 24px;
   background-color: var(--vp-c-bg);
 }
