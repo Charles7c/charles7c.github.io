@@ -12,7 +12,7 @@
     "mermaid": "^9.3.0",
     "unplugin-vue-components": "^0.23.0",
     "vite": "^4.0.4",
-    "vitepress": "1.0.0-alpha.43",
+    "vitepress": "1.0.0-alpha.44",
     "vitepress-plugin-mermaid": "2.0.8",
     "vitepress-plugin-search": "^1.0.4-alpha.19",
     "vue": "^3.2.45"

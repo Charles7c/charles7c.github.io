@@ -77,7 +77,6 @@ function getItemsByDate (path: string) {
     // 添加年份分组
     yearGroups.unshift({
       text: `${year}年 (${articleItems.length}篇)`,
-      collapsible: true,
       collapsed: true,
       items: articleItems
     })
@@ -87,7 +86,6 @@ function getItemsByDate (path: string) {
     // 添加置顶分组
     yearGroups.unshift({
       text: `📑 我的置顶 (${topArticleItems.length}篇)`,
-      collapsible: true,
       collapsed: false,
       items: topArticleItems
     })
@@ -147,7 +145,6 @@ function getItems (path: string) {
     // 当分组内文章数量少于 A 篇或文章总数显示超过 B 篇时，自动折叠分组
     groups.push({
       text: `${groupName.substring(groupName.indexOf('-') + 1)} (${items.length}篇)`,
-      collapsible: true,
       collapsed: items.length < groupCollapsedSize || total > titleCollapsedSize,
       items: items
     })
