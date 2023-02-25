@@ -13,6 +13,6 @@ English | [中文](./README.md)
 </a>
 
 
-📝 **This is the charles's personal knowledge repositories website.** 
+📝 **This is the charles's personal technology knowledge repositories website.** 
 
 🐢 [GitHub Pages](https://blog.charles7c.top) | 🐇 [Gitee Pages](https://charles7c.gitee.io)

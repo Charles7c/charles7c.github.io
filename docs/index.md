@@ -2,21 +2,21 @@
 layout: home
 
 title: 查尔斯的知识库
-titleTemplate: 个人知识库，记录和分享个人碎片化、结构化、体系化的知识内容
+titleTemplate: 个人技术知识库，记录和分享个人碎片化、结构化、体系化的技术知识内容
 
 hero:
   name: 查尔斯的知识库
   text: 专注 & 洞察 & 分享
-  tagline: 个人知识库，记录 & 分享个人碎片化、结构化、体系化的知识内容。
+  tagline: 个人技术知识库，记录 & 分享个人碎片化、结构化、体系化的技术知识内容。
   image:
     src: /logo.png
     alt: Logo
   actions:
     - theme: brand
-      text: Get Started
+      text: 快速开始
       link: /categories/issues/index
     - theme: alt
-      text: View on GitHub
+      text: 在 GitHub 查看
       link: https://github.com/Charles7c/charles7c.github.io
 
 features:

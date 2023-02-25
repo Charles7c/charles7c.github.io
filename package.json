@@ -11,6 +11,8 @@
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.43.2",
+    "@types/blueimp-md5": "^2.18.0",
+    "@types/jquery": "^3.5.16",
     "flexsearch": "^0.7.31",
     "markdown-it": "^13.0.1",
     "mermaid": "9.3.0",

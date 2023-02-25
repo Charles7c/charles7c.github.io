@@ -1,5 +1,5 @@
-import type { HeadConfig } from 'vitepress'
-import { metaData } from './constants'
+import type { HeadConfig } from 'vitepress';
+import { metaData } from './constants';
 
 export const head: HeadConfig[] = [
   ['link', { rel: 'icon', href: '/favicon.ico' }],
@@ -56,4 +56,4 @@ export const head: HeadConfig[] = [
     xhr.open('GET', 'https://api.charles7c.top/blog/pv?pageUrl=' + location.href);
     xhr.send();
   }`]
-]
+];

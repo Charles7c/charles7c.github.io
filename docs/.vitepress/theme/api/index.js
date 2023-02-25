@@ -1,3 +1,3 @@
-export * from './interface'
+export * from './interface';
 
-export { default } from './interface'
+export { default } from './interface';

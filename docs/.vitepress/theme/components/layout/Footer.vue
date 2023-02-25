@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useData } from 'vitepress'
-const { theme } = useData()
+  import { useData } from 'vitepress';
+  const { theme } = useData();
 </script>
 
 <style scoped>

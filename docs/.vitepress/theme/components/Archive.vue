@@ -79,142 +79,97 @@
 </template>
 
 <script lang="ts" setup>
-import articleData from '../../../../article-data.json'
-import { formatDate, getQueryParam, goToLink } from '../utils.ts'
+  import articleData from '../../../../article-data.json';
+  import { getQueryParam, goToLink } from '../utils.ts';
 
-// 文章原始数据和归档数据
-let $articleData
-let archiveData
+  // 文章原始数据和归档数据
+  let $articleData;
+  let archiveData;
 
-// 要筛选的分类、标签、年份
-let $category
-let $tag
-let $year
+  // 要筛选的分类、标签、年份
+  let $category;
+  let $tag;
+  let $year;
 
-initTimeline()
+  /**
+   * 初始化时间轴
+   */
+  function initTimeline() {
+    $articleData = [];
+    archiveData = {};
 
-/**
- * 初始化时间轴
- */
-function initTimeline() {
-  $articleData = []
-  archiveData = {}
-
-  // 如果URL路径有category或tag或year参数, 默认筛选出指定category或tag或year的文章数据
-  // 例如: /archives?category=Bug万象集
-  // 例如: /archives?tag=JVM
-  // 例如: /archives?year=2020
-  $category = getQueryParam('category')
-  $tag = getQueryParam('tag')
-  $year = getQueryParam('year')
-  if ($category && $category.trim() != '') {
-    for (let i = 0; i < articleData.length; i++) {
-      let article = articleData[i]
-      if (article.categories && article.categories.includes($category)) {
-        $articleData.push(article)
+    // 如果URL路径有category或tag或year参数, 默认筛选出指定category或tag或year的文章数据
+    // 例如: /archives?category=Bug万象集
+    // 例如: /archives?tag=JVM
+    // 例如: /archives?year=2020
+    $category = getQueryParam('category');
+    $tag = getQueryParam('tag');
+    $year = getQueryParam('year');
+    if ($category && $category.trim() != '') {
+      for (let i = 0; i < articleData.length; i++) {
+        let article = articleData[i];
+        if (article.categories && article.categories.includes($category)) {
+          $articleData.push(article);
+        }
       }
-    }
-  } else if ($tag && $tag.trim() != '') {
-    for (let i = 0; i < articleData.length; i++) {
-      let article = articleData[i]
-      if (article.tags && article.tags.includes($tag)) {
-        $articleData.push(article)
+    } else if ($tag && $tag.trim() != '') {
+      for (let i = 0; i < articleData.length; i++) {
+        let article = articleData[i];
+        if (article.tags && article.tags.includes($tag)) {
+          $articleData.push(article);
+        }
       }
-    }
-  } else if ($year && $year.trim() != '') {
-    for (let i = 0; i < articleData.length; i++) {
-      let article = articleData[i]
-      if (article.date && new Date(article.date).getFullYear() == $year) {
-        $articleData.push(article)
+    } else if ($year && $year.trim() != '') {
+      for (let i = 0; i < articleData.length; i++) {
+        let article = articleData[i];
+        if (article.date && new Date(article.date).getFullYear() == $year) {
+          $articleData.push(article);
+        }
       }
+    } else {
+      $articleData.push(...articleData);
     }
-  } else {
-    $articleData.push(...articleData)
+
+    // 文章数据归档处理
+    // 1.对文章数据进行降序排序
+    $articleData.sort((a, b) => b.date.localeCompare(a.date));
+    // 2.按年、月进行归档
+    for (let i = 0; i < $articleData.length; i++) {
+      const article = $articleData[i];
+      let year = (new Date(article.date).getFullYear()) + '年';
+      let month = (new Date(article.date).getMonth() + 1) + '月';
+
+      if (!archiveData[year]) {
+        archiveData[year] = {};
+      }
+      if (!(archiveData[year][month])) {
+        archiveData[year][month] = [];
+      }
+
+      archiveData[year][month].push(article);
+    }
+  }
+  initTimeline();
+
+  /**
+   * 获取生肖图标
+   *
+   * @param year 年份
+   */
+  function getChineseZodiac(year) {
+    const arr = ['monkey', 'rooster', 'dog', 'pig', 'rat', 'ox', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'goat'];
+    return arr[year % 12];
   }
 
-  // 文章数据归档处理
-  // 1.对文章数据进行降序排序
-  $articleData.sort((a, b) => b.date.localeCompare(a.date))
-  // 2.按年、月进行归档
-  for (let i = 0; i < $articleData.length; i++) {
-    const article = $articleData[i]
-    let year = (new Date(article.date).getFullYear()) + '年'
-    let month = (new Date(article.date).getMonth() + 1) + '月'
-
-    if (!archiveData[year]) {
-      archiveData[year] = {}
-    }
-    if (!(archiveData[year][month])) {
-      archiveData[year][month] = []
-    }
-    
-    archiveData[year][month].push(article)
-  } 
-}
-
-/**
- * 获取生肖
- */
-function getChineseZodiac(year) {
-  switch(year % 12){
-    case 0:
-      return 'monkey'
-    case 1:
-      return 'rooster'
-    case 2:
-      return 'dog'
-    case 3:
-      return 'pig'
-    case 4:
-      return 'rat'
-    case 5:
-      return 'ox'
-    case 6:
-      return 'tiger'
-    case 7:
-      return 'rabbit'
-    case 8:
-      return 'dragon'
-    case 9:
-      return 'snake'
-    case 10:
-      return 'horse'
-    case 11:
-      return 'goat'
+  /**
+   * 获取生肖名称
+   *
+   * @param year 年份
+   */
+  function getChineseZodiacAlias(year) {
+    const arr = ['猴年', '鸡年', '狗年', '猪年', '鼠年', '牛年', '虎年', '兔年', '龙年', '蛇年', '马年', '羊年'];
+    return arr[year % 12];
   }
-}
-
-/**
- * 获取生肖名称
- */
-function getChineseZodiacAlias(year) {
-  switch(year % 12){
-    case 0:
-      return '猴年'
-    case 1:
-      return '鸡年'
-    case 2:
-      return '狗年'
-    case 3:
-      return '猪年'
-    case 4:
-      return '鼠年'
-    case 5:
-      return '牛年'
-    case 6:
-      return '虎年'
-    case 7:
-      return '兔年'
-    case 8:
-      return '龙年'
-    case 9:
-      return '蛇年'
-    case 10:
-      return '马年'
-    case 11:
-      return '羊年'
-  }
-}
 </script>
 
 <style scoped>

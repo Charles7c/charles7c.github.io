@@ -58,63 +58,63 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, onMounted } from 'vue'
-import md5 from 'blueimp-md5'
-import articleData from '../../../../article-data.json'
-import { formatDate, getQueryParam } from '../utils.ts'
+  import { computed, ref } from 'vue';
+  import md5 from 'blueimp-md5';
+  import articleData from '../../../../article-data.json';
+  import { getQueryParam } from '../utils.ts';
 
-const tags = computed(() => initTags(articleData))
-/**
- * 初始化标签数据
- * {tagTitle1: [article1, article2, ...}
- */
-function initTags(articleData) {
-  const tags: any = {}
-  for (let i = 0; i < articleData.length; i++) {
-    const article = articleData[i]
-    const articleTags = article.tags
-    if (Array.isArray(articleTags)) {
-      articleTags.forEach((articleTag) => {
-        if (!tags[articleTag]) {
-          tags[articleTag] = []
-        }
-        tags[articleTag].push(article)
-        // 文章按发布时间降序排序
-        tags[articleTag].sort((a, b) => b.date.localeCompare(a.date))
-      })
+  const tags = computed(() => initTags(articleData));
+  /**
+   * 初始化标签数据
+   * {tagTitle1: [article1, article2, ...}
+   */
+  function initTags(articleData) {
+    const tags: any = {};
+    for (let i = 0; i < articleData.length; i++) {
+      const article = articleData[i];
+      const articleTags = article.tags;
+      if (Array.isArray(articleTags)) {
+        articleTags.forEach((articleTag) => {
+          if (!tags[articleTag]) {
+            tags[articleTag] = [];
+          }
+          tags[articleTag].push(article);
+          // 文章按发布时间降序排序
+          tags[articleTag].sort((a, b) => b.date.localeCompare(a.date));
+        });
+      }
+    }
+    return tags;
+  }
+
+  // 点击指定Tag后进行选中
+  let selectTag = ref('');
+  const toggleTag = (tagTitle: string) => {
+    if (selectTag.value && selectTag.value == tagTitle) {
+      selectTag.value = null;
+    } else {
+      selectTag.value = tagTitle;
     }
   }
-  return tags
-}
 
-// 点击指定Tag后进行选中
-let selectTag = ref('')
-const toggleTag = (tagTitle: string) => {
-  if (selectTag.value && selectTag.value == tagTitle) {
-    selectTag.value = null
-  } else {
-    selectTag.value = tagTitle
+  // 如果URL路径有tag参数, 默认选中指定Tag, 例如: /tags?tag=Git
+  let tag = getQueryParam('tag');
+  if (tag && tag.trim() != '') {
+    toggleTag(tag);
   }
-}
 
-// 如果URL路径有tag参数, 默认选中指定Tag, 例如: /tags?tag=Git
-let tag = getQueryParam('tag')
-if (tag && tag.trim() != '') {
-  toggleTag(tag)
-}
-
-const dataList = computed(() => initWordCloud(tags))
-/**
- * 初始化词云数据
- * [{"name": xx, "value": xx}]
- */
-function initWordCloud(tags) {
-  const dataList = []
-  for (let tag in tags.value) {
-    dataList.push({"name": tag, "value": tags.value[tag].length})
+  const dataList = computed(() => initWordCloud(tags));
+  /**
+   * 初始化词云数据
+   * [{"name": xx, "value": xx}]
+   */
+  function initWordCloud(tags) {
+    const dataList = [];
+    for (let tag in tags.value) {
+      dataList.push({"name": tag, "value": tags.value[tag].length});
+    }
+    return dataList;
   }
-  return dataList
-}
 </script>
 
 <style scoped>
