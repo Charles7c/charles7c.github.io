@@ -11,7 +11,6 @@ export const themeConfig: DefaultTheme.Config = {
     level: 'deep', // 右侧大纲标题层级
     label: '目录', // 右侧大纲标题文本配置
   },
-  outlineBadges: false, // 是否在大纲中显示 Badge 文本
   darkModeSwitchLabel: '切换日光/暗黑模式',
   sidebarMenuLabel: '文章',
   returnToTopLabel: '返回顶部',
