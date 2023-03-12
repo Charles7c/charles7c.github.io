@@ -5,9 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "node collect-article-data.mjs && vitepress dev docs",
-    "preview": "node collect-article-data.mjs && vitepress preview docs",
-    "build": "node collect-article-data.mjs && vitepress build docs"
+    "dev": "vitepress dev docs",
+    "preview": "vitepress preview docs",
+    "build": "vitepress build docs"
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.43.2",
