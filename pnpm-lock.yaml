@@ -21,7 +21,7 @@ specifiers:
   mermaid: 9.3.0
   unplugin-vue-components: ^0.24.0
   vite: ^4.1.4
-  vitepress: 1.0.0-alpha.52
+  vitepress: 1.0.0-alpha.51
   vitepress-plugin-mermaid: 2.0.8
   vitepress-plugin-search: 1.0.4-alpha.19
   vue: ^3.2.47
@@ -45,9 +45,9 @@ devDependencies:
   mermaid: 9.3.0
   unplugin-vue-components: 0.24.0_vue@3.2.47
   vite: 4.1.4
-  vitepress: 1.0.0-alpha.52
-  vitepress-plugin-mermaid: 2.0.8_hcgkxrewxlnmekpxhe6fcdq47i
-  vitepress-plugin-search: 1.0.4-alpha.19_wg32uep3w35pmjh2annxmfqbny
+  vitepress: 1.0.0-alpha.51
+  vitepress-plugin-mermaid: 2.0.8_a5cbkzftl2dklyu2e7lv2hfmba
+  vitepress-plugin-search: 1.0.4-alpha.19_wa76uzoxa7sjxpgthdjgz7ruma
   vue: 3.2.47
 
 packages:
@@ -3471,7 +3471,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress-plugin-mermaid/2.0.8_hcgkxrewxlnmekpxhe6fcdq47i:
+  /vitepress-plugin-mermaid/2.0.8_a5cbkzftl2dklyu2e7lv2hfmba:
     resolution: {integrity: sha512-ywWxTeg9kMv7ZPf/igCBF4ZHhWZAyRtbPnA12ICQuNK2AMp7r5IHOfnuX1EJQf8gNdsh8bcvvSvm8Ll92fdOTw==}
     peerDependencies:
       mermaid: ^8.0.0 || ^9.0.0
@@ -3479,10 +3479,10 @@ packages:
       vitepress: ^0.21.6 || ^1.0.0 || ^1.0.0-alpha
     dependencies:
       mermaid: 9.3.0
-      vitepress: 1.0.0-alpha.52
+      vitepress: 1.0.0-alpha.51
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.19_wg32uep3w35pmjh2annxmfqbny:
+  /vitepress-plugin-search/1.0.4-alpha.19_wa76uzoxa7sjxpgthdjgz7ruma:
     resolution: {integrity: sha512-WFOPn5dStyMINd+rVjNxbEmGa7U+qGHLxLnda56EG+ATil1i0yOauGhJEh5LPMvuCUVIA9tInJnFXklOBb39dA==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -3494,12 +3494,12 @@ packages:
       '@types/markdown-it': 12.2.3
       flexsearch: 0.7.31
       markdown-it: 13.0.1
-      vitepress: 1.0.0-alpha.52
+      vitepress: 1.0.0-alpha.51
       vue: 3.2.47
     dev: true
 
-  /vitepress/1.0.0-alpha.52:
-    resolution: {integrity: sha512-DAaO5/yGXCVHXXwVJO/T1wS03curMgOhYnh1LVDTZAf0s1qr282id5j45IYEWthWcUZRD6ST9EAIZNsXHo4O7g==}
+  /vitepress/1.0.0-alpha.51:
+    resolution: {integrity: sha512-euZpjXeIaNUadLAQtd7NYbKhJJoDyZ6z8YK77qlM2c6NvUB5wmLPU6moP4rfcKUqpBDrsrxjJS6fdPk6azS5qQ==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
