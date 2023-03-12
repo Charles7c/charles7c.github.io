@@ -124,7 +124,7 @@
   background: var(--vp-c-bg);
 }
 :deep(.arco-card-bordered) {
-  border: 1px solid var(--vp-c-divider-light);
+  border: 1px solid var(--vp-c-gutter);
 }
 :deep(.arco-card-body) {
   color: var(--vp-c-text-1);
@@ -135,14 +135,14 @@
   color: var(--vp-c-text-1);
 }
 :deep(.arco-list-bordered) {
-  border: 1px solid var(--vp-c-divider-light);
+  border: 1px solid var(--vp-c-gutter);
 }
 :deep(.arco-list-split .arco-list-header) {
   color: var(--vp-c-text-1);
-  border-bottom: 1px solid var(--vp-c-divider-light);
+  border-bottom: 1px solid var(--vp-c-gutter);
 }
 :deep(.arco-list-split .arco-list-item:not(:last-child)) {
-  border-bottom: 1px solid var(--vp-c-divider-light);
+  border-bottom: 1px solid var(--vp-c-gutter);
 }
 
 /** 标签样式 */
@@ -155,8 +155,8 @@
 .main-container-tag .tag-header-wrapper {
   padding: 24px 0;
   margin-bottom: 24px;
-  box-shadow: 0 1px 0 0 var(--vp-c-divider-light);
-  -webkit-box-shadow: 0 1px 0 0 var(--vp-c-divider-light);
+  box-shadow: 0 1px 0 0 var(--vp-c-gutter);
+  -webkit-box-shadow: 0 1px 0 0 var(--vp-c-gutter);
 }
 .main-container-tag .tag-header-wrapper .tag-breadcrumb-icon {
   position: relative;
@@ -193,7 +193,7 @@ svg:not(:root) {
   padding: 12px 12px;
   margin: 8px 8px 0 0;
   cursor: pointer;
-  border: 1px solid var(--vp-c-divider-light);
+  border: 1px solid var(--vp-c-gutter);
 }
 .main-container-tag .tag-title {
   margin-right: 6px;

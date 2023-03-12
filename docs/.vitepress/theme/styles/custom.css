@@ -28,7 +28,7 @@ pre, code, kbd, samp {
 
 /* slim scroll bar for windows based web browsers - works on firefox */
 * {
-  scrollbar-color: var(--vp-c-divider-light) var(--vp-button-alt-bg);
+  scrollbar-color: var(--vp-c-gutter) var(--vp-button-alt-bg);
   scrollbar-width: thin;
 }
 
@@ -40,7 +40,7 @@ pre, code, kbd, samp {
 
 /* scrolling handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--vp-c-divider-light);
+  background: var(--vp-c-gutter);
 }
 
 /* handle on hover */
