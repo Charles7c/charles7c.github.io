@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "vitepress dev docs",
-    "preview": "vitepress preview docs",
-    "build": "vitepress build docs"
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.43.2",
@@ -18,7 +18,7 @@
     "mermaid": "9.3.0",
     "unplugin-vue-components": "^0.24.0",
     "vite": "^4.1.4",
-    "vitepress": "1.0.0-alpha.51",
+    "vitepress": "1.0.0-alpha.56",
     "vitepress-plugin-mermaid": "2.0.8",
     "vitepress-plugin-search": "1.0.4-alpha.19",
     "vue": "^3.2.47"
