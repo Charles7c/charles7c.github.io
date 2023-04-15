@@ -1,6 +1,8 @@
 import type { DefaultTheme } from 'vitepress';
 import { nav } from './nav';
 import { sidebar } from './sidebar';
+import { algoliaSearchOptions } from './search/algolia-search';
+import { localSearchOptions } from './search/local-search';
 
 export const themeConfig: DefaultTheme.Config = {
   nav, // 导航栏配置
@@ -25,11 +27,13 @@ export const themeConfig: DefaultTheme.Config = {
     pattern: 'https://github.com/Charles7c/charles7c.github.io/edit/main/docs/:path',
     text: '不妥之处，敬请雅正'
   },
-  // 全文搜索配置
-  algolia: {
-    appId: 'DBZ0G9HBUY',
-    apiKey: '00cef480a543003d05d9808110ea5f65',
-    indexName: 'charles7c'
+  // 搜索配置（二选一）
+  search: {
+    provider: 'algolia',
+    options: algoliaSearchOptions,
+    // 本地离线搜索
+    // provider: 'local',
+    // options: localSearchOptions
   },
   // 导航栏右侧社交链接配置
   socialLinks: [
