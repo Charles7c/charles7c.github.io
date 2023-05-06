@@ -52,3 +52,13 @@ pre, code, kbd, samp {
 ::-webkit-scrollbar-track {
   background: var(--vp-button-alt-bg);
 }
+
+/* mathjax3.css */
+mjx-container {
+  display: inline-block;
+  margin: auto 2px -2px;
+}
+
+mjx-container > svg {
+  margin: auto;
+}
