@@ -70,3 +70,44 @@ mjx-container {
 mjx-container > svg {
   margin: auto;
 }
+
+.chinese-zodiac {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -10.5px;
+  top: -1px;
+  background: #fff;
+  border: 1px solid #84b9e5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.text-color-red {
+  --color-red: 254 45 70;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-red)/var(--tw-text-opacity));
+}
+
+.text-color-orange {
+  --color-orange: 255 102 0;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-orange)/var(--tw-text-opacity));
+}
+
+.text-color-yellow {
+  --color-yellow: 250 169 14;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-yellow)/var(--tw-text-opacity));
+}
+
+.text-color-gray {
+  --color-gray: 145 149 163;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-gray)/var(--tw-text-opacity));
+}
+
+.mr-\[6px\] {
+  margin-right: 6px;
+}
