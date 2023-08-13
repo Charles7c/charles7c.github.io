@@ -62,13 +62,13 @@ devDependencies:
     version: 0.24.1(vue@3.3.4)
   vite:
     specifier: ^4.4.8
-    version: 4.4.8(@types/node@18.15.11)
+    version: 4.4.8
   vitepress:
-    specifier: 1.0.0-beta.7
-    version: 1.0.0-beta.7(axios@1.4.0)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0)
+    specifier: 1.0.0-rc.4
+    version: 1.0.0-rc.4(axios@1.4.0)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0)
   vitepress-plugin-mermaid:
     specifier: 2.0.8
-    version: 2.0.8(mermaid@9.3.0)(vite-plugin-md@0.20.6)(vitepress@1.0.0-beta.7)
+    version: 2.0.8(mermaid@9.3.0)(vite-plugin-md@0.20.6)(vitepress@1.0.0-rc.4)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -796,7 +796,18 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.8(@types/node@18.15.11)
+      vite: 4.4.8
+      vue: 3.3.4
+    dev: true
+
+  /@vitejs/plugin-vue@4.2.3(vite@4.4.9)(vue@3.3.4):
+    resolution: {integrity: sha512-R6JDUfiZbJA9cMiguQ7jxALsgiprjBeHL5ikpXfJCH62pPHtI+JdJ5xWj6Ev73yXSlYl86+blXn1kZHQ7uElxw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.0.0
+      vue: ^3.2.25
+    dependencies:
+      vite: 4.4.9(@types/node@18.15.11)
       vue: 3.3.4
     dev: true
 
@@ -3102,6 +3113,14 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /rollup@3.28.0:
+    resolution: {integrity: sha512-d7zhvo1OUY2SXSM6pfNjgD5+d0Nz87CUp4mt8l/GgVP3oBsPwzNvSzyu1me6BSG9JIgWNTVcafIXBIyM8yQ3yw==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -3498,7 +3517,7 @@ packages:
       '@yankeeinlondon/happy-wrapper': 2.10.1
       markdown-it: 13.0.1
       source-map-js: 1.0.2
-      vite: 4.4.8(@types/node@18.15.11)
+      vite: 4.4.8
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3515,8 +3534,43 @@ packages:
       - terser
     dev: true
 
-  /vite@4.4.8(@types/node@18.15.11):
+  /vite@4.4.8:
     resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.18.17
+      postcss: 8.4.27
+      rollup: 3.27.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite@4.4.9(@types/node@18.15.11):
+    resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3546,12 +3600,12 @@ packages:
       '@types/node': 18.15.11
       esbuild: 0.18.17
       postcss: 8.4.27
-      rollup: 3.27.0
+      rollup: 3.28.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress-plugin-mermaid@2.0.8(mermaid@9.3.0)(vite-plugin-md@0.20.6)(vitepress@1.0.0-beta.7):
+  /vitepress-plugin-mermaid@2.0.8(mermaid@9.3.0)(vite-plugin-md@0.20.6)(vitepress@1.0.0-rc.4):
     resolution: {integrity: sha512-ywWxTeg9kMv7ZPf/igCBF4ZHhWZAyRtbPnA12ICQuNK2AMp7r5IHOfnuX1EJQf8gNdsh8bcvvSvm8Ll92fdOTw==}
     peerDependencies:
       mermaid: ^8.0.0 || ^9.0.0
@@ -3560,16 +3614,16 @@ packages:
     dependencies:
       mermaid: 9.3.0
       vite-plugin-md: 0.20.6(@vitejs/plugin-vue@4.2.3)(vite@4.4.8)
-      vitepress: 1.0.0-beta.7(axios@1.4.0)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0)
+      vitepress: 1.0.0-rc.4(axios@1.4.0)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0)
     dev: true
 
-  /vitepress@1.0.0-beta.7(axios@1.4.0)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0):
-    resolution: {integrity: sha512-P9Rw+FXatKIU4fVdtKxqwHl6fby8E/8zE3FIfep6meNgN4BxbWqoKJ6yfuuQQR9IrpQqwnyaBh4LSabyll6tWg==}
+  /vitepress@1.0.0-rc.4(axios@1.4.0)(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0):
+    resolution: {integrity: sha512-JCQ89Bm6ECUTnyzyas3JENo00UDJeK8q1SUQyJYou+4Yz5BKEc/F3O21cu++DnUT2zXc0kvQ2Aj4BZCc/nioXQ==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.1
       '@docsearch/js': 3.5.1(react-dom@15.7.0)(react@15.7.0)(search-insights@2.7.0)
-      '@vitejs/plugin-vue': 4.2.3(vite@4.4.8)(vue@3.3.4)
+      '@vitejs/plugin-vue': 4.2.3(vite@4.4.9)(vue@3.3.4)
       '@vue/devtools-api': 6.5.0
       '@vueuse/core': 10.3.0(vue@3.3.4)
       '@vueuse/integrations': 10.3.0(axios@1.4.0)(focus-trap@7.5.2)(vue@3.3.4)
@@ -3578,7 +3632,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 6.1.0
       shiki: 0.14.3
-      vite: 4.4.8(@types/node@18.15.11)
+      vite: 4.4.9(@types/node@18.15.11)
       vue: 3.3.4
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -3643,7 +3697,7 @@ packages:
       tinybench: 2.4.0
       tinypool: 0.3.1
       tinyspy: 1.1.1
-      vite: 4.4.8(@types/node@18.15.11)
+      vite: 4.4.9(@types/node@18.15.11)
     transitivePeerDependencies:
       - less
       - lightningcss

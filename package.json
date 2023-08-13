@@ -4,6 +4,7 @@
   "author": "Charles7c",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
@@ -19,7 +20,7 @@
     "mermaid": "9.3.0",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.4.8",
-    "vitepress": "1.0.0-beta.7",
+    "vitepress": "1.0.0-rc.4",
     "vitepress-plugin-mermaid": "2.0.8",
     "vue": "^3.3.4"
   },

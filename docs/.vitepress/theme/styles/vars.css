@@ -16,6 +16,18 @@
     #47caff 50%
   );
   --vp-home-hero-image-filter: blur(40px);
+
+  /* 1.0.0-beta.7 及以前版本配色方案 */
+  --vp-c-brand: var(--vp-c-green);
+  --vp-c-brand-light: var(--vp-c-green-light);
+  --vp-c-brand-lighter: var(--vp-c-green-lighter);
+  --vp-c-brand-lightest: var(--vp-c-green-lightest);
+  --vp-c-brand-dark: var(--vp-c-green-dark);
+  --vp-c-brand-darker: var(--vp-c-green-darker);
+  --vp-c-brand-darkest: var(--vp-c-green-darkest);
+  --vp-c-brand-dimm-1: var(--vp-c-green-dimm-1);
+  --vp-c-brand-dimm-2: var(--vp-c-green-dimm-2);
+  --vp-c-brand-dimm-3: var(--vp-c-green-dimm-3);
 }
 
 @media (min-width: 640px) {
