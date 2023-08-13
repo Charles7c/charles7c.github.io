@@ -46,12 +46,6 @@ export const themeConfig: DefaultTheme.Config = {
     },
     {
       icon: {
-        svg: '<svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><title>查尔斯的网址导航</title><path d="M512 22C241.38 22 22 241.38 22 512s219.38 490 490 490 490-219.38 490-490S782.62 22 512 22z m226.06 277.73L517.54 809.14c-3.18 7.28-13.72 7.08-17.21-0.41L410.4 616.57a5.966 5.966 0 0 0-2.97-2.97L215.6 523.58c-7.58-3.49-7.79-14.05-0.41-17.23l508.74-220.76c8.91-3.91 18.03 5.22 14.13 14.14z" p-id="4967"></path></svg>'
-      },
-      link: 'https://nav.charles7c.top'
-    },
-    {
-      icon: {
         svg: `<svg width="33" height="33" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174.8 204">
                 <title>ContiNew Admin</title>
                 <path fill="#307AF2" d="M86.7,0l88,51v.2l-16.3,9.4v-.2L86.7,18.9Zm71.8,143.5,16.3,9.4v.2L86.8,204h0l-16.3-9.4,16.3-9.4h0l71.7-41.5v-.2Z"/>
