@@ -39,7 +39,8 @@
   display: none;
 }
 a:hover {
-  color: var(--vp-c-brand);
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
 }
 @media (min-width: 768px) {
   .VPFooter {

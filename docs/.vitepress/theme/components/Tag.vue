@@ -251,9 +251,11 @@ svg:not(:root) {
   font-weight: 400;
   font-size: 14px;
   color: var(--vp-c-text-1);
+  text-decoration: none;
 }
 .vp-doc a:hover {
-  color: var(--vp-c-brand);
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
 }
 .meta-content a {
   font-size: 14px;

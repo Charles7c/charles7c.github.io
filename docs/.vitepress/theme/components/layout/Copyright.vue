@@ -89,9 +89,11 @@
 a {
   font-weight: 400;
   color: var(--vp-c-text-2);
+  text-decoration: none;
 }
 
 a:hover {
-  color: var(--vp-c-brand);
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
 }
 </style> 

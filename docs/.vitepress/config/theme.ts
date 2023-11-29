@@ -66,7 +66,7 @@ export const themeConfig: DefaultTheme.Config = {
   articleMetadataConfig: {
     author: '查尔斯', // 文章全局默认作者名称
     authorLink: '/about/me', // 点击作者名时默认跳转的链接
-    showViewCount: true, // 是否显示文章阅读数, 需要在 docs/.vitepress/theme/api/config.js 及 interface.js 配置好相应 API 接口
+    showViewCount: false, // 是否显示文章阅读数, 需要在 docs/.vitepress/theme/api/config.js 及 interface.js 配置好相应 API 接口
   },
   // 自定义扩展: 文章版权配置
   copyrightConfig: {

@@ -159,8 +159,9 @@
 .meta-content a {
   font-weight: 400;
   color: var(--vp-c-text-2);
+  text-decoration: none;
 }
 .meta-content a:hover {
-  color: var(--vp-c-brand);
+  color: var(--vp-c-brand-1);
 }
 </style>

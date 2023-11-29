@@ -250,8 +250,10 @@
 .vp-doc a {
   font-weight: 400;
   color: var(--vp-c-text-1);
+  text-decoration: none;
 }
 .vp-doc a:hover {
-  color: var(--vp-c-brand);
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
 }
 </style>
