@@ -1,6 +1,6 @@
 [English](./README.en.md) | 中文
 
-# 查尔斯的知识库
+# 查尔斯的知识库(已存档！不再更新！后续会开源新模板！)
 
 <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
     <img src="https://img.shields.io/badge/文章%20License-CC%204.0%20BY--SA-blue.svg">

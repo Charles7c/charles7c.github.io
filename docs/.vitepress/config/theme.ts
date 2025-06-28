@@ -16,7 +16,13 @@ export const themeConfig: DefaultTheme.Config = {
   darkModeSwitchLabel: '切换日光/暗黑模式',
   sidebarMenuLabel: '文章',
   returnToTopLabel: '返回顶部',
-  lastUpdatedText: '最后更新', // 最后更新时间文本配置, 需先配置lastUpdated为true
+  lastUpdated: {
+    text: '最后更新',
+    formatOptions:{
+      dateStyle:'full',
+      timeStyle:'short'
+    }
+  },
   // 文档页脚文本配置
   docFooter: {
     prev: '上一篇',
@@ -57,7 +63,7 @@ export const themeConfig: DefaultTheme.Config = {
                 <path fill="#12D2AC" d="M41.7,158.5l16.1,9.4,100.6-58.7V90.4Z"/>
               </svg>`
       },
-      link: 'https://cnadmin.charles7c.top/'
+      link: 'https://continew.top/'
     }
   ],
 
@@ -65,7 +71,7 @@ export const themeConfig: DefaultTheme.Config = {
   // @ts-ignore
   articleMetadataConfig: {
     author: '查尔斯', // 文章全局默认作者名称
-    authorLink: '/about/me', // 点击作者名时默认跳转的链接
+    authorLink: 'https://charles7c.top', // 点击作者名时默认跳转的链接
     showViewCount: false, // 是否显示文章阅读数, 需要在 docs/.vitepress/theme/api/config.js 及 interface.js 配置好相应 API 接口
   },
   // 自定义扩展: 文章版权配置
@@ -81,8 +87,8 @@ export const themeConfig: DefaultTheme.Config = {
   // 自定义扩展: 页脚配置
   footerConfig: {
     showFooter: true, // 是否显示页脚
-    icpRecordCode: '津ICP备2022005864号-2', // ICP备案号
-    publicSecurityRecordCode: '津公网安备12011202000677号', // 联网备案号
+    icpRecordCode: '津ICP备xxxx-1', // ICP备案号
+    publicSecurityRecordCode: '津公网安备xxxx号', // 联网备案号
     copyright: `Copyright © 2019-${new Date().getFullYear()} Charles7c` // 版权信息
   }
 }
